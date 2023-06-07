@@ -1,0 +1,47 @@
+#main-navbar {
+	margin-right: 20px;
+}
+
+.navbar-brand {
+	margin-left: 15px;
+}
+
+footer {
+	border-top: 0px;
+}
+
+.home-img-container {
+	height:250px; 
+	width:250px; 
+	position: relative; 
+	overflow: hidden; 
+	border-radius: 50%;
+}
+
+.home-info-container {
+	display: flex;
+	align-items: center;
+}
+
+.home-info-text {
+	margin-left: 35px;
+}
+
+@media (max-width:720px)  {
+	.home-img-container, .home-info-text {
+		margin: auto;
+	}
+
+	.home-info-container {
+		display: block;
+		text-align: center;
+	}
+}
+
+.three-columns {
+  display: flex;
+}
+
+.column_2 {
+  flex: 50%;
+}

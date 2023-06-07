@@ -1,0 +1,78 @@
+# Set theme
+remote_theme: daattali/beautiful-jekyll@5.0.0
+
+title: Yuya Tinnefeld
+
+author: Yuya Tinnefeld
+
+navbar-links:
+  About: "/aboutme"
+  CV: "/files/cv.pdf"
+  Blog: "/blog/main"
+  職務経歴: "/files/cv.pdf"
+
+social-network-links:
+  email: "yuyatinnefeld@gmail.com"
+  github: yuyatinnefeld
+
+url-pretty: "yuyatinnefeld.github.io"
+
+site-css:
+  - "/assets/css/custom-styles.css"
+
+# Personalize colors
+navbar-col: "#a4c3ed"
+navbar-text-col: "#3f3d3d"
+navbar-border-col: "transparent"
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+footer-col: "#f4f7f6"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
+
+# Output options (more information on Jekyll's site)
+timezone: "America/Toronto"
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
+paginate: 5
+
+kramdown:
+  input: GFM
+
+# Default YAML values (more information on Jekyll's site)
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true  # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+  -
+    scope:
+      path: "" # any file that's not a post will be a "page" layout by default
+    values:
+      layout: "page"
+
+# Exclude these files from production site
+exclude:
+  - CHANGELOG.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - screenshot.png
+  - docs/
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Beautiful Jekyll / Dean Attali
+# 2fc73a3a967e97599c9763d05e564189

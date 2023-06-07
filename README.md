@@ -1,3 +1,3 @@
 # yuyatinnefeld.github.io
-site: https://yuyatinnefeld.github.io -> http://yuyatinnefeld.com
+site: https://yuyatinnefeld.github.io -> https://yuyatinnefeld.com/
 

@@ -28,7 +28,7 @@ As I continued to explore different areas, I discovered a genuine passion for De
 
 During my learning journey, I made it a habit to set daily small goals and diligently work on them step by step. I discovered that <a href="https://roadmap.sh/roadmaps" target="_blank"><b>Developer Roadmap</b></a>provides a wealth of role-based roadmaps filled with comprehensive skills and expertise. It's truly a goldmine for beginners. 
 
-Every day, I dedicated myself to completing the roadmap assignments while leveraging resources such as books, YouTube, Udemy, and LinkedIn Learning to expand my knowledge.🤓 (If you're looking to learn DevOps, I highly recommend checking out the website <a href="https://kodekloud.com/" target="_blank"><b>KodeKloud</b></a>. They offer a wide range of DevOps skills courses.)
+Every day, I dedicated myself to completing the roadmap assignments while leveraging resources such as books, YouTube, Udemy, and LinkedIn Learning to expand my knowledge.🤓 If you're looking to learn DevOps, I highly recommend checking out the website <a href="https://kodekloud.com/" target="_blank"><b>KodeKloud</b></a>. They offer a wide range of DevOps skills courses.
 
 In order to maintain a continuous learning process, I actively seek to establish a positive feedback loop. Once I receive input, I solidify my comprehension by writing test programs and delving into a deeper understanding. Witnessing this positive snowball effect boosts my self-confidence and fuels my motivation to persist and progress even further.
 

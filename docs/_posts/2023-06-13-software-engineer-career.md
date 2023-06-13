@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Power of Versatility: Why Specialization Alone Won't Cut It for Software Engineers?
+title: The Power of Versatility - Why Specialization Alone Won't Cut It for Software Engineers?
 tags: ["career"]
 mathjax: true
 ---

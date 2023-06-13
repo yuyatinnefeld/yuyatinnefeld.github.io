@@ -9,7 +9,7 @@ Hello there! Let me introduce myself briefly. I currently work as an IT speciali
 
 Speaking of career development, it seems like everyone is buzzing about it these days, especially with the rise of impressive AI tools like ChatGPT. Count me in on the excitement! I'm constantly contemplating how I can elevate my skills. And let's face it, committing <a href="https://www.educatorstechnology.com/2023/05/the-10000-hours-rule-why-hard-work-is.html" target="_blank"><b>10,000 hours</b></a> to become a world-class developer in a specific area? That's a whole different level of dedication! 😅
 
-Recently, I had the pleasure of diving into David Epstein's captivating book, <a href="https://davidepstein.com/the-range/" target="_blank"><b>"Range: Why Generalists Triumph in a Specialized World"</a></b> Let me tell you, it was an eye-opener! It got me thinking about the key to success and how I, as an Engineer can enhance my skill set for the future. Today, I want to share my experiences and insights on the topic of "range and skill development" from the perspective of a software engineer who has managed to not just survive but thrive over the past three years. The best part? These findings aren't limited to the realm of IT. They can be applied to various areas and job roles as well. Join me on an exciting journey of growth and professional development!
+Recently, I had the pleasure of diving into David Epstein's captivating book, <a href="https://davidepstein.com/the-range/" target="_blank"><b>"Range: Why Generalists Triumph in a Specialized World"</b></a> Let me tell you, it was an eye-opener! It got me thinking about the key to success and how I, as an Engineer can enhance my skill set for the future. Today, I want to share my experiences and insights on the topic of "range and skill development" from the perspective of a software engineer who has managed to not just survive but thrive over the past three years. The best part? These findings aren't limited to the realm of IT. They can be applied to various areas and job roles as well. Join me on an exciting journey of growth and professional development!
 
 ## Range
 
@@ -26,9 +26,9 @@ As I continued to explore different areas, I discovered a genuine passion for De
 
 ## Continuous learning
 
-During my learning journey, I made it a habit to set daily small goals and diligently work on them step by step. I discovered that <a href="https://roadmap.sh/roadmaps" target="_blank"><b>Developer Roadmap</a></b>provides a wealth of role-based roadmaps filled with comprehensive skills and expertise. It's truly a goldmine for beginners. 
+During my learning journey, I made it a habit to set daily small goals and diligently work on them step by step. I discovered that <a href="https://roadmap.sh/roadmaps" target="_blank"><b>Developer Roadmap</b></a>provides a wealth of role-based roadmaps filled with comprehensive skills and expertise. It's truly a goldmine for beginners. 
 
-Every day, I dedicated myself to completing the roadmap assignments while leveraging resources such as books, YouTube, Udemy, and LinkedIn Learning to expand my knowledge.🤓 (If you're looking to learn DevOps, I highly recommend checking out the website <a href="https://kodekloud.com/" target="_blank"><b>KodeKloud</a></b>. They offer a wide range of DevOps skills courses.)
+Every day, I dedicated myself to completing the roadmap assignments while leveraging resources such as books, YouTube, Udemy, and LinkedIn Learning to expand my knowledge.🤓 (If you're looking to learn DevOps, I highly recommend checking out the website <a href="https://kodekloud.com/" target="_blank"><b>KodeKloud</b></a>. They offer a wide range of DevOps skills courses.)
 
 In order to maintain a continuous learning process, I actively seek to establish a positive feedback loop. Once I receive input, I solidify my comprehension by writing test programs and delving into a deeper understanding. Witnessing this positive snowball effect boosts my self-confidence and fuels my motivation to persist and progress even further.
 

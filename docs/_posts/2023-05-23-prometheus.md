@@ -14,7 +14,7 @@ In today's dynamic and fast-paced technology landscape, monitoring and ensuring 
 ## How is Prometheus working?
 Prometheus operates on a pull-based mechanism, which sets it apart from traditional monitoring systems. In a pull-based model, Prometheus actively queries and collects metrics from the targets it monitors. 
 
-<img src="/images/post-20230523/prometheus-core-components.png" alt="prometheus core componenets" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prom-core-components.png" alt="prometheus core componenets" style="border: 1px solid  gray;">
 
 These 3 core components work together to provide a comprehensive monitoring and analytics solution. The retrieval component fetches metrics data from targets, the storage component stores and indexes the data, and PromQL enables users to query and analyze the collected metrics.
 

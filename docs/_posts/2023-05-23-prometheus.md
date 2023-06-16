@@ -64,3 +64,9 @@ Alert Manager is a component of the Prometheus monitoring system that handles al
 <a href="https://github.com/yuyatinnefeld/prometheus/tree/main/simple-start" target="_blank"><b>Docker</b></a>
 
 <a href="https://github.com/yuyatinnefeld/prometheus/tree/main/kubernetes" target="_blank"><b>Kubernetes</b></a>
+
+
+If you're eager to delve deeper into Prometheus, I recommend visiting the Cloudflare website. Cloudflare, as the founders of Prometheus, offers a wealth of valuable resources and insights on the subject. By exploring their website, you can access more detailed information and gain a comprehensive understanding of Prometheus and its usage in various scenarios.
+
+<a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>BLOG</b></a>
+

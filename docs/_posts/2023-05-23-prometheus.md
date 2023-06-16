@@ -9,18 +9,18 @@ mathjax: true
 
 In today's dynamic and fast-paced technology landscape, monitoring and ensuring the health and performance of your systems and applications is of utmost importance. This is where Prometheus comes into the picture. With its robust features and flexibility, Prometheus has gained popularity as a leading solution for gathering metrics, visualizing data, and alerting on anomalies in cloud native technology.
 
-<img src="images/post-20230523/prometheus-architecture.png" alt="prometheus architecture" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prom-architecture.png" alt="prometheus architecture" style="border: 1px solid  gray;">
 
 ## How is Prometheus working?
 Prometheus operates on a pull-based mechanism, which sets it apart from traditional monitoring systems. In a pull-based model, Prometheus actively queries and collects metrics from the targets it monitors. 
 
-<img src="images/post-20230523/prometheus-core-components.png" alt="prometheus core componenets" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prometheus-core-components.png" alt="prometheus core componenets" style="border: 1px solid  gray;">
 
 These 3 core components work together to provide a comprehensive monitoring and analytics solution. The retrieval component fetches metrics data from targets, the storage component stores and indexes the data, and PromQL enables users to query and analyze the collected metrics.
 
 
 ## Installation
-<img src="images/post-20230523/prom-install.png" alt="prometheus installation possibility" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prom-install.png" alt="prometheus installation possibility" style="border: 1px solid  gray;">
 
 There are multiple installation options available for Prometheus, depending on whether you want to install it directly on your host or within your Kubernetes cluster. Let's explore the four possibilities:
 
@@ -35,7 +35,7 @@ There are multiple installation options available for Prometheus, depending on w
 By considering these four installation possibilities, you can choose the approach that best fits your requirements and environment.
 
 ## Metrics
-<img src="images/post-20230523/prom-metrics.png" alt="how to pull metrics by prometheus" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prom-metrics.png" alt="how to pull metrics by prometheus" style="border: 1px solid  gray;">
 
 The act of Prometheus sending HTTP requests to our application is referred to as "scraping." Within the Prometheus configuration file, we specify a "scrape_config" that instructs Prometheus on the destination, frequency, and potential additional processing of the HTTP requests and responses.
 
@@ -48,7 +48,7 @@ Prometheus captures the timestamp when it sends each HTTP request and later util
 - Histogram: Aggregates values into predefined buckets for distribution analysis. (e.g. Request duration of an API endpoint, divided into buckets. 0-100ms, 100-200ms, 200-300ms)
 
 ## Exporter & Instrumentator
-<img src="images/post-20230523/prom-exporter.png" alt="how to work prometheus exporter" style="border: 1px solid  gray;">
+<img src="/images/post-20230523/prom-exporter.png" alt="how to work prometheus exporter" style="border: 1px solid  gray;">
 
 <b>Exporter</b> is like a translator that collects metrics from a system or application and presents them in a format that Prometheus can understand. It acts as a bridge between the system being monitored and Prometheus, allowing metrics to be scraped and stored.
 

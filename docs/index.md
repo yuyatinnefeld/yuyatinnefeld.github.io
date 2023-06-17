@@ -40,6 +40,6 @@ $ history
 > DE > JP > DE > ES > UK > DE > ?
 
 $ cat hobby.list
-> ["camping", "hiking", "boardsport", "eating", "ukulele"]
+> ["boardsport", "eating", "camping", "karate"]
 ```
 <br>

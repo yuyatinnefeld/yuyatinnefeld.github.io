@@ -9,7 +9,7 @@ mathjax: true
 
 In today's dynamic and fast-paced technology landscape, monitoring and ensuring the health and performance of your systems and applications is of utmost importance. This is where Prometheus comes into the picture. With its robust features and flexibility, Prometheus has gained popularity as a leading solution for gathering metrics, visualizing data, and alerting on anomalies in cloud native technology.
 
-<img src="/images/post-20230523/prom-architecture.png" alt="prometheus architecture" style="border: 1px solid  gray;">
+This blog post is an excellent starting point for beginners who want to learn the basics of Prometheus. It covers essential concepts and provides a solid foundation of knowledge. However, if you're looking to delve deeper into advanced topics like how Prometheus works, time series databases, cardinality explosions, or custom patches, I highly recommend reading the comprehensive <a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>Cloudflare blog site</b></a>. It offers in-depth insights and detailed explanations on these subjects, making it an invaluable resource for expanding your understanding of Prometheus.
 
 ## How is Prometheus working?
 Prometheus operates on a pull-based mechanism, which sets it apart from traditional monitoring systems. In a pull-based model, Prometheus actively queries and collects metrics from the targets it monitors. 
@@ -32,7 +32,6 @@ There are multiple installation options available for Prometheus, depending on w
 
 4. Prometheus Operator: For more advanced Kubernetes setups, the Prometheus Operator offers additional functionalities and automation. It simplifies the deployment, management, and scaling of Prometheus instances within your Kubernetes cluster.
 
-By considering these four installation possibilities, you can choose the approach that best fits your requirements and environment.
 
 ## Metrics
 <img src="/images/post-20230523/prom-metrics.png" alt="how to pull metrics by prometheus" style="border: 1px solid  gray;">
@@ -42,10 +41,10 @@ The act of Prometheus sending HTTP requests to our application is referred to as
 Prometheus captures the timestamp when it sends each HTTP request and later utilizes it as the timestamp for all the collected time series data. Following each request, Prometheus parses the response to extract and gather all the exposed samples present within it.
 
 ### Metrics Types
-- Counter: A monotonically increasing metric used to count occurrences or track total operations. (e.g. Number of requests)
-- Gauge: A metric with arbitrary up or down values, used for current measurements. (e.g. CPU usage percentage)
-- Summary: Tracks value distribution over time, including quantiles and sums. (e.g., Response time of an API endpoint) 
-- Histogram: Aggregates values into predefined buckets for distribution analysis. (e.g. Request duration of an API endpoint, divided into buckets. 0-100ms, 100-200ms, 200-300ms)
+- Counter: is a increasing metric used to count occurrences or track total operations. (e.g. Number of requests)
+- Gauge: is a metric with arbitrary up or down values, used for current measurements. (e.g. CPU usage percentage)
+- Summary: tracks value distribution over time, including quantiles and sums. (e.g., Response time of an API endpoint) 
+- Histogram: aggregates values into predefined buckets for distribution analysis. (e.g. Request duration of an API endpoint, divided into buckets. 0-100ms, 100-200ms, 200-300ms)
 
 ## Exporter & Instrumentator
 <img src="/images/post-20230523/prom-exporter.png" alt="how to work prometheus exporter" style="border: 1px solid  gray;">
@@ -54,10 +53,14 @@ Prometheus captures the timestamp when it sends each HTTP request and later util
 
 <b>Instrumentation</b> involves adding specific code or libraries to an application to gather metrics and insights about its performance and behavior.
 
-For example, in a Python application with MongoDB, you can use a Prometheus exporter specifically designed for MongoDB and instrumentator for Python application. These exposes the metrics through an HTTP endpoint (/metrics)
+For example, in a Python application with MongoDB, you can use a Prometheus exporter specifically designed for MongoDB and instrumentator for Python application. These exposes the metrics through an HTTP endpoint (/metrics).
 
 ## Alert Manager
+<img src="/images/post-20230523/prom-architecture.png" alt="prometheus architecture" style="border: 1px solid  gray;">
+
 Alert Manager is a component of the Prometheus monitoring system that handles alerting and notification management. It receives alerts from Prometheus, evaluates them based on predefined rules, and takes actions such as sending notifications via various channels like email or chat platforms. Alert Manager provides deduplication and grouping capabilities to handle similar alerts efficiently. It also supports silence management to temporarily mute or suppress specific alerts. Overall, Alert Manager ensures timely and effective alert notifications, reducing noise and facilitating proactive response to critical events.
+
+If you're interested in enhancing your knowledge of Prometheus alerting capabilities, this informative <a href="https://blog.cloudflare.com/monitoring-our-monitoring/" target="_blank"><b>blog post</b></a> you can gain a deeper understanding of Prometheus alerting.
 
 
 ### Hands-On Guide:
@@ -66,7 +69,7 @@ Alert Manager is a component of the Prometheus monitoring system that handles al
 <a href="https://github.com/yuyatinnefeld/prometheus/tree/main/kubernetes" target="_blank"><b>Kubernetes</b></a>
 
 
-If you're eager to delve deeper into Prometheus, I recommend visiting the Cloudflare website. Cloudflare, as the founders of Prometheus, offers a wealth of valuable resources and insights on the subject. By exploring their website, you can access more detailed information and gain a comprehensive understanding of Prometheus and its usage in various scenarios.
+If you're eager to delve deeper into Prometheus, I recommend visiting the  <a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>Cloudflare blog site</b></a>. Cloudflare, as the founders of Prometheus, offers a wealth of valuable resources and insights on the subject. By exploring their website, you can access more detailed information and gain a comprehensive understanding of Prometheus and its usage in various scenarios.
 
-<a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>BLOG</b></a>
+
 

@@ -60,6 +60,14 @@ Alert Manager is a component of the Prometheus monitoring system that handles al
 
 If you're interested in enhancing your knowledge of Prometheus alerting capabilities, this informative <a href="https://blog.cloudflare.com/monitoring-our-monitoring/" target="_blank"><b>blog post</b></a> you can gain a deeper understanding of Prometheus alerting.
 
+## When NOT Prometheus?
+
+- storing event logs or individual events -> use ELK stasck
+- storing billing data -> not 100% accurate, Prometheus is not designed to ensure ACID 
+- storing PII data -> security risks and potential data breaches
+- storing complex high cardinality data -> could be expensive
+- dashboarding solution -> use Grafana
+
 ### Hands-On Guide:
 If you prefer a hands-on approach to learning, I have created a comprehensive guide that walks you through the installation and usage of Prometheus core components, such as Alert Manager, Exporter, and Instrumentator. This guide provides step-by-step instructions, enabling you to actively engage with these components and gain practical experience. 
 

@@ -5,8 +5,6 @@ tags: ["monitoring", "prometheus"]
 mathjax: true
 ---
 
-### Prometheus Made Easy: A 5-Minute Crash Course
-
 In today's dynamic and fast-paced technology landscape, monitoring and ensuring the health and performance of your systems and applications is of utmost importance. This is where Prometheus comes into the picture. With its robust features and flexibility, Prometheus has gained popularity as a leading solution for gathering metrics, visualizing data, and alerting on anomalies in cloud native technology.
 
 This blog post is an excellent starting point for beginners who want to learn the basics of Prometheus. It covers essential concepts and provides a solid foundation of knowledge. However, if you're looking to delve deeper into advanced topics like how Prometheus works, time series databases, cardinality explosions, or custom patches, I highly recommend reading the comprehensive <a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>Cloudflare blog site</b></a>. It offers in-depth insights and detailed explanations on these subjects, making it an invaluable resource for expanding your understanding of Prometheus.
@@ -62,14 +60,9 @@ Alert Manager is a component of the Prometheus monitoring system that handles al
 
 If you're interested in enhancing your knowledge of Prometheus alerting capabilities, this informative <a href="https://blog.cloudflare.com/monitoring-our-monitoring/" target="_blank"><b>blog post</b></a> you can gain a deeper understanding of Prometheus alerting.
 
-
 ### Hands-On Guide:
+If you prefer a hands-on approach to learning, I have created a comprehensive guide that walks you through the installation and usage of Prometheus core components, such as Alert Manager, Exporter, and Instrumentator. This guide provides step-by-step instructions, enabling you to actively engage with these components and gain practical experience. 
+
 <a href="https://github.com/yuyatinnefeld/prometheus/tree/main/simple-start" target="_blank"><b>Docker</b></a>
 
 <a href="https://github.com/yuyatinnefeld/prometheus/tree/main/kubernetes" target="_blank"><b>Kubernetes</b></a>
-
-
-If you're eager to delve deeper into Prometheus, I recommend visiting the  <a href="https://blog.cloudflare.com/how-cloudflare-runs-prometheus-at-scale/" target="_blank"><b>Cloudflare blog site</b></a>. Cloudflare, as the founders of Prometheus, offers a wealth of valuable resources and insights on the subject. By exploring their website, you can access more detailed information and gain a comprehensive understanding of Prometheus and its usage in various scenarios.
-
-
-

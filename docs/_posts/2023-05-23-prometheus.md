@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Prometheus Made Easy - A 5-Minute Crash Course
-tags: ["monitoring", "prometheus"]
+tags: ["monitoring"]
 mathjax: true
 ---
 

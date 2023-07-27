@@ -71,6 +71,4 @@ If you're interested in enhancing your knowledge of Prometheus alerting capabili
 ### Hands-On Guide:
 If you prefer a hands-on approach to learning, I have created a comprehensive guide that walks you through the installation and usage of Prometheus core components, such as Alert Manager, Exporter, and Instrumentator. This guide provides step-by-step instructions, enabling you to actively engage with these components and gain practical experience. 
 
-<a href="https://github.com/yuyatinnefeld/prometheus/tree/main/simple-start" target="_blank"><b>Hands-On with Docker</b></a>
-
-<a href="https://github.com/yuyatinnefeld/prometheus/tree/main/kubernetes" target="_blank"><b>Hands-On with Kubernetes</b></a>
+<a href="https://github.com/yuyatinnefeld/prometheus/tree/main/getting-started" target="_blank"><b>Hands-On Lab</b></a>

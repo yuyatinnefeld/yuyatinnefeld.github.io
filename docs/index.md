@@ -36,7 +36,7 @@ $ which passion
 $ which skills
 > ["Cloud", "Container", "CI/CD", "Monitoring", "Data Engineering"]
 
-$ which tools
+$ which object
 > { "Programming": ["Python", "Go", "Bash"],
 	"Cloud": ["GCP", "AWS"],
 	"Container": ["Kubernetes", "Docker"],

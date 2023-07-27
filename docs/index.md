@@ -33,11 +33,12 @@ $ pwd
 $ which passion
 > Cloud Native, Big Data, Blockchain, Service Mesh
 
-$ which skills
+$ which skill
 > ["Cloud", "Container", "CI/CD", "Monitoring", "Data Engineering"]
 
 $ which object
-> { "Programming": ["Python", "Go", "Bash"],
+> { 
+	"Programming": ["Python", "Go", "Bash"],
 	"Cloud": ["GCP", "AWS"],
 	"Container": ["Kubernetes", "Docker"],
 	"CI/CD": ["ArgoCD", "Github Actions", "Gitlab Runner"],

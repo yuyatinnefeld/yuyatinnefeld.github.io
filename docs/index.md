@@ -31,10 +31,20 @@ $ pwd
 > /germany/duesseldorf/pempelfort
 
 $ which passion
-> Cloud Native, Big Data, Blockchain
+> Cloud Native, Big Data, Blockchain, Service Mesh
 
 $ which skills
-> ["Python", "Go", "Bash", "k8s", "GCP", "AWS", "Terraform", "Vault"]
+> ["Cloud", "Container", "CI/CD", "Monitoring", "Data Engineering"]
+
+$ which tools
+> { "Programming": ["Python", "Go", "Bash"],
+	"Cloud": ["GCP", "AWS"],
+	"Container": ["Kubernetes", "Docker"],
+	"CI/CD": ["ArgoCD", "Github Actions", "Gitlab Runner"],
+	"IaC": ["Terraform", "Vault"],
+	"Monitoring": ["Prometheus", "Grafana"],
+	"Data Engineering": ["Snowflake", "dbt", "Spark", "Hadoop"]
+  }
 
 $ history
 > DE > JP > DE > ES > UK > DE > ?

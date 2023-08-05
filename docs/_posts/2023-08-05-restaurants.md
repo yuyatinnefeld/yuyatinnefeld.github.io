@@ -9,19 +9,19 @@ Hey there! This page is just my personal stash of the fav restaurants, cafes, an
 
 
 # France
-## Paris
+#### Paris
 - chez papa bastille
 - la maison d'lsabelle
 - du pain et des ldees
 - bouillon racine
 
 # Germany
-## Köln
+#### Köln
 - caminetto
 - la bodega
 - päffgen am friesenplatz
 
-## Düsseldorf
+#### Düsseldorf
 - nagomi
 - cøffe
 - banh boyo
@@ -29,26 +29,26 @@ Hey there! This page is just my personal stash of the fav restaurants, cafes, an
 - bar olio
 
 # Netherlands
-## Den Haag
+#### Den Haag
 - portfolio
 
 # Portugal
-## Lisbon
+#### Lisbon
 - uma
 - chiado caffe
 - bonjardim
 
 # Belgium
-## Brussels
+#### Brussels
 - kafei korner sablon
 - pierre marcolini
 
 # Spain
-## Madrid
+#### Madrid
 - la paella real
 - casa ciriaco
 
-## Barcelona
+#### Barcelona
 - elche
 - xiringuito escribà
 - maleducat

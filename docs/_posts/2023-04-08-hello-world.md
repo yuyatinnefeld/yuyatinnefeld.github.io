@@ -1,7 +1,7 @@
 ---
 layout: post
-title: My First Blog Post
-tags: ["test"]
+title: Hello World 👶 My First Blog Post
+tags: ["private"]
 mathjax: true
 ---
 

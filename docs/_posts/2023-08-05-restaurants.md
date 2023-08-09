@@ -7,6 +7,10 @@ mathjax: true
 
 Hey there! This page is just my personal stash of the fav restaurants, cafes, and bars I've loved across the globe. It's like my little memo of awesomeness!
 
+## ⚡ Tl;dr
+- When I find myself in these countries, I desire to revisit these restaurants again.
+
+- If you're in these countries and don't know where to eat, you can just drop by these spots and give them a shot.
 
 # France
 #### Paris

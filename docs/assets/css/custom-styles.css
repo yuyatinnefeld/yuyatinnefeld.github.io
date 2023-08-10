@@ -45,3 +45,7 @@ footer {
 .column_3 {
   flex: 33%;
 }
+
+h5 {
+	margin-top: 15px;
+}

@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Nom Nom Nomad 🍭 A Memo of Awesomeness
+title: Nom Nom Nomad 🍭 A Memo of Awesome Restaurants
 tags: ["private", "travel"]
 mathjax: true
 ---
 
-Hey there! This page is just my personal stash of the fav restaurants, cafes, and bars I've loved across the globe. It's like my little memo of awesomeness!
+Hey there, Cooking is something I enjoy, but you know what I'm really passionate about? Eating. That phrase "love goes through the stomach" is something I absolutely couldn't agree more. This post is just my personal stash of the fav restaurants, cafes, and bars I've loved across the globe. It's like my little memo of awesomeness!
+
 
 ## ⚡ Tl;dr
 - When I find myself in these countries, I desire to revisit these restaurants again.

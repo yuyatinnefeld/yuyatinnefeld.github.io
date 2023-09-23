@@ -24,18 +24,14 @@ When I'm not working, I enjoy spending time outdoors, surfing the waves or campi
 
 ### Follow my journey
 
-<div class="row_3">
+<div class="three-columns">
   <div class="column_3">test</div>
   <div class="column_3">test</div>
   <div class="column_3">test</div>
 </div>
 
-### Business Skills
-- cloud
-- devops
-- data-engineering
+### Skills
 
-#### Certifications
 <div class="three-columns">
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="4ae88676-0b8c-469d-96fd-7aa63d4ef315" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="b3a68d4b-eb8e-494e-a02a-d2131246f9b5" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>

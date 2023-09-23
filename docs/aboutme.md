@@ -15,53 +15,29 @@ layout: page
 			<a class="social-icon" href="https://hub.docker.com/search?q=yuyatinnefeld&type=image" target="_blank"><i class="fab fa-docker"></i></a>
 		</div>
 	</div>
-
 </div><br>
 
-### Short about Myself
+### My Story
+As a DevOps Engineer, I am passionate about <b>infrastructure</b> and <b>cloud technology</b>. My expertise lies in automating infrastructure deployment, managing continuous integration and delivery, and streamlining application deployment processes. I always loved the tickle of excitement that you get, when you jump heads on into a new project. While diving deeper into this versatile technologies, it just amazes me over and over again.
 
-```bash
-$ whoami
-> {"business":"developer", "private": "thalassophile"}
+When I'm not working, I enjoy spending time outdoors, surfing the waves or camping in the wilderness. One of my favorite places in the world is the <b> ocean</b>. There is something incredibly awe-inspiring about the vastness and power of the ocean, and I find myself drawn to its beauty and mystery. Whether I'm surfing, swimming, or simply walking along the beach, I always feel a sense of peace and joy when I'm near the water.
 
-$ pwd
-> /germany/duesseldorf/pempelfort
+### Follow my journey
 
-$ which passion
-> Cloud Native, Big Data, Blockchain, Service Mesh
+<div class="row_3">
+  <div class="column_3">test</div>
+  <div class="column_3">test</div>
+  <div class="column_3">test</div>
+</div>
 
-$ which skill
-> ["Cloud", "Container", "CI/CD", "Monitoring", "Data Engineering"]
+### Business Skills
+- cloud
+- devops
+- data-engineering
 
-$ which object
-> { 
-	"Programming": ["Python", "Go", "Bash"],
-	"Cloud": ["GCP", "AWS"],
-	"Container": ["Kubernetes", "Docker"],
-	"CI/CD": ["ArgoCD", "Github Actions", "Gitlab Runner"],
-	"IaC": ["Terraform", "Vault"],
-	"Monitoring": ["Prometheus", "Grafana"],
-	"Data Engineering": ["Snowflake", "dbt", "Spark", "Hadoop"]
-  }
-
-$ history
-> DE > JP > DE > ES > UK > DE > ?
-
-$ cat hobby.list
-> ["boardsport", "eating", "camping", "karate"]
-```
-<br>
-
-### Certifications
+#### Certifications
 <div class="three-columns">
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="4ae88676-0b8c-469d-96fd-7aa63d4ef315" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="b3a68d4b-eb8e-494e-a02a-d2131246f9b5" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="1f88e05f-d3d3-47cd-bb24-3b043dacfc22" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </div>
-
-
-### My Story
-As a DevOps Engineer, I am passionate about <b>infrastructure</b> and <b>cloud technology</b>. My expertise lies in automating infrastructure deployment, managing continuous integration and delivery, and streamlining application deployment processes. I always loved the tickle of excitement that you get, when you jump heads on into a new project. While diving deeper into this versatile technologies, it just amazes me over and over again.
-
-
-When I'm not working, I enjoy spending time outdoors, surfing the waves or camping in the wilderness. One of my favorite places in the world is the <b> ocean</b>. There is something incredibly awe-inspiring about the vastness and power of the ocean, and I find myself drawn to its beauty and mystery. Whether I'm surfing, swimming, or simply walking along the beach, I always feel a sense of peace and joy when I'm near the water.

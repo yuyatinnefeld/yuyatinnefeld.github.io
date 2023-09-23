@@ -49,3 +49,10 @@ footer {
 h5 {
 	margin-top: 15px;
 }
+  
+  /* Clear floats after the columns */
+.row_3:after {
+  content: ""; 
+  display: table;
+  clear: both;
+}

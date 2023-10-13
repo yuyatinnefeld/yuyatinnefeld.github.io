@@ -44,7 +44,7 @@ When I'm not working, I enjoy spending time outdoors, surfing the waves or campi
 	<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 	<div class="column_3" data-iframe-width="150" data-iframe-height="240" data-share-badge-id="1f88e05f-d3d3-47cd-bb24-3b043dacfc22" data-share-badge-host="https://www.credly.com"></div>
 	<a href="https://google.accredible.com/a304e3a8-4fd0-4f8c-92e4-19a353df6f67" target="_blank">
-  		<img src="/images/certification/gcp-badge.png" alt="GCP Certification Badge">
+  		<img style="height:240px;" src="/images/certification/gcp-badge.png" alt="GCP Certification Badge">
 	</a>
 </div>
 

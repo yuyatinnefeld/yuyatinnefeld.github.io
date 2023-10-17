@@ -46,6 +46,11 @@ footer {
   flex: 33%;
 }
 
+.column_4 {
+  flex: 25%;
+}
+  
+
 h5 {
 	margin-top: 15px;
 }

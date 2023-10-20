@@ -39,17 +39,16 @@ footer {
 }
 
 .three-columns {
-  display: flex;
+	display: flex;
 }
 
 .column_3 {
-  flex: 33%;
+	flex: 33%;
 }
 
 .column_4 {
-  flex: 25%;
+	flex: 25%;
 }
-  
 
 h5 {
 	margin-top: 15px;

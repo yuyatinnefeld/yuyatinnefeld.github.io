@@ -41,7 +41,7 @@ Nevertheless, the situation remained far from optimal due to the existence of a 
 
 After a few months, though, the migration scalability became a breeze, and detecting and handling errors for quick bug fixes was significantly enhanced. Is this a happily-ever-after scenario? Regrettably, not quite.
 
-Several years into the development of their system, they encountered a substantial challenge. The proliferation of numerous micro apps made it challenging to discern their interrelations. The </b>complexity of API communication </b>within the microservices architecture further complicated matters, and conducting <b>integration tests</b> became a daunting task due to interdependencies among services.
+Several years into the development of their system, they encountered a substantial challenge. The proliferation of numerous micro apps made it challenging to discern their interrelations. The <b>complexity of API communication </b>within the microservices architecture further complicated matters, and conducting <b>integration tests</b> became a daunting task due to interdependencies among services.
 
 Another issue that arose was the need to maintain <b>compatibility</b> among services. If a service underwent major changes without coordination with other teams, it could potentially lead to downtime, as one service might not be able to communicate with another as it did before the change, impacting <b>reliability</b>.
 

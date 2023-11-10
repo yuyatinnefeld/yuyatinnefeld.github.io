@@ -97,4 +97,7 @@ A sidecar proxy is a specific component within the data plane of a service mesh 
 ## Conclusion
 At times, you may opt for a monolith service, while other times, microservices or manually managed proxy sidecar containers could be the choice. Alternatively, you might embrace full automation through service mesh tools. The answer to which approach is best always remains the same: "It depends!" It depends on factors such as team size, expertise, resources, budget, business growth, and more. While not all companies are akin to MAMAA (Meta, Apple, Microsoft, Amazon, Alphabet) and may not require Microservices or Service Mesh, it remains essential to thoroughly evaluate your business's growth prospects and anticipate potential challenges before taking the plunge. I hope this blog post has shed light on the challenges of building scalable software services and adopting a service mesh approach.
 
-In my next blog post, we'll dive deeper into Istio architecture, core features, and design goals, and discuss how to choose a service mesh provider.
+In my <a href="https://yuyatinnefeld.com/2023-11-08-istio/" target="_blank"><b>next blog post</b></a>, we'll dive deeper into Istio architecture, core features, and design goals, and discuss how to choose a service mesh provider.
+
+
+

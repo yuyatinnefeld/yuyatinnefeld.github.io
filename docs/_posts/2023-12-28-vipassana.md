@@ -92,7 +92,7 @@ Daily Plan of our Meditation (Most of the time, we did group meditation rather t
 
 Address: <a href="https://maps.app.goo.gl/iwNBKjDod7aZtBvA9" target="_blank"><b>google maps</b></a>
 
-Reaching the Cambodia Vipassana Dhamma Center offers a variety of options! You can hop on a local bus for a scenic journey, or opt for a convenient taxi ride that takes approximately 3 hours.
+Reaching the Cambodia Vipassana Dhamma Center offers a variety of options! You can hop on a local bus for a scenic journey, or opt for a convenient taxi ride that takes approximately 3 hours from Phnom Penh.
 
 Passing through the gates, a hushed reverence descended, accentuated by the separation of men and women's quarters. The center's intimate layout, easily walkable in 20 minutes, felt like stepping into a haven of stillness, inviting exploration and self-discovery.
 

@@ -5,7 +5,7 @@ title: Exploring Inner Peace 🧘 A Beginner's Guide to Vipassana Meditation
 tags: ["private"]
 mathjax: true
 ---
-Over the past month days, I've found myself drawn to the world of spirituality, delving into yoga philosophy, Buddhism, and mindfulness techniques like Vipassana and Zazen. This past Christmas, I embarked on a 10-day Vipassana retreat at the Dhamma Center in Cambodia, eager to delve deeper into this powerful practice.
+Over the past months, I've found myself drawn to the world of spirituality, delving into yoga philosophy, Buddhism, and mindfulness techniques like Vipassana and Zazen. This past Christmas, I embarked on a 10-day Vipassana retreat at the Dhamma Center in Cambodia, eager to delve deeper into this powerful practice.
 
 Instead of recounting my own journey into the profound world of Vipassana, I want to turn the spotlight onto yours. This guide is for anyone drawn to the transformative power of this meditation practice. Here, you'll find a concise overview of what to expect and how to prepare, empowering you to embark on your own exploration of silence, introspection, and the depths of your hidden mind.
 
@@ -88,8 +88,13 @@ Daily Plan of our Meditation (Most of the time, we did group meditation rather t
 | 9:30 pm   | Retire to your own room - Lights out |
 
 
-## 4. Beyond the Meditation Hall
-The center had separate entrances and sectors for men and women. As you crossed the gate, a sense of quietude descended. It felt a little bit like entering a prison. The center had a compact layout, allowing you to explore its entirety within a leisurely 20-minute stroll.
+## 4. Beyond the Meditation Hall in Cambodia
+
+Address: <a href="https://maps.app.goo.gl/iwNBKjDod7aZtBvA9" target="_blank"><b>google maps</b></a>
+
+Reaching the Cambodia Vipassana Dhamma Center offers a variety of options! You can hop on a local bus for a scenic journey, or opt for a convenient taxi ride that takes approximately 3 hours.
+
+Passing through the gates, a hushed reverence descended, accentuated by the separation of men and women's quarters. The center's intimate layout, easily walkable in 20 minutes, felt like stepping into a haven of stillness, inviting exploration and self-discovery.
 
 There in Cambodia were around 50 men (20 old students and 30 newbies) and 60 women participating. Each of us was assigned a simple room with a bathroom, toilet, bed, and a small meditation corner.
 

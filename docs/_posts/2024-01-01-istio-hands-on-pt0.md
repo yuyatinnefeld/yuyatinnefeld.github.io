@@ -10,7 +10,7 @@ Welcome to the Istio Hands-On series!
 
 The target audience for this blog comprises users who are already familiar with microservices, service mesh, and want to learn Istio. If these concepts are new to you, I recommend reading my introductory blog on microservices and Istio. If you are unfamiliar with these topics, I recommend reading my blog article on <a href="https://yuyatinnefeld.com/2023-10-31-service-mesh/" target="_blank"><b>microservices and service mesh</b></a> beforehand. In these sessions, I'll guide you through the step-by-step implementation of Istio for your microservices. To make it more digestible, I've divided the implementation process into five sessions:
 
-1. Setup Environment
+1. Setup Istio Environment
 2. Kiali Dashboard
 3. Traffic Management
 4. Security

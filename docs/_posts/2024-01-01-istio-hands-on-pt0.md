@@ -20,6 +20,9 @@ In our inaugural session, Part 0, we'll start by deploying microservices without
 
 For the official Istio sample project, you can refer to: <a href="https://github.com/istio/istio/tree/master/samples/bookinfo/platform/kube" target="_blank"><b>this link</b></a>
 
+For my Istio sample project, you can refer to: <a href="https://github.com/yuyatinnefeld/istio/tree/main" target="_blank"><b>this link</b></a>
+
+
 ## Microservices Architecture
 ![Sample Microservices Architecture](/images/post-20240101/microservice-sample.png)
 

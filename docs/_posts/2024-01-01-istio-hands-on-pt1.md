@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Istio Hands-On Labs ⛵ - Session 0 - Deployment microservices
+title: Istio Mastery ⛵ Session 0 - Microservices Deployment
 
 tags: ["tech", "microservices"]
 mathjax: true

@@ -8,9 +8,8 @@ mathjax: true
 
 Welcome to the Istio Hands-On series! 
 
-The target audience for this blog comprises users who are already familiar with microservices, service mesh, and want to learn Istio. If these concepts are new to you, I recommend reading my introductory blog on microservices and Istio. If you are unfamiliar with these topics, I recommend reading my blog article on <a href="https://yuyatinnefeld.com/2023-10-31-service-mesh/" target="_blank"><b>microservices and service mesh</b></a> beforehand. In these sessions, I'll guide you through the step-by-step implementation of Istio for your microservices. To make it more digestible, I've divided the implementation process into six sessions:
+The target audience for this blog comprises users who are already familiar with microservices, service mesh, and want to learn Istio. If these concepts are new to you, I recommend reading my introductory blog on microservices and Istio. If you are unfamiliar with these topics, I recommend reading my blog article on <a href="https://yuyatinnefeld.com/2023-10-31-service-mesh/" target="_blank"><b>microservices and service mesh</b></a> beforehand. In these sessions, I'll guide you through the step-by-step implementation of Istio for your microservices. To make it more digestible, I've divided the implementation process into five sessions:
 
-0. Deploy Microservices
 1. Setup Environment
 2. Kiali Dashboard
 3. Traffic Management
@@ -22,7 +21,7 @@ In our inaugural session, Part 0, we'll start by deploying microservices without
 For the official Istio sample project, you can refer to: <a href="https://github.com/istio/istio/tree/master/samples/bookinfo/platform/kube" target="_blank"><b>this link</b></a>
 
 ## Microservices Architecture
-<img src="/images/post-20240101/microservice-samole.png" alt="sample microservices" style="border: 1px solid  gray;">
+![Sample Microservices Architecture](/images/post-20240101/microservice-sample.png)
 
 #### Application Overview
 - 1 x Frontend App (Python Flask) with v1
@@ -30,7 +29,7 @@ For the official Istio sample project, you can refer to: <a href="https://github
 - 1 x Payment BFF (Golang) with v1, v2, v3
 - 1 x Details BFF (Java) with v1, v2, v3
 
-In a single Kubernetes cluster, we deploy a few services: frontend and BFF (backend-for-frontend) services (details, review, payment). The frontend service is configured with a LoadBalancer type to enable user interaction with the application. The other BFF services use ClusterIP as the service type. Additionally, we leverage an Ingress Controller to define paths and ingress rules.
+In a single Kubernetes cluster, we deploy a few services: frontend and BFF (backend-for-frontend) services (details, reviews, payment). The frontend service is configured with a LoadBalancer type to enable user interaction with the application. The other BFF services use ClusterIP as the service type. Additionally, we leverage an Ingress Controller to define paths and ingress rules.
 
 ## Push Docker Images into Dockerhub
 

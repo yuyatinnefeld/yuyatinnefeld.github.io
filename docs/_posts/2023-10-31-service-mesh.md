@@ -2,7 +2,7 @@
 layout: post
 title: Service Mesh 🌐 From Monolith to Mesh - Building Resilient Software
 
-tags: ["tech", "architecture"]
+tags: ["tech", "architecture", "microservices"]
 mathjax: true
 ---
 A few days ago, I was discussing the significance of monolithic architecture, <a href="https://www.infoq.com/articles/microservices-design-ideals/" target="_blank"><b>microservices</b></a> and service mesh. However, upon further thought, I realized it's more relevant to consider <b><i>when</i></b> we should embark on the journey of transitioning to microservices and service mesh. In this blog post, I'll delve into a fairy tale about service mesh and narrate the story of an e-commerce company that made the switch from a monolithic service to microservices and, eventually, ventured into the realm of service mesh. I'll explain why and when this transformation was crucial and how they reaped the benefits of using it.

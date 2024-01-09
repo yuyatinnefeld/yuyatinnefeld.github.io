@@ -23,7 +23,7 @@ In our inaugural session, Part 0, we'll start by deploying microservices without
 - For my Istio sample project, you can refer to: <a href="https://github.com/yuyatinnefeld/istio/tree/main" target="_blank"><b>this link</b></a>
 
 ## Microservices Architecture
-![Sample Microservices Architecture](/images/post-20240101/microservice-sample.png)
+![Sample Microservices Architecture](/images/post-20240101/microservice-project.png)
 
 #### Application Overview
 - 1 x Frontend App (Python Flask) with v1

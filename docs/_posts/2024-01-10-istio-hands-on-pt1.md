@@ -19,7 +19,7 @@ Firstly, we need to install the `istioctl` command line tool, offering rich cust
 # Install istioctl
 $ curl -L https://istio.io/downloadIstio | sh -
 
-# Verify the CLI version
+# Verify the ctl version
 ISTIOCTL_VERSION=$(ls | grep istio)
 echo $ISTIOCTL_VERSION
 
@@ -65,11 +65,11 @@ istioctl analyze
 # Check if all pods have a sidecar proxy (envoy)
 kubectl get pod
 
-# Verify the frontend
+# Port forwarding
 kubectl port-forward svc/frontend-service 5000
 
 # Call the frontend multiple times and verify whether the BFF API version varies.
-$ curl 'http://localhost:5000'
+curl 'http://localhost:5000'
 ```
 
 ## Conclusion

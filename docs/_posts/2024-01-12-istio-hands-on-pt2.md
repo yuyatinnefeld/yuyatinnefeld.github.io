@@ -10,6 +10,8 @@ Welcome to Istio Hands-On Pt 2!
 
 Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio with Kiali! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment ([link](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1)). Today, we'll master the Kiali dashboard, uncovering the hidden dynamics of your service mesh and gaining invaluable insights into its health and performance.
 
+For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio/tree/main" target="_blank"><b>link</b></a>.
+
 
 ## Create a Secret for Kiali Loggin
 To enhance security, create a Kiali logging secret. Currently, Kiali uses built-in credentials (username: admin, password: admin), which are not recommended for production environments. ([offical site](https://istio.io/v1.3/docs/tasks/telemetry/kiali))
@@ -102,6 +104,18 @@ while sleep 5; do curl "http://localhost:$SERVICE_PORT"; done
 ![Kiali graph](/images/post-20240112/kiali-graph.png)
 
 Kiali's Graph shows a vibrant visualization of your mesh traffic, weaving real-time data with Istio configuration. See service talk, spot issues instantly, and zoom in with multiple views: services, workloads, or applications. It's like a live network detective story, guiding you to performance insights and troubleshooting wins. Ditch the confusion, embrace the clarity – Kiali's Graph empowers you to master your mesh.
+
+## Uncover the Issue
+In order to simulate a real issue, we deliberately remove all deployments of the details service.
+
+```bash
+kubectl delete deployment details-v1
+kubectl delete deployment details-v2
+kubectl delete deployment details-v3
+```
+
+![Kiali graph](/images/post-20240112/error-demo.png)
+Now, observe the repercussions of this change in the graph. The details page is no longer accessible, and all requests are resulting in 500 errors.
 
 ## Conclusion
 In this session, we've explored the capabilities of Kiali in visualizing the service mesh. With Kiali, you gain real-time insights into your microservices architecture, enabling you to monitor network traffic, identify issues, and optimize performance. As we continue our Istio journey, stay tuned for the next article, where we delve into Istio gateway and ingress, further enhancing our mastery of traffic management and control within the service mesh. Happy exploring!

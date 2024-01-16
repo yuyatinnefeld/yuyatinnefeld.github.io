@@ -10,6 +10,8 @@ Welcome to Istio Hands-On Pt 1!
 
 If you haven't read part 0 of the Istio Hands-On blog, please check it out [here](https://yuyatinnefeld.com/2024-01-02-istio-hands-on-pt0).
 
+For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
+
 In these sessions, we'll learn how to install `istioctl` and configure an Istio mesh. There are various opportunities to install and configure the Istio mesh; you can refer to the official documentation [here](https://istio.io/latest/docs/setup/install/). This article provides a minimal overview of Istio setup. If you are interested in a deeper understanding of the topic, you can find a wealth of useful information in the Istio documentation.
 
 ## Install and Enable Istioctl
@@ -17,10 +19,10 @@ Firstly, we need to install the `istioctl` command line tool, offering rich cust
 
 ```bash
 # Install istioctl
-$ curl -L https://istio.io/downloadIstio | sh -
+curl -L https://istio.io/downloadIstio | sh -
 
 # Verify the ctl version
-ISTIOCTL_VERSION=$(ls | grep istio)
+ISTIOCTL_VERSION=$(ls | grep istio-1)
 echo $ISTIOCTL_VERSION
 
 # Set up the working directory path
@@ -70,6 +72,11 @@ kubectl port-forward svc/frontend-service 5000
 
 # Call the frontend multiple times and verify whether the BFF API version varies.
 curl 'http://localhost:5000'
+```
+
+## Clean Up Istio Configuration
+```bash
+istioctl uninstall --purge
 ```
 
 ## Conclusion

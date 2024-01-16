@@ -10,8 +10,7 @@ Welcome to Istio Hands-On Pt 2!
 
 Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio with Kiali! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment ([link](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1)). Today, we'll master the Kiali dashboard, uncovering the hidden dynamics of your service mesh and gaining invaluable insights into its health and performance.
 
-For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio/tree/main" target="_blank"><b>link</b></a>.
-
+For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
 ## Create a Secret for Kiali Loggin
 To enhance security, create a Kiali logging secret. Currently, Kiali uses built-in credentials (username: admin, password: admin), which are not recommended for production environments. ([offical site](https://istio.io/v1.3/docs/tasks/telemetry/kiali))
@@ -48,7 +47,7 @@ Install Prometheus
 ```bash
 ISTIO_HOME=$(ls | grep istio)
 kubectl apply -f ${ISTIO_HOME}/samples/addons/prometheus.yaml
-kubectl get pod -n istio-system | grep prometheus
+kubectl rollout status deployment/prometheus -n istio-system
 kubectl get svc -n istio-system  | grep prometheus
 
 # verify prometheus server

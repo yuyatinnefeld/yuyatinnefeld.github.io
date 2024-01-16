@@ -12,7 +12,7 @@ The target audience for this blog comprises users who are already familiar with 
 
 1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
 2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
-3. Traffic Management
+3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. Security
 5. Observability
 
@@ -20,7 +20,7 @@ In our inaugural session, Part 0, we'll start by deploying microservices without
 
 - For the official Istio sample project, you can refer to: <a href="https://github.com/istio/istio/tree/master/samples/bookinfo/platform/kube" target="_blank"><b>this link</b></a>
 
-- For my Istio sample project, you can refer to: <a href="https://github.com/yuyatinnefeld/istio/tree/main" target="_blank"><b>this link</b></a>
+For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
 ## Microservices Architecture
 ![Sample Microservices Architecture](/images/post-20240102/microservice-project.png)

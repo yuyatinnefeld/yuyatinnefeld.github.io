@@ -20,14 +20,14 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 
 Today, we'll master the following topics:
 
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#gateways)Gateways 
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#virtual-service)Virtual Service
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#virtual-service)Destination Rules
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#fault-injection)Fault Injection
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#timeouts)Timeouts
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#ab-testing)A/B Testing
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#circuit-breaking)Circuit Breaker
-- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#retries)Retries
+- [Gateway](#gateways)
+- [Virtual Service](#virtual-service)
+- [Destination Rules](#virtual-service)
+- [Fault Injection](#fault-injection)
+- [Timeouts](#timeouts)
+- [A/B Testing](#ab-testing)
+- [Circuit Breaking](#circuit-breaking)
+- [Retries](#retries)
 
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 

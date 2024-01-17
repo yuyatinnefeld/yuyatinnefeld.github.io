@@ -112,6 +112,9 @@ open http://microservices-yuya.com:31586/login
 
 # deploy destination rules
 kubectl apply -f istio/traffic-management/destination-rules.yaml
+
+# update traffic routing by the details app
+kubectl apply -f istio/traffic-management/virtual-service-details.yaml
 ```
 
 ## Fault Injection {#fault-injection}
@@ -127,7 +130,7 @@ Here are some reasons why fault injection in Istio is important:
 
 We can inject errors in our virtual services and these cloud be 2 diffrent types of error `delays` and `aborts`
 
-#####  Delay
+#####  Delays
 Introduces artificial latency into requests, simulating issues like network congestion or slow upstream services. Useful for testing timeout handling, retry logic, and service behavior under degraded performance conditions.
 
 Example: The reviews app has a delayed response (7s) from a database service.
@@ -144,7 +147,7 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 Now the frontend app is displaying an error response due to a 7-second delay in 80% of reviews version 1.
 
 
-##### Abort
+##### Aborts
 Terminates requests prematurely, emulating errors such as network disconnections or service crashes. Helps evaluate how our services handle unexpected failures and recover gracefully.
 
 Example: The reviews service responds with an unavailable 4xx error.
@@ -161,7 +164,7 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 The frontend app is now showing an error response as a result of a 4xx error occurring in 100% of reviews version 1.
 
 ## Timeouts {#timeouts}
-we can setup the maximum amount of time a client or downstream service is allowed to wait for a response from an upstream service. If the upstream service does not respond within the specified timeout duration, the request is considered timed out. They help prevent long waiting times for clients and avoid potential resource exhaustion due to hanging requests.
+We can setup the maximum amount of time a client or downstream service is allowed to wait for a response from an upstream service. If the upstream service does not respond within the specified timeout duration, the request is considered timed out. They help prevent long waiting times for clients and avoid potential resource exhaustion due to hanging requests.
 
 Example: The reviews app has a delayed response (7s) from a database service and we configure all services with a timeout of 3 sec.
 
@@ -183,7 +186,7 @@ Currently, Istio is delivering the message to the client indicating an `upstream
 In the context of our microservices architecture, we aim to compare the performance of two different versions of both the payment and reviews apps to determine which version delivers better results.
 
 ##### Deploying A/B Test for Payment App
-For the payment app, we implement A/B testing by directing approximately 80% of the user traffic to version 1 and the remaining 20% to version 3. The following command utilizes Istio to apply the necessary virtual service configuration:
+For the payment app, we implement A/B Testing by directing approximately 80% of the user traffic to version 1 and the remaining 20% to version 3. The following command utilizes Istio to apply the necessary virtual service configuration:
 
 
 ```bash
@@ -194,8 +197,8 @@ In the Kiali Graph, the distribution of traffic to version 1 can be observed, re
 
 ![Traffic splitting](/images/post-20240117/traffic-routing.png)
 
-##### Deploy A/B Test for reviews app
-A more nuanced approach to A/B testing can be achieved by utilizing the `match` capability in the virtual service manifest. Specifically, we can activate a particular version based on specific scenarios. In this example, we introduce a scenario where the response header includes a variable called `end-user` under the URL path `/login` at http://microservices-yuya.com:31226.
+##### Deploy A/B Test for Reviews App
+A more nuanced approach to A/B testing can be achieved by utilizing the `match` capability in the virtual service manifest. Specifically, we can activate a particular version based on specific scenarios. In this example, we introduce a scenario where the response header includes a variable called `end-user` under the URL path `/login` at http://microservices-yuya.com:31586.
 
 
 ```bash
@@ -253,11 +256,11 @@ We'll test our microservices with 1000 requests and 10 concurrent connections.
 
 Result
 ```bash
-Enter the website URL: http://microservices-yuya.com:31226
+Enter the website URL: http://microservices-yuya.com:31586
 Enter the total number of requests: 1000
 Enter the number of concurrent calls: 10
 
-Benchmark Summary for http://microservices-yuya.com:31226
+Benchmark Summary for http://microservices-yuya.com:31586
 Total Requests: 1000
 Concurrent Calls: 10
 Successful Requests: 1000
@@ -280,11 +283,11 @@ Verify the new configuration in Kiali
 
 Result
 ```bash
-Enter the website URL: http://microservices-yuya.com:31226
+Enter the website URL: http://microservices-yuya.com:31586
 Enter the total number of requests: 1000
 Enter the number of concurrent calls: 10
 
-Benchmark Summary for http://microservices-yuya.com:31226
+Benchmark Summary for http://microservices-yuya.com:31586
 Total Requests: 1000
 Concurrent Calls: 10
 Successful Requests: 33
@@ -297,7 +300,7 @@ We received quick responses due to very strict circuit-breaking rules. Here are 
 ![Circuit Breaking Kiali](/images/post-20240117/circuit-breaking.png)
 
 ## Retries {#retries}
-Istio has alread retry logic.25ms + intervals after 1s fail and 2 retries before returning an error
+Istio is equipped with retry logic that includes a 25ms initial delay, followed by intervals after a 1-second failure, and a total of 2 retries before an error is returned.
 
 Example: The maximum number of retries to 2 when calling reviews:v1 service, with a 1s timeout per retry attempt.
 
@@ -313,6 +316,4 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 ```
 
 ## Conclusion
-In this session, we learned through hands-on exploration about advanced microservices optimization using Istio key features. This session went beyond theoretical knowledge, empowering developers, architects, and DevOps professionals with practical skills to implement advanced traffic management strategies. 
-
-I trust you enjoyed delving into and implementing these features. Feel free to revisit, and in our next session, we'll explore the crucial topic of securing your service mesh.
+In this session, we learned through hands-on exploration about advanced microservices optimization using Istio traffic management key features. This session went beyond theoretical knowledge, empowering developers, architects, and DevOps professionals with practical skills. I hope you enjoyed delving into and implementing these features. Feel free to revisit, and in our next session, we'll explore the crucial topic of securing our service mesh.

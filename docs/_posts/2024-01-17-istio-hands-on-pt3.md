@@ -266,7 +266,7 @@ kubectl apply -f istio/traffic-management/circuit-breaking.yaml
 ```
 
 ##### Verify the new configuration in Kiali
-![Timeouts](/images/post-20240117/circuit-breadking-conf.png)
+![Circuit Breaking conf](/images/post-20240117/circuit-breaking-conf.png)
 
 Result
 ```bash
@@ -284,7 +284,7 @@ Requests per Second: 161.81
 ```
 We received quick responses due to very strict circuit-breaking rules. Here are the benchmark results.
 
-![Timeouts](/images/post-20240117/circuit-breadking.png)
+![Circuit Breaking Kiali](/images/post-20240117/circuit-breaking.png)
 
 ## Retries
 Istio has alread retry logic.25ms + intervals after 1s fail and 2 retries before returning an error

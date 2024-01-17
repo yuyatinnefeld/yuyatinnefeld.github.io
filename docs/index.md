@@ -11,7 +11,7 @@ layout: home
 	</div>
 	<div class="home-info-text">
 		<h1>Yuya Tinnefeld</h1>
-		<h4 style="font-weight: 0;">"We can't control the sea, but we can learn how to surf the waves."</h4>
+		<p style="font-size: 14px;">"We can't control the waves, but we can learn how to surf."</p>
 	</div>
 
 </div><br>

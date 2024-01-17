@@ -8,7 +8,7 @@ layout: page
 	</div>
 	<div class="home-info-text">
 		<h1>Yuya Tinnefeld</h1>
-		<p>"We can't control the sea, but we can learn how to surf the waves."</p>
+		<p style="font-size: 10px;">"We can't control the waves, but we can learn how to surf."</p>
 	</div>
 </div><br>
 

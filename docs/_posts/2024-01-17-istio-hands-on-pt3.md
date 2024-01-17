@@ -8,20 +8,30 @@ mathjax: true
 
 Welcome to Istio Hands-On Pt 3! 
 
-Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio Traffic Management! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment ([link](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1)). Today, we'll master the following topics:
+Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio Traffic Management! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment.
 
-- Gateways
-- Virtual Service
-- Destination Rules
-- Fault Injection
-- Timeouts
-- A/B Testing
-- Circuit Breaker
-- Retries
+Below, you'll find the table of contents detailing the Istio hands-on lab, organized into five informative sessions:
+
+1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
+2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
+3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
+4. Security
+5. Observability
+
+Today, we'll master the following topics:
+
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#gateways)Gateways 
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#virtual-service)Virtual Service
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#virtual-service)Destination Rules
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#fault-injection)Fault Injection
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#timeouts)Timeouts
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#ab-testing)A/B Testing
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#circuit-breaking)Circuit Breaker
+- [https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3](#retries)Retries
 
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
-## Gateways
+## Gateways {#gateways}
 ![Gateway graph](/images/post-20240117/istio-gateway.png)
 
 A Gateway is like a traffic controller for a service mesh. It sits at the edge, managing incoming and outgoing connections. Think of it as a set of instructions for how to handle different types of connections—what ports to use, what kind of rules to follow, and other details like how to configure the load balancer.
@@ -80,7 +90,7 @@ open http://microservices-yuya.com:31586/reviews
 ![Gateway Kiali graph](/images/post-20240117/istio-gateway-kiali.png)
 Upon successful deployment, we'll see the newly added gateway component in the Kiali Graph.
 
-## Virtual Services and Destination Rules
+## Virtual Services and Destination Rules {#virtual-service}
 Istio Virtual Services and Destination Rules are crucial components for traffic management within the Istio service mesh. They work together to define how incoming traffic is routed to specific versions of a service and how that traffic is handled by the service instances.
 
 ##### Virtual Service
@@ -104,7 +114,7 @@ open http://microservices-yuya.com:31586/login
 kubectl apply -f istio/traffic-management/destination-rules.yaml
 ```
 
-## Fault Injection
+## Fault Injection {#fault-injection}
 Fault Injection allows us to intentionally introduce faults into our microservices environment to test and validate the resilience of our applications. By injecting faults, we simulate real-world scenarios where components of our system may fail, helping us identify weaknesses and potential points of failure.
 
 Here are some reasons why fault injection in Istio is important:
@@ -134,7 +144,7 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 Now the frontend app is displaying an error response due to a 7-second delay in 80% of reviews version 1.
 
 
-#####  Abort
+##### Abort
 Terminates requests prematurely, emulating errors such as network disconnections or service crashes. Helps evaluate how our services handle unexpected failures and recover gracefully.
 
 Example: The reviews service responds with an unavailable 4xx error.
@@ -150,7 +160,7 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 ![Abort Fault Injection](/images/post-20240117/fault-injection-abort.png)
 The frontend app is now showing an error response as a result of a 4xx error occurring in 100% of reviews version 1.
 
-## Timeouts
+## Timeouts {#timeouts}
 we can setup the maximum amount of time a client or downstream service is allowed to wait for a response from an upstream service. If the upstream service does not respond within the specified timeout duration, the request is considered timed out. They help prevent long waiting times for clients and avoid potential resource exhaustion due to hanging requests.
 
 Example: The reviews app has a delayed response (7s) from a database service and we configure all services with a timeout of 3 sec.
@@ -169,7 +179,7 @@ while sleep 0.5; do curl "http://microservices-yuya.com:31586"; done
 ![Timeouts](/images/post-20240117/timeouts.png)
 Currently, Istio is delivering the message to the client indicating an `upstream request timeout` message.
 
-## A/B Testing (Split testing)
+## A/B Testing (Split testing) {#ab-testing}
 In the context of our microservices architecture, we aim to compare the performance of two different versions of both the payment and reviews apps to determine which version delivers better results.
 
 ##### Deploying A/B Test for Payment App
@@ -221,7 +231,7 @@ Post-deployment, the frontend service will display version 1 only when the `end-
 
 ![A/B Testing Result](/images/post-20240117/ab-testing-result.png)
 
-## Circuit Breaking
+## Circuit Breaking {#circuit-breaking}
 we can use circuit breaking configuration to prevent a system from making calls to our services that are likely to fail, thus avoiding degradation of the entire system's performance due to prolonged and cascading failures.
 
 Example: The reviews app occasionally experiences extended request times, causing cascading issues for all microservices.
@@ -260,12 +270,12 @@ After a waiting time of `103.13 seconds`, we finally received the result.
 
 #### After Circuit-Breaking
 
-##### Deploy the circuit-breaking for reviews app
+Deploy the circuit-breaking for reviews app
 ```bash
 kubectl apply -f istio/traffic-management/circuit-breaking.yaml
 ```
 
-##### Verify the new configuration in Kiali
+Verify the new configuration in Kiali
 ![Circuit Breaking conf](/images/post-20240117/circuit-breaking-conf.png)
 
 Result
@@ -286,7 +296,7 @@ We received quick responses due to very strict circuit-breaking rules. Here are 
 
 ![Circuit Breaking Kiali](/images/post-20240117/circuit-breaking.png)
 
-## Retries
+## Retries {#retries}
 Istio has alread retry logic.25ms + intervals after 1s fail and 2 retries before returning an error
 
 Example: The maximum number of retries to 2 when calling reviews:v1 service, with a 1s timeout per retry attempt.

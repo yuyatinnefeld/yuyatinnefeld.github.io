@@ -10,6 +10,14 @@ Welcome to Istio Hands-On Pt 1!
 
 If you haven't read part 0 of the Istio Hands-On blog, please check it out [here](https://yuyatinnefeld.com/2024-01-02-istio-hands-on-pt0).
 
+Below, you'll find the table of contents detailing the Istio hands-on lab, organized into five informative sessions:
+
+1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
+2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
+3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
+4. Security
+5. Observability
+
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
 In these sessions, we'll learn how to install `istioctl` and configure an Istio mesh. There are various opportunities to install and configure the Istio mesh; you can refer to the official documentation [here](https://istio.io/latest/docs/setup/install/). This article provides a minimal overview of Istio setup. If you are interested in a deeper understanding of the topic, you can find a wealth of useful information in the Istio documentation.

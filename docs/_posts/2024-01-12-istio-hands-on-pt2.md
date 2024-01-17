@@ -8,7 +8,17 @@ mathjax: true
 
 Welcome to Istio Hands-On Pt 2! 
 
-Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio with Kiali! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment ([link](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1)). Today, we'll master the Kiali dashboard, uncovering the hidden dynamics of your service mesh and gaining invaluable insights into its health and performance.
+Building on the foundation of Part 1, we're excited to take you further into the exciting world of Istio with Kiali! If you haven't yet, make sure to check out the earlier session on setting up your Istio environment.
+
+Below, you'll find the table of contents detailing the Istio hands-on lab, organized into five informative sessions:
+
+1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
+2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
+3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
+4. Security
+5. Observability
+
+Today, we'll master the Kiali dashboard, uncovering the hidden dynamics of your service mesh and gaining invaluable insights into its health and performance.
 
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 

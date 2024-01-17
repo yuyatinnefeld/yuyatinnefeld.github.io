@@ -8,7 +8,7 @@ layout: page
 	</div>
 	<div class="home-info-text">
 		<h1>Yuya Tinnefeld</h1>
-		<h3 style="font-weight: 0;">CoffeeCodeBreaker☕🧙‍♂️ - Coffee+IT</h3>
+		<h4 style="font-weight: 0;">"We can't control the sea, but we can learn how to surf the waves."</h4>
 		<div class="social-icons">
 			<a class="social-icon" href="https://pypi.org/user/yuyatinnefeld" target="_blank"><i class="fab fa-python"></i></a>
 			<a class="social-icon" href="https://de.linkedin.com/in/yuya-tinnefeld-b6004b110" target="_blank"><i class="fab fa-linkedin-in"></i></a>

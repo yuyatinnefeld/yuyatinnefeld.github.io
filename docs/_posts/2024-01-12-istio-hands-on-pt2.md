@@ -15,7 +15,7 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
 2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
-4. Security
+4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
 5. Observability
 
 Today, we'll master the Kiali dashboard, uncovering the hidden dynamics of your service mesh and gaining invaluable insights into its health and performance.

@@ -125,7 +125,7 @@ JWT is used to convey information about the identity and additional metadata and
 JWT is often used where a user is issued a token upon successful login. This token is then sent with subsequent requests, allowing the server to validate the user's identity witout needing to reauthenticate with every request. JWTs are stateless and enable the creation of secure and scalable authentication systems.
 
 ## Authorization {#authorization}
-authorization in Istio provides a flexible approach to access control for inbound traffic. we can control which service can reach which service, which is referred to as east-west traffic using authorization configuration. Authorization policies provide 3 actions `CUSTOM`, `ALLOW`, `DENY`. we can also manage that the application can only use only `GET`, `UPDAGE`, `POST` or `DELETE` calls
+Authorization in Istio provides a flexible approach to access control for inbound traffic. We can control which service can reach which service, which is referred to as east-west traffic using authorization configuration. Authorization policies provide 3 actions `CUSTOM`, `ALLOW`, `DENY`. we can also manage that the application can only use only `GET`, `UPDAGE`, `POST` or `DELETE` calls
 
 Step 1: At first, we would like to deny that any application can access our microservices.
 
@@ -182,16 +182,14 @@ Result
 ```
 
 ## Certificate Management {#certificate-management}
-If you want to read more about how CA works, see the article that offers a deep dive on how CA and PKI works: [here](https://securityboulevard.com/2020/08/what-is-a-certificate-authority-ca-and-what-do-they-do/).
+If you want to read more about how CA (Certificate Authorities) works, see the article that offers a deep dive on how CA and PKI (Public Key Infrastructure) works: [here](https://securityboulevard.com/2020/08/what-is-a-certificate-authority-ca-and-what-do-they-do/).
 
 Here, my plan is to explore the integration of Istio and HashiCorp Vault more extensively in an upcoming blog post, detailing how to effectively use Vault CA in conjunction with Istio.
 
 #### Cleaning Up Old Environment
 ```bash
 # clean up
-kubectl delete namespace istio-system
-istioctl uninstall --purge
-kubectl delete kubectl apply -f microservices/deploy/service-mesh/apps
+bash ./istio-cleanup.sh
 ```
 
 #### Generate Certificates and Keys
@@ -276,7 +274,7 @@ In this session, we delved into the intricacies of Istio Security, exploring key
 
 - **Authorization:** Istio's flexible approach to access control empowers you to govern inbound traffic with precision. By implementing authorization policies, you can control which services can communicate with each other and even specify the allowed HTTP methods, providing granular control over your microservices interactions.
 
-- **Certificate Management:** Understanding the principles of Certificate Authorities (CAs) and Public Key Infrastructure (PKI) is essential for securing communications within your Istio Service Mesh. We walked through the generation of certificates, their storage in Istio, and the verification of these certificates, ensuring a secure foundation for your microservices.
+- **Certificate Management:** Understanding the principles of CAs and PKI is essential for securing communications within your Istio Service Mesh. We walked through the generation of certificates, their storage in Istio, and the verification of these certificates, ensuring a secure foundation for your microservices.
 
 As you progress through each session of our Istio Hands-On series, you're not only mastering the tools but also gaining insights into best practices for securing your microservices architecture. Stay tuned for our next session, where we explore Observability within Istio.
 

@@ -11,10 +11,10 @@ Welcome to the Istio Hands-On series!
 The target audience for this blog comprises users who are already familiar with microservices, service mesh, and want to learn Istio. If these concepts are new to you, I recommend reading my introductory blog on microservices and Istio. If you are unfamiliar with these topics, I recommend reading my blog article on <a href="https://yuyatinnefeld.com/2023-10-31-service-mesh/" target="_blank"><b>microservices and service mesh</b></a> beforehand. In these sessions, I'll guide you through the step-by-step implementation of Istio for your microservices. To make it more digestible, I've divided the implementation process into five sessions:
 
 1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
-2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
+2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Observability
+5. Debugging
 
 In our inaugural session, Part 0, we'll start by deploying microservices without Istio, and then we'll delve into the process with Istio injection in the second session. While Istio provides a sample microservices project (bookstore), I've taken the initiative to create a simple microsoft architecture application. This will allow us not only to understand the basics but also to make adjustments to the application later.
 

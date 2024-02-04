@@ -13,10 +13,10 @@ Building on the foundation of Part 1, we're excited to take you further into the
 Below, you'll find the table of contents detailing the Istio hands-on lab, organized into five informative sessions:
 
 1. [Setup Istio Environment](https://yuyatinnefeld.com/2024-01-10-istio-hands-on-pt1/)
-2. [Kiali Dashboard](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
+2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Observability
+5. Troubleshooting
 
 Today, we'll master the following topics:
 

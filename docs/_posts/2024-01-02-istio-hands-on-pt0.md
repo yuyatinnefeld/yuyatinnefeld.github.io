@@ -14,7 +14,7 @@ The target audience for this blog comprises users who are already familiar with 
 2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Debugging
+5. Troubleshooting
 
 In our inaugural session, Part 0, we'll start by deploying microservices without Istio, and then we'll delve into the process with Istio injection in the second session. While Istio provides a sample microservices project (bookstore), I've taken the initiative to create a simple microsoft architecture application. This will allow us not only to understand the basics but also to make adjustments to the application later.
 

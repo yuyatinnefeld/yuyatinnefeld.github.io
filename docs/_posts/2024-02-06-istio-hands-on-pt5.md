@@ -100,13 +100,13 @@ cd /bug-report
 ```
 
 ### 4. Check Istio Logs
-we can see with kubectl logs the istiod logs
+View Istio logs by executing the following command with kubectl:
 
 ```bash
-# Check Istiod logs
 kubectl logs -n istio-system -l app=istiod
-
-# Check Ingressgateway logs
+```
+To check Ingressgateway logs, use the command:
+```bash
 kubectl logs -l istio=ingressgateway -n istio-system
 ```
 
@@ -119,13 +119,13 @@ istioctl dashboard controlz deployment/istiod.istio-system
 Controlz:
 The Controlz endpoint provides comprehensive information about the Istio control plane's runtime characteristics, offering insights into its health, version, memory usage, and more. This valuable resource aids in diagnosing issues and monitoring the overall well-being of Istiod.
 
-This command opens the Controlz browser page, allowing you to dynamically adjust the og scope through the user interface.
-
 ![Istiod Controlz](/images/post-20240206/controlz.png)
+
+This command opens the Controlz browser page, allowing you to dynamically adjust the log scope through the user interface.
 
 By navigating the Controlz UI, you can fine-tune logging configurations, facilitating a more detailed examination of Istiod's runtime behavior. This feature is particularly useful for operators and developers working on Istio internals, providing a powerful tool for debugging and performance optimization.
 
-### 5. Authz Check
+### 5. Authorization
 Check prints the internal org policy 'AuthorizationPolicy' applied to a pod by directly checking the Envoy configuration of the pod.
 
 ```bash
@@ -219,10 +219,13 @@ istioctl exp authz check -n foo deploy/sleep
 ``` 
 
 ## Kiali {#kiali}
+![Kiali Logs](/images/post-20240206/kiali-logs.png)
 
 The Kiali Dashboard can serve as a valuable tool for detecting configuration errors within Istio. By navigating to the Istio Config section, we can identify potential issues. 
 
 For a more detailed analysis, we can explore the Logs tab in Kiali and search for specific logs. Kiali streamlines the debugging process by offering a unified logs view, allowing users to correlate application and proxy logs. Moreover, it integrates trace span information, aiding in the identification of critical traces associated with logging. 
+
+![Kiali Logs](/images/post-20240206/kiali-metrics.png)
 
 Within workload detail view, you'll find Inbound Metrics and/or Outbound Metrics tabs, featuring predefined metric dashboards. These dashboards are customized to the relevant application, workload, or service level, providing insights into resource utilization and response errors.
 

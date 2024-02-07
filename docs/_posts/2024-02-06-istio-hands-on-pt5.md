@@ -35,16 +35,16 @@ Before diving into the intricacies of debugging microservices, let's review a co
 
 | NR  | Check Items | Description |
 | --- | --- | --- |
-| 0 | Istio Injection | Verify that Istio sidecar proxies are correctly injected into the application pods. Check the namespace labels to ensure Istio injection is enabled. |
-| 1 | Ingress Gateway | Review the Ingress Gateway configuration to ensure proper routing and external access for incoming traffic. |
-| 2 | Destination Rule | Check the Destination Rule to confirm that traffic routing and load balancing rules are defined accurately. Also, ensure that <b>only one Destination Rule</b> is deployed. |
-| 3 | Virtual Services | Inspect Virtual Services to ensure correct routing rules, timeouts, and retries for your microservices. |
-| 4 | Backend App | Examine the configuration and health of the backend microservices, including any associated databases or external dependencies. |
-| 5 | Frontend App | Investigate the frontend application setup, ensuring proper communication with backend services and handling of user requests. |
-| 6 | Authentication | Verify the authentication settings, ensuring that secure communication is established between services. |
-| 7 | Authorization | Review Authorization Policies to guarantee that access control rules are appropriately configured and aligned with your security requirements. |
-| 8 | Certification Management | Check the management of certificates, including their issuance, expiration, and renewal processes. |
-| 9 | Additional Checks | Include any specific checks or considerations relevant to your microservices architecture. |
+| 1 | Istio Injection | Verify that Istio sidecar proxies are correctly injected into the application pods. Check the namespace labels to ensure Istio injection is enabled. |
+| 2 | Ingress Gateway | Review the Ingress Gateway configuration to ensure proper routing and external access for incoming traffic. |
+| 3 | Destination Rule | Check the Destination Rule to confirm that traffic routing and load balancing rules are defined accurately. Also, ensure that <b>only one Destination Rule</b> is deployed. |
+| 4 | Virtual Services | Inspect Virtual Services to ensure correct routing rules, timeouts, and retries for your microservices. |
+| 5 | Backend App | Examine the configuration and health of the backend microservices, including any associated databases or external dependencies. |
+| 6 | Frontend App | Investigate the frontend application setup, ensuring proper communication with backend services and handling of user requests. |
+| 7 | Authentication | Verify the authentication settings, ensuring that secure communication is established between services. |
+| 8 | Authorization | Review Authorization Policies to guarantee that access control rules are appropriately configured and aligned with your security requirements. |
+| 9 | Certification Management | Check the management of certificates, including their issuance, expiration, and renewal processes. |
+| 10 | Additional Checks | Include any specific checks or considerations relevant to your microservices architecture. |
 
 By methodically going through this checklist, we can pinpoint and address potential issues, streamlining the debugging process and ensuring the smooth operation of our Istio-managed microservices.
 

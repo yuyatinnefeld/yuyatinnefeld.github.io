@@ -16,7 +16,7 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Troubleshooting
+5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
@@ -76,7 +76,7 @@ istioctl analyze
 kubectl get pod
 
 # Port forwarding
-kubectl port-forward svc/frontend-service 5000
+kubectl port-forward svc/frontend-service 5000 &
 
 # Call the frontend multiple times and verify whether the BFF API version varies.
 curl 'http://localhost:5000'

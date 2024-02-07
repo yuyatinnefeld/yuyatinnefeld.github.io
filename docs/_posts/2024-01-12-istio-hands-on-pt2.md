@@ -16,7 +16,7 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Troubleshooting
+5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
 For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
 
@@ -29,7 +29,7 @@ bash ./istio-install.sh
 kubectl apply -f microservices/deploy/service-mesh/apps
 
 # Check the deployment
-kubectl port-forward svc/frontend-service 5000
+kubectl port-forward svc/frontend-service 5000 &
 ```
 
 ## What is Observability
@@ -82,7 +82,7 @@ kubectl rollout status deployment/prometheus -n istio-system
 kubectl get svc -n istio-system  | grep prometheus
 
 # verify prometheus server
-kubectl port-forward svc/prometheus -n istio-system 9090
+kubectl port-forward svc/prometheus -n istio-system 9090 &
 open http://localhost:9090
 ```
 
@@ -101,7 +101,7 @@ Launch Kiali with a Single Command and Access the Kiali Dashboard. You'll be gre
 ### Open Kiali Dashboard
 ```bash
 # option 1
-kubectl port-forward svc/kiali 20001:20001 -n istio-system
+kubectl port-forward svc/kiali 20001:20001 -n istio-system &
 
 ## option 2
 istioctl dashboard kiali
@@ -161,7 +161,7 @@ kubectl get svc -n istio-system  | grep jaeger
 
 ### Create Dummy Traffics
 ```bash
-kubectl port-forward svc/frontend-service 5000
+kubectl port-forward svc/frontend-service 5000 &
 while sleep 0.5; do curl "http://localhost:5000"; done
 ```
 

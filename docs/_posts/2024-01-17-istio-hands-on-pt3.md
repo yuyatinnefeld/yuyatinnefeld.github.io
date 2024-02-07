@@ -16,7 +16,7 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 2. [Observability](https://yuyatinnefeld.com/2024-01-12-istio-hands-on-pt2/)
 3. [Traffic Management](https://yuyatinnefeld.com/2024-01-17-istio-hands-on-pt3/)
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
-5. Troubleshooting
+5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
 Today, we'll master the following topics:
 

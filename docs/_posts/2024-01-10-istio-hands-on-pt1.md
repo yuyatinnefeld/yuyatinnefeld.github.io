@@ -84,7 +84,7 @@ curl 'http://localhost:5000'
 
 ## Clean Up Istio Configuration
 ```bash
-istioctl uninstall --purge
+bash istio-cleanup.sh
 ```
 
 ## Conclusion

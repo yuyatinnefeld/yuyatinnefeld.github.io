@@ -55,6 +55,30 @@ istioctl verify-install
 kubectl get all -n istio-system
 ```
 
+You can deploy a custom Istio profile, such as IstioOperator, tailored to your specific requirements. Here's an example YAML configuration to illustrate how you can achieve this:
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: example-istiocontrolplane
+spec:
+  profile: demo
+  components:
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: false
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: false
+    ingressGateways:
+    - name: custom-ingressgateway
+      enabled: true
+EOF
+```
+
 ## Create a Namespace and enable istio injection
 
 ```bash

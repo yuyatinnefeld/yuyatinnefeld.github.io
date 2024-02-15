@@ -23,9 +23,9 @@ Microservice architecture with Istio may occasionally present challenges that re
 Today, we'll master the following topics:
 
 - [Istio Injection](#injection)
-- [Istioctl Tools](#istioctl)
+- [Istioctl](#istioctl)
 - [Dry Run](#dry-run)
-- [AuthorizationPolicy](#authz)
+- [Authorization](#authz)
 - [Kiali](#kiali)
 
 For this project, we are utilizing a sample microservice project, and you can find it [here](https://github.com/yuyatinnefeld/istio).
@@ -125,7 +125,7 @@ This command opens the Controlz browser page, allowing you to dynamically adjust
 
 By navigating the Controlz UI, you can fine-tune logging configurations, facilitating a more detailed examination of Istiod's runtime behavior. This feature is particularly useful for operators and developers working on Istio internals, providing a powerful tool for debugging and performance optimization.
 
-### 5. Authorization
+### 5. Authorization {#authz}
 Check prints the internal org policy 'AuthorizationPolicy' applied to a pod by directly checking the Envoy configuration of the pod.
 
 ```bash

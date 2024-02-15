@@ -94,6 +94,10 @@ The data plane is the muscle of the service mesh. It consists of lightweight pro
 ### Sidecar Proxy
 A sidecar proxy is a specific component within the data plane of a service mesh that is deployed alongside a business application. It is responsible for intercepting and handling all traffic to and from the application. Sidecar proxies are typically used to enforce security policies, collect metrics, and manage load balancing.
 
+## Is Microservices Always the Right Choice?
+When starting a new project, the decision to embrace a Microservices architecture isn't always straightforward. Factors like scalability and team size come into play. If scalability isn't a top priority you're startup and your team is small, Microservices might not be the best fit initially. Instead, starting with a modular monolithic approach allows for smoother integration into Microservices later. It's essential to view Microservices as an end-goal rather than a starting point, ensuring that your architecture evolves in line with project needs. In summary, while Microservices offer scalability benefits, they're not always the default choice for every project. Here is an interesting perspective on Modular Monolith:[link](https://www.thoughtworks.com/en-us/insights/blog/microservices/modular-monolith-better-way-build-software)
+
+
 ## Conclusion
 At times, you may opt for a monolith service, while other times, microservices or manually managed proxy sidecar containers could be the choice. Alternatively, you might embrace full automation through service mesh tools. The answer to which approach is best always remains the same: "It depends!" It depends on factors such as team size, expertise, resources, budget, business growth, and more. While not all companies are akin to MAMAA (Meta, Apple, Microsoft, Amazon, Alphabet) and may not require Microservices or Service Mesh, it remains essential to thoroughly evaluate your business's growth prospects and anticipate potential challenges before taking the plunge. I hope this blog post has shed light on the challenges of building scalable software services and adopting a service mesh approach.
 

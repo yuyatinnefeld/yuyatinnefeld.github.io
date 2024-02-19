@@ -56,9 +56,9 @@ Security in Depth (SID) involves employing a comprehensive approach to safeguard
 ## Authentication {#authentication}
 Istio provides two authentication mechanisms for enhanced security: <b>Peer Authentication</b> using mTLS and <b>Request Authentication</b> leveraging JWT. Additionally, it supports integration with OpenID Connect providers such as ORY Hydra, Keycloak, Firebase, and Google.
 
-- Mutual TLS (mTSL) focuses on the secure exchange of digital certificates to ensure mutual <b>authentication between services</b> 
+- Mutual TLS (mTSL) focuses on the secure exchange of digital certificates to ensure mutual <b>authentication between services</b>. => `PeerAuthentication`
 
-- JSON Web Tokens (JWT) provide a means of securely transmitting claims and identity information, commonly used for <b>authentication between end-users and services</b>. 
+- JSON Web Tokens (JWT) provide a means of securely transmitting claims and identity information, commonly used for <b>authentication between end-users and services</b>. => `RequestAuthentication`
 
 ### mTLS
  In a typical TLS handshake, only the server is authenticated to the client using a digital certificate. However, in mutual TLS, both the client and the server authenticate each other through the exchange of digital certificates. This bidirectional authentication enhances the overall security of the communication by verifying the identities of both parties, mitigating the risk of unauthorized access.
@@ -125,7 +125,7 @@ JWT is used to convey information about the identity and additional metadata and
 JWT is often used where a user is issued a token upon successful login. This token is then sent with subsequent requests, allowing the server to validate the user's identity witout needing to reauthenticate with every request. JWTs are stateless and enable the creation of secure and scalable authentication systems.
 
 ## Authorization {#authorization}
-Authorization in Istio provides a flexible approach to access control for inbound traffic. We can control which service can reach which service, which is referred to as east-west traffic using authorization configuration. Authorization policies provide 3 actions `CUSTOM`, `ALLOW`, `DENY`. we can also manage that the application can only use only `GET`, `UPDAGE`, `POST` or `DELETE` calls
+Authorization in Istio provides a flexible approach to access control for inbound traffic. We can control which service can reach which service, which is referred to as east-west traffic using authorization configuration. Authorization policies provide 3 actions `CUSTOM`, `ALLOW`, `DENY`. we can also manage that the application can only use only `GET`, `UPDAGE`, `POST` or `DELETE` calls. `AuthorizationPolicy` uses principals "extracted" from `PeerAuthentication/RequestAuthentication`.
 
 Step 1: At first, we would like to deny that any application can access our microservices.
 

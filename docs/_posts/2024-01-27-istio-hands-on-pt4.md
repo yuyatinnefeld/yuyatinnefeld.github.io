@@ -63,7 +63,12 @@ Istio provides two authentication mechanisms for enhanced security: <b>Peer Auth
 ### mTLS
  In a typical TLS handshake, only the server is authenticated to the client using a digital certificate. However, in mutual TLS, both the client and the server authenticate each other through the exchange of digital certificates. This bidirectional authentication enhances the overall security of the communication by verifying the identities of both parties, mitigating the risk of unauthorized access.
 
-Istio does indeed automate the management and implementation of mTLS. `istiod` is responsible for handling the control plane functionalities, including the automatic configuration and enforcement of mTLS authentication between services. 
+Istio does indeed automate the management and implementation of mTLS. `istiod` is responsible for handling the control plane functionalities, including the automatic configuration and enforcement of mTLS authentication between services.
+
+### JWT (Json Web Token)
+JWT is used to convey information about the identity and additional metadata and consists of three parts: a header, a payload, and a signature. The header and payload are Base64-encoded JSON objects, and the signature is used to verify the integrity of the token. 
+
+JWT is often used where a user is issued a token upon successful login. This token is then sent with subsequent requests, allowing the server to validate the user's identity witout needing to reauthenticate with every request. JWTs are stateless and enable the creation of secure and scalable authentication systems.
 
 #### Workload-specific policy
 A workload-specific policy refers to a set of rules and configurations tailored to a specific application or service within a computing environment. 
@@ -78,7 +83,7 @@ kubectl exec -it "$(kubectl get pod -l app=httpbin -n $NAMESPACE -o jsonpath={.i
 
 You will receive a status code `200`, indicating that we could fetch our way into the default namespace to the apps from the 'foo' namespace.
 
-#### Deploy the Workload Policy 
+##### Deploy the Workload Policy 
 ```bash
 kubectl apply -f istio/security/authn-workload.yaml
 ```
@@ -100,7 +105,7 @@ A namespace-wide policy encompasses rules and configurations that are applied un
 
 Example: In a Kubernetes cluster, a namespace-wide policy could enforce resource quotas, network policies, and access controls applicable to all services within that namespace.
 
-#### Deploy the Namespace Policy 
+##### Deploy the Namespace Policy 
 ```bash
 kubectl apply -f istio/security/authn-namespace.yaml
 
@@ -118,11 +123,6 @@ Now we cannot access another apps from the `default` namespace.
 A mesh-wide policy refers to a set of rules and configurations applied across the entire service mesh infrastructure.
 
 Example: A mesh-wide policy might enforce a consistent authentication mechanism, traffic routing rules, or telemetry settings across all services within an Istio service mesh.
- 
-### JWT (Json Web Token)
-JWT is used to convey information about the identity and additional metadata and consists of three parts: a header, a payload, and a signature. The header and payload are Base64-encoded JSON objects, and the signature is used to verify the integrity of the token.
-
-JWT is often used where a user is issued a token upon successful login. This token is then sent with subsequent requests, allowing the server to validate the user's identity witout needing to reauthenticate with every request. JWTs are stateless and enable the creation of secure and scalable authentication systems.
 
 ## Authorization {#authorization}
 Authorization in Istio provides a flexible approach to access control for inbound traffic. We can control which service can reach which service, which is referred to as east-west traffic using authorization configuration. Authorization policies provide 3 actions `CUSTOM`, `ALLOW`, `DENY`. we can also manage that the application can only use only `GET`, `UPDAGE`, `POST` or `DELETE` calls. `AuthorizationPolicy` uses principals "extracted" from `PeerAuthentication/RequestAuthentication`.

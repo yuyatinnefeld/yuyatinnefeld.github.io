@@ -41,9 +41,10 @@ Notable users of Google Cloud Platform:
 - Grap
 
 ## Entities
+
 | Type | Description  | GCP  | Azure  |
 | :---: | :---: | :---: | :---: |
-| Entity | Org | Organization | Management Group / Tenant |
+| Entity | Org | Organization | Management Group, Tenant |
 | Entity | Org| Folder | Subscription |
 | Entity | Org | Project | Resource Group |
 | Entity | Org | Service Account | Service Principal |

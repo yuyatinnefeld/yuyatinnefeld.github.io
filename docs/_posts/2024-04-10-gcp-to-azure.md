@@ -54,33 +54,19 @@ Notable users of Google Cloud Platform:
 ## Container Application
 
 ### Azure
-| - | Full Custom Infra  | Custom Infra  | Managed Infra  | Full Managed Infra  |
+| x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unoptionated Containers | x | x | x | x |
-| Medium | x | x | x | x |
-| Optionated Containers | x | x | x | x |
-
-
-### GCP
-| - | Full Custom Infra  | Custom Infra  | Managed Infra  | Full Managed Infra  |
-| :---: | :---: | :---: | :---: | :---: |
-| Unoptionated Containers | x | x | x | x |
-| Medium | x | x | x | x |
-| Optionated Containers | x | x | x | x |
-
-
-| - | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
-| :---: | :---: | :---: | :---: | :---: |
-| unoptionated containers | VM | AKS | App Service, Container Instance| Container Apps |
+| Unoptionated Containers | VM | AKS | Container Instance| Container Apps, App Service |
 | Medium| x | ARO (Azure Redhat OpenShift) | x | Spring Apps |
-| optionated containers | x | x | x | Azure Functions, Web App Container |
+| Optionated Containers | x | x | x | Azure Functions, Web App Container |
+
 
 ### GCP
-| - | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
+| x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| unoptionated containers | Compute Engine | GKE | Cloud Run | App Engine |
+| Unoptionated containers | Compute Engine | GKE | Cloud Run | App Engine |
 | Medium| x | x | x | x |
-| optionated containers | x | x | x | Cloud Functions |
+| Optionated Containers | x | x | x | Cloud Functions |
 
 ## Another Services
 

@@ -57,18 +57,18 @@ Notable users of Google Cloud Platform:
 
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unoptionated Containers | VM | AKS | Container Instance | Container Apps, App Service |
+| Unopinionated Containers | VM | AKS | Container Instance | Container Apps, App Service |
 | Medium | x | ARO (Azure Redhat OpenShift) | x | Spring Apps |
-| Optionated Containers | x | x | x | Azure Functions, Web App Container |
+| Opinionated Containers | x | x | x | Azure Functions, Web App Container |
 
 
 ### GCP
 
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unoptionated containers | Compute Engine | GKE | Cloud Run | App Engine |
+| Unopinionated containers | Compute Engine | GKE | Cloud Run | App Engine |
 | Medium| x | x | x | x |
-| Optionated Containers | x | x | x | Cloud Functions |
+| Opinionated Containers | x | x | x | Cloud Functions |
 
 ## Another Services
 

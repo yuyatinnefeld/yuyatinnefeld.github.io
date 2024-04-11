@@ -54,6 +54,21 @@ Notable users of Google Cloud Platform:
 ## Container Application
 
 ### Azure
+| - | Full Custom Infra  | Custom Infra  | Managed Infra  | Full Managed Infra  |
+| :---: | :---: | :---: | :---: | :---: |
+| Unoptionated Containers | x | x | x | x |
+| Medium | x | x | x | x |
+| Optionated Containers | x | x | x | x |
+
+
+### GCP
+| - | Full Custom Infra  | Custom Infra  | Managed Infra  | Full Managed Infra  |
+| :---: | :---: | :---: | :---: | :---: |
+| Unoptionated Containers | x | x | x | x |
+| Medium | x | x | x | x |
+| Optionated Containers | x | x | x | x |
+
+
 | - | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
 | unoptionated containers | VM | AKS | App Service, Container Instance| Container Apps |

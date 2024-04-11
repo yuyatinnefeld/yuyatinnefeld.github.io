@@ -42,7 +42,7 @@ Notable users of Google Cloud Platform:
 
 ## Entities
 
-| Type | Description  | GCP  | Azure  |
+| Type | Description | GCP  | Azure  |
 | :---: | :---: | :---: | :---: |
 | Entity | Org | Organization | Management Group, Tenant |
 | Entity | Org| Folder | Subscription |
@@ -54,14 +54,16 @@ Notable users of Google Cloud Platform:
 ## Container Application
 
 ### Azure
+
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unoptionated Containers | VM | AKS | Container Instance| Container Apps, App Service |
-| Medium| x | ARO (Azure Redhat OpenShift) | x | Spring Apps |
+| Unoptionated Containers | VM | AKS | Container Instance | Container Apps, App Service |
+| Medium | x | ARO (Azure Redhat OpenShift) | x | Spring Apps |
 | Optionated Containers | x | x | x | Azure Functions, Web App Container |
 
 
 ### GCP
+
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
 | Unoptionated containers | Compute Engine | GKE | Cloud Run | App Engine |

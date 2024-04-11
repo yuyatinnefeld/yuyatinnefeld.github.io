@@ -111,3 +111,19 @@ gcloud config list
 # Azure
 az account show
 ```
+
+## Container Application
+
+### Azure
+|   | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra  |
+|---|---|---|---|---|
+| unoptionated containers | VM | AKS | App Service, Container Instance| Container Apps |
+| Medium| x | ARO (Azure Redhat OpenShift) | x| x | Spring Apps |
+| optionated containers | x | x | x | Azure Functions, Web App Container |
+
+### GCP
+|   | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra  |
+|---|---|---|---|---|
+| unoptionated containers | Compute Engine | GKE | Cloud Run | App Engine |
+| Medium| x | x | x | x |
+| optionated containers | x | x | x | Cloud Functions |

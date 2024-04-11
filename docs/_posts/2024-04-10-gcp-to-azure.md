@@ -82,3 +82,32 @@ Notable users of Google Cloud Platform:
 | Security | Key Management | KMS | Key Vault |
 | Security | Identity Access Management | IAM | Active Directory |
 | Security | Security Check | Security Scanner | Azure Security Center |
+
+## Cloud CLI
+
+### Create a Project 
+```bash
+# GCP
+gcloud projects create $PROJECT_ID --name="Happy project"
+
+# Azure
+az group create -l $LOCATION -n $RESOURCE_NAME
+```
+
+### Set a Project 
+```bash
+# GCP
+gcloud config set project $PROJECT_ID
+
+# Azure
+az account set --subscription $SUBSCRIPTION_NAME
+```
+
+### Check the Currently Active Configuration
+```bash
+# GCP
+gcloud config list
+
+# Azure
+az account show
+```

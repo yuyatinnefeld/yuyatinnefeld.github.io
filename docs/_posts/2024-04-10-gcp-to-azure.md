@@ -48,6 +48,7 @@ Notable users of Google Cloud Platform:
 | Entity | Org| Folder | Subscription |
 | Entity | Org | Project | Resource Group |
 | Entity | Org | Service Account | Service Principal |
+| Entity | Org | Workload Identity | Managed Identity |
 | Entity | Org | User | User |
 | Entity | Org | Service | Resource |
 

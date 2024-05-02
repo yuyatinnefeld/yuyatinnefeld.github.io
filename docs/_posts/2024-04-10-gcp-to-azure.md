@@ -54,29 +54,32 @@ Notable users of Google Cloud Platform:
 
 ## Container Application
 
+- Unopinionated Containers: any container image, no restrictions
+- Opinionated Containers: specific base image or programming model required
+
 ### Azure
 
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unopinionated Containers | VM | AKS | Container Instance | Container Apps, App Service |
+| Unopinionated Containers | VM | AKS | Container Instances | Container Apps |
 | Medium | x | ARO (Azure Redhat OpenShift) | x | Spring Apps |
-| Opinionated Containers | x | x | x | Azure Functions, Web App Container |
+| Opinionated Containers | x | App Services | x | Azure Functions (Event-Driven-Func), Web App Container (API App) |
 
 
 ### GCP
 
 | x | Full Custom Infra | Custom Infra | Managed Infra | Full Managed Infra |
 | :---: | :---: | :---: | :---: | :---: |
-| Unopinionated containers | Compute Engine | GKE | Cloud Run | App Engine |
+| Unopinionated containers | Compute Engine | GKE | x | Cloud Run |
 | Medium| x | x | x | x |
-| Opinionated Containers | x | x | x | Cloud Functions |
+| Opinionated Containers | x | App Engine | x | Cloud Functions |
 
 ## Another Services
 
 | Type | Description  | GCP  | Azure  |
 | :---: | :---: | :---: | :---: |
 | Compute | IaaS | Compute Engine | Virtual Machines |
-| Compute | PaaS | App Engine | App Service |
+| Compute | PaaS | App Engine | App Services |
 | Compute | FaaS | Cloud Functions | Azure Function |
 | Compute | CaaS | GKE | AKS |
 | Compute | CaaS | Cloud Run | Container Apps |

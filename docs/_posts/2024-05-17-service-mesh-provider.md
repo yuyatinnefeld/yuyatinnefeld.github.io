@@ -6,7 +6,7 @@ tags: ["tech", "microservices"]
 mathjax: true
 ---
 
-Welcome to our Service Mesh Comparison Guide!
+Welcome to my Service Mesh Comparison Guide!
 
 With numerous service mesh options available today, it's important to understand the distinctions between them. Some are highly proprietary, while others are open-source. Here's a look at several key service mesh offerings you should consider:
 
@@ -66,3 +66,6 @@ Governance and Oversight | Istio Community | Linkered Community | AWS | Hashicor
 
 ### Conclusion 
 Service meshes have significantly evolved, offering various capabilities and supporting diverse environments. Istio stands out as the most feature-rich service mesh, offering a balance of platform support, customizability, and extensibility. Linkerd is a close second with its lightweight, efficient design. AWS App Mesh excels within the AWS ecosystem, while Consul is a strong contender with robust features. Cilium, leveraging eBPF, is emerging with a unique approach but still has some gaps to fill.
+
+Want to get deeper into Service Mesh with Istio? Head over to [Istio Hands On Guide](https://yuyatinnefeld.com/2024-01-02-istio-hands-on-pt1).
+

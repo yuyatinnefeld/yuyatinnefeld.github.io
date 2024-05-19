@@ -43,7 +43,7 @@ You can also refer to the diagram provided by Daniele Polencic on the Learnk8s p
 | 6 | Container Execution | Execute commands within containers for debugging |
 | 7 | Container Debugging | Utilize `kubectl debug` for interactive troubleshooting |
 | 8 | Health Check Configuration | Configure liveness and readiness probes to monitor container health. |
-| 9 | Network Configuration | Check network configuration, firewall settings, and ensure correct connections. |
+| 9 | Network Configuration | Debug Network Traffic using the netshoot container |
 | 10 | Access Control Resolution | Resolve access issues for users and services, including permissions, policies, and TLS configurations. |
 
 ## Gather Info
@@ -60,7 +60,7 @@ kubectl get nodes
 kubectl get pods  -o wide
 
 # List all events
-kubectl describe pod $POD | grep -A 8 "Events:"
+kubectl describe pod $POD_ID | grep -A 8 "Events:"
 
 # Better option
 kubectl get events --field-selector involvedObject.kind=Pod | grep pod/frontend
@@ -137,10 +137,10 @@ By following these steps, you can effectively verify the correctness of Docker i
 
 ```bash
 SVC=$(kubectl get svc -l service=frontend -o jsonpath="{.items[0].metadata.name}")
-POD=$(kubectl get pod -l app=frontend-app -o jsonpath="{.items[0].metadata.name}")
+POD_ID=$(kubectl get pod -l app=frontend-app -o jsonpath="{.items[0].metadata.name}")
 
 # Check pod
-kubectl port-forward pod/$POD 5555:5000
+kubectl port-forward pod/$POD_ID 5555:5000
 curl localhost:5555
 
 # Check service
@@ -152,8 +152,8 @@ curl localhost:5000
 Pod logs provide valuable insights into the behavior of applications running within Kubernetes pods. You can retrieve these logs using the kubectl logs command:
 
 ```bash
-POD=$(kubectl get pod -l app=frontend-app -o jsonpath="{.items[0].metadata.name}")
-kubectl logs $POD
+POD_ID=$(kubectl get pod -l app=frontend-app -o jsonpath="{.items[0].metadata.name}")
+kubectl logs $POD_ID
 ```
 
 By inspecting pod logs, you can identify errors, warnings, or other messages that help pinpoint issues within your application.
@@ -166,13 +166,13 @@ Using `exec -it`, you can run an interactive shell within the container, allowin
 However, it's essential to note that not all containers may contain the necessary tools for debugging. Attempting to run commands like ps or top within a container may result in errors if these tools are not installed:
 
 ```bash
-kubectl exec -it $POD -- sh
+kubectl exec -it $POD_ID -- sh
 
 # Error: Container doesn't contain 'ps' tool
-kubectl exec -it $POD -- ps
+kubectl exec -it $POD_ID -- ps
 
 # Error: Container doesn't contain 'top' tool
-kubectl exec -it $POD -- top
+kubectl exec -it $POD_ID -- top
 ```
 
 A preferable alternative is `kubectl debug`. With this option, there's no need to manipulate the original pod. Instead, an ephemeral container is utilized for debugging purposes, ensuring that the original container remains untouched.
@@ -229,9 +229,9 @@ command terminated with exit code 126
 #### Using Curl Image to Call the App
 
 ```bash
-POD="sample-app"
+POD_ID="sample-app"
 
-kubectl debug $POD -it --image=curlimages/curl -- curl localhost:8080
+kubectl debug $POD_ID -it --image=curlimages/curl -- curl localhost:8080
 > Defaulting debug container name to debugger-wj662.
 > hello sample app!
 ```
@@ -240,7 +240,7 @@ kubectl debug $POD -it --image=curlimages/curl -- curl localhost:8080
 Create a copy of the `sample-app` and add a new Alpine container named `debug-sample-app` for debugging:
 
 ```bash
-kubectl debug $POD -it --image=alpine --share-processes --copy-to debug-sample-app -- sh
+kubectl debug $POD_ID -it --image=alpine --share-processes --copy-to debug-sample-app -- sh
 ```
 
 Inspect the processes and files within the container:
@@ -283,8 +283,8 @@ spec:
 
 To verify the configuration, check the result using the following command:
 ```bash
-POD="frontend-v1-65db68c8b-8vbjg"
-kubectl describe $POD | grep -i liveness
+POD_ID="frontend-v1-65db68c8b-8vbjg"
+kubectl describe $POD_ID | grep -i liveness
 ```
 
 ### Defining a Readiness Probe
@@ -303,9 +303,88 @@ spec:
 
 To verify the configuration, check the result using the following command:
 ```bash
-POD="frontend-v1-65db68c8b-8vbjg"
-kubectl describe $POD | grep -i readiness
+POD_ID="frontend-v1-65db68c8b-8vbjg"
+kubectl describe $POD_ID | grep -i readiness
 ```
+
+## Network Configuration
+Network troubleshooting in Kubernetes can be challenging, especially when pods lack necessary commands. Netshoot acts like a Swiss Army knife for network debugging, offering a comprehensive set of network commands to test connectivity across your cluster.
+
+#### Start netshoot
+```bash
+POD_ID="frontend-v1-65db68c8b-8vbjg"
+NS="default"
+
+# gernerate a few traffics
+kubectl port-forward svc/frontend-service 500
+
+# run netshoot container
+kubectl debug -it -n $NS $POD_ID --image=nicolaka/netshoot --image-pull-policy=Always
+```
+
+#### Display the network status and protocol statistics with netstat
+```bash
+netstat
+
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       
+tcp        0      0 frontend-v1-68d64c66df-s9hcr:34518 details-service.default.svc.cluster.local:7777 TIME_WAIT   
+tcp        0      0 frontend-v1-68d64c66df-s9hcr:5000 10.244.0.1:42196        TIME_WAIT   
+tcp        0      0 localhost:5000          localhost:45372         TIME_WAIT   
+tcp        0      0 localhost:45370         localhost:5000          TIME_WAIT   
+tcp        0      0 frontend-v1-68d64c66df-s9hcr:54204 reviews-service.default.svc.cluster.local:9999 TIME_WAIT   
+tcp        0      0 frontend-v1-68d64c66df-s9hcr:39470 payment-service.default.svc.cluster.local:8888 TIME_WAIT   
+Active UNIX domain sockets (w/o servers)
+```
+
+#### Capture packets from a live TCPnetwork with tcpdump
+```bash
+# list interfaces
+tcpdump -D
+
+# display all interfaces
+tcpdump -i any -c 5
+
+# display only first ethernet interface
+tcpdump -i eth0 -c 5
+
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+09:05:54.021259 IP 10.244.0.1.47686 > frontend-v1-68d64c66df-q6c7n.5000: Flags [S], seq 1574929709, win 64240, options [mss 1460,sackOK,TS val 3236677810 ecr 0,nop,wscale 7], length 0
+09:05:54.021305 IP frontend-v1-68d64c66df-q6c7n.5000 > 10.244.0.1.47686: Flags [S.], seq 4011247834, ack 1574929710, win 65160, options [mss 1460,sackOK,TS val 2761942823 ecr 3236677810,nop,wscale 7], length 0
+09:05:54.021395 IP 10.244.0.1.47686 > frontend-v1-68d64c66df-q6c7n.5000: Flags [.], ack 1, win 502, options [nop,nop,TS val 3236677811 ecr 2761942823], length 0
+09:05:54.022039 IP 10.244.0.1.47688 > frontend-v1-68d64c66df-q6c7n.5000: Flags [S], seq 642112599, win 64240, options [mss 1460,sackOK,TS val 3236677811 ecr 0,nop,wscale 7], length 0
+09:05:54.022080 IP frontend-v1-68d64c66df-q6c7n.5000 > 10.244.0.1.47688: Flags [S.], seq 254269054, ack 642112600, win 65160, options [mss 1460,sackOK,TS val 2761942823 ecr 3236677811,nop,wscale 7], length 0
+5 packets captured
+21 packets received by filter
+0 packets dropped by kernel
+```
+
+Understanding the output format
+```bash
+09:05:54.022080 IP frontend-v1-68d64c66df-q6c7n.5000 > 10.244.0.1.47688: Flags [S.], seq 254269054, ack 642112600, win 65160, options [mss 1460,sackOK,TS val 2761942823 ecr 3236677811,nop,wscale 7], length 0
+
+<TIME_STAMP> <NETWORK_LAYER> <SOURCE_IP> <DESTIONATION_ID> <FLAG> <NUM_CONTAINED_BYTES> <NUM_NEXT_EXPECTED_BYTES> <NUM_WINDOWSIZE_BYTE> <OPTIONAL> <LENGTH OF PAYLOAD DATA>
+```
+
+FLAG
+| Value  | Flag Type	 | Description |
+| --- | --- | --- |
+| S | SYN | Connection Start |
+| F | FIN | Connection Finish |
+| P | PUSH | Data push |
+| R | RST | Connection reset |
+| . | ACK | Acknowledgment |
+
+
+#### Launch termshark for Package Analyze UI 
+Termshark provides a user-friendly, terminal-based interface for analyzing packet captures, making it accessible directly from the command line without needing a graphical environment.
+
+```bash
+# Launch termshark with read mode
+termshark -i eth0
+```
+![termshark view](/images/post-20240222/termshark.png)
 
 ## Conclusion
 As Kubernetes continues to evolve and grow in popularity, mastering these debugging techniques becomes increasingly essential for maintaining the reliability and performance of microservices. With the knowledge gained from this blog post, readers are well-equipped to tackle the challenges of debugging in Kubernetes confidently.

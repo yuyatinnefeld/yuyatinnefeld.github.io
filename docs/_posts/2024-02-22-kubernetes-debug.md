@@ -315,15 +315,33 @@ Network troubleshooting in Kubernetes can be challenging, especially when pods l
 POD_ID="frontend-v1-65db68c8b-8vbjg"
 NS="default"
 
-# gernerate a few traffics
-kubectl port-forward svc/frontend-service 500
-
 # run netshoot container
 kubectl debug -it -n $NS $POD_ID --image=nicolaka/netshoot --image-pull-policy=Always
 ```
 
+#### Check IP Config
+```bash
+ifconfig
+
+ip route
+
+default via 10.244.0.1 dev eth0 
+10.244.0.0/16 dev eth0 proto kernel scope link src 10.244.0.18 
+
+ping 10.244.0.1 
+
+ip neigh show
+10.244.0.2 dev eth0 lladdr 6a:a3:3e:a2:54:92 STALE 
+10.244.0.1 dev eth0 lladdr 16:4f:6d:25:c9:85 REACHABLE
+```
+
+
 #### Display the network status and protocol statistics with netstat
 ```bash
+# gernerate a few traffics
+kubectl port-forward svc/frontend-service 5000
+curl localhost:5000
+
 netstat
 
 Active Internet connections (w/o servers)
@@ -368,16 +386,13 @@ Understanding the output format
 ```
 
 FLAG
-| Value  | Flag Type	 | Description |
-| --- | --- | --- |
-| S | SYN | Connection Start |
-| F | FIN | Connection Finish |
-| P | PUSH | Data push |
-| R | RST | Connection reset |
-| . | ACK | Acknowledgment |
+- S (SYN) = Connection Start
+- F (FIN) = Connection Finish
+- P (PUSH) = Data Push
+- R (RST) = Connection reset
+- . (ACK) = Acknowledgment
 
-
-#### Launch termshark for Package Analyze UI 
+#### Launch the Package Analyze UI with termshark
 Termshark provides a user-friendly, terminal-based interface for analyzing packet captures, making it accessible directly from the command line without needing a graphical environment.
 
 ```bash

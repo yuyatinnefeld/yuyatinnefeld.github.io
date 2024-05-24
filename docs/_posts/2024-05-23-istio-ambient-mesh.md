@@ -13,7 +13,7 @@ The CNCF announced that Istio now includes ambient mode as beta with the upcomin
 I asked what is the ambient mesh and wanted to know the logic, how does it work, and how to use it. Today we will deep dive into the world of sidecar-less service mesh with ambient mesh.
 
 ## What is the Ambient Mesh?
-![Ambient mesh overview](/images/post-20240525/ambient-mesh-overview.png)
+![Ambient mesh overview](/images/post-20240523/ambient-mesh-overview.png)
 
 In ambient mode, Istio brings the Layer 4 features of the sidecar-less service mesh architecture to production readiness. This feature is used for a per-node L4 proxy, a lightweight node proxy called the ztunnel and optionally a per-namespace L7 proxy.
 
@@ -25,7 +25,7 @@ In ambient mode, Istio brings the Layer 4 features of the sidecar-less service m
 - Performance and Cost: Enhances performance and lowers infrastructure costs.
 
 ## How does Istio Ambient Mesh work?
-![Ambient mesh overview](/images/post-20240525/waypoint-proxy.png)
+![Ambient mesh overview](/images/post-20240523/waypoint-proxy.png)
 
 ## Ztunnel
 The ztunnel (Zero Trust tunnel) is a lightweight, per-node proxy in Istio’s ambient mode. It securely connects and authenticates workloads within the mesh.

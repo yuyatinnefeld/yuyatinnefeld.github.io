@@ -24,6 +24,18 @@ In ambient mode, Istio brings the Layer 4 features of the sidecar-less service m
 - Flexibility: Allows optional deployment of L7 proxies (waypoints) for advanced functions.
 - Performance and Cost: Enhances performance and lowers infrastructure costs.
 
+## Performance Improvement
+Consider managing 200 Pods, each with a 40MB sidecar. Switching to Ambient Mesh with 3 Nodes and 12 Waypoints results in significant savings.
+
+##### Bofore: 
+- 200 Pods * 40Mb = 8GB
+##### After: 
+- 3 Nodes * 15Mb per Ztunnel = 45Mb
+- 12 Waypoint * 40Mb = 480Mb
+- Total: 535MB instead of 8GB
+
+This switch results in a 93.3% reduction in storage usage.
+
 ## How does Istio Ambient Mesh work?
 ![Ambient mesh overview](/images/post-20240523/waypoint-proxy.png)
 

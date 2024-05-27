@@ -59,13 +59,13 @@ Waypoint proxies use the Envoy proxy, which Istio also uses for sidecars. Simila
 - Advanced Features: For advanced traffic management and Layer 7 features, you’ll need to deploy waypoint proxies.
 
 ## How to Use Ambient Mesh? 
-- 1. Download and install
-- 2. Deploy a sample application
-- 3. Test the bookinfo application
-- 4. Adding the application to the Ambient Mesh
-- 5. Set L4 authorization policy
-- 6. Set L7 authorization policy
-- 7. Change traffic routing
+1. Download and install
+2. Deploy a sample application
+3. Test the bookinfo application
+4. Adding the application to the Ambient Mesh
+5. Set L4 authorization policy
+6. Set L7 authorization policy
+7. Change traffic routing
 
 ### Download and install
 ```bash

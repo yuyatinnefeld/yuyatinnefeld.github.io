@@ -150,7 +150,7 @@ EOF
 # this should succeed
 kubectl exec deploy/sleep -- curl -s http://productpage:9080/ | grep -o "<title>.*</title>"
 
-# # this should fail with a connection reset error code 56
+# this should fail with a connection reset error code 56
 kubectl exec deploy/notsleep -- curl -s http://productpage:9080/ | grep -o "<title>.*</title>"
 ```
 

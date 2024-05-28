@@ -75,6 +75,9 @@ kubectl apply -f istio/traffic-management/istio-gateway.yaml
 # verify
 kubectl get gateway -A
 
+# test with sample DNS
+curl -s -HHost:microservices-yuya.com http://$INGRESS_HOST:$INGRESS_PORT
+
 # update local DNS
 echo -e "$(minikube ip)\tmicroservices-yuya.com" | sudo tee -a /etc/hosts
 

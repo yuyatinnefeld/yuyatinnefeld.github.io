@@ -44,7 +44,7 @@ For detailed information about the application, visit <a href="https://github.co
 
 ## Deploy microservices to kubernetes cluster
 
-After pushing the images, we'll deploy the microservice applications. See the guide: [link](https://github.com/yuyatinnefeld/istio/tree/main/microservices/deploy/no-service-mesh)
+After pushing the images, we'll deploy the microservice applications. See the guide: [link](https://github.com/yuyatinnefeld/microservices/tree/main/k8s/no-service-mesh)
 
 ## Start Minikube Cluster
 ```bash
@@ -54,17 +54,17 @@ minikube start --memory=8192 --cpus=4 --driver=hyperkit
 ## Deploy Microservices into Kubernetes Cluster
 ```bash
 # deploy microservices with v1
-kubectl apply -f microservices/deploy/no-service-mesh/apps-v1
+kubectl apply -f k8s/no-service-mesh-mesh/apps-v1
 # verfiy the services with v1
 kubectl port-forward svc/frontend-service 5000 &
 
 # update the services with v2
-kubectl apply -f microservices/deploy/no-service-mesh/apps-v2
+kubectl apply -f k8s/no-service-mesh-mesh/apps-v2
 # verfiy the services with v2
 kubectl port-forward svc/frontend-service 5000 &
 
 # update the services with v3
-kubectl apply -f microservices/deploy/no-service-mesh/apps-v3
+kubectl apply -f k8s/no-service-mesh-mesh/apps-v3
 # verfiy the services with v3
 kubectl port-forward svc/frontend-service 5000 &
 ```
@@ -79,7 +79,7 @@ minikube addons enable ingress
 kubectl get pods -n ingress-nginx | grep ingress-nginx-controller
 
 # deploy ingress rules
-kubectl apply -f microservices/deploy/no-service-mesh/k8s-ingress/ingress.yaml
+kubectl apply -f k8s/no-service-mesh-mesh/k8s-ingress/ingress.yaml
 
 # wait and verify the ingress received the cluster IP
 kubectl get ingress --watch

@@ -87,10 +87,10 @@ kubectl get pods,daemonset -n istio-system | grep cni
 
 ```bash
 # Deploy the sample services
-kubectl apply -f microservices/deploy/service-mesh/bookinfo
+kubectl apply -f k8s/service-mesh/bookinfo
 
 # Deploy the sleep app for the traffic test
-kubectl apply -f microservices/deploy/service-mesh/sample
+kubectl apply -f k8s/service-mesh/sample
 
 # Set the environment variables for the Kubernetes Gateway
 export GATEWAY_NAME=bookinfo-gateway
@@ -208,7 +208,7 @@ for i in $(seq $count); do
 done
 
 # update traffic routing
-kubectl apply -f microservices/deploy/service-mesh/demo/route-reviews-90-10.yaml
+kubectl apply -f k8s/service-mesh/demo/route-reviews-90-10.yaml
 
 # check the review version
 

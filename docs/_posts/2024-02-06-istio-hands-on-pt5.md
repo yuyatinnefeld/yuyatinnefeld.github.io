@@ -171,8 +171,8 @@ bash istio-install.sh
 # Create Sample Apps
 kubectl create ns foo
 kubectl label ns foo istio-injection=enabled
-kubectl apply -f microservices/deploy/service-mesh/sample/httpbin.yaml -n foo
-kubectl apply -f microservices/deploy/service-mesh/sample/sleep.yaml -n foo
+kubectl apply -f k8s/service-mesh/sample/httpbin.yaml -n foo
+kubectl apply -f k8s/service-mesh/sample/sleep.yaml -n foo
 
 # Check the debug level log for the RBAC (Role-based access control)
 istioctl proxy-config log deploy/httpbin.foo --level "rbac:debug" | grep rbac

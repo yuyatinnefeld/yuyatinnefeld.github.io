@@ -34,7 +34,7 @@ For this project, we are utilizing these github repositories:
 bash ./istio-install.sh
 
 # Deploy microservices
-kubectl apply -f microservices/deploy/service-mesh/apps
+kubectl apply -f k8s/service-mesh/apps
 
 # Check the deployment
 kubectl port-forward svc/frontend-service 5000 &
@@ -46,7 +46,7 @@ export NAMESPACE="foo"
 kubectl create ns $NAMESPACE
 
 # Deploy a sample app
-kubectl apply -f <(istioctl kube-inject -f microservices/deploy/service-mesh/sample/httpbin.yaml) -n $NAMESPACE
+kubectl apply -f <(istioctl kube-inject -f k8s/service-mesh/sample/httpbin.yaml) -n $NAMESPACE
 
 # Verify
 kubectl rollout status deployment/httpbin -n $NAMESPACE
@@ -223,8 +223,8 @@ istioctl install --set profile=demo -y
 # Deploy Apps
 kubectl create ns foo
 kubectl label namespace foo istio-injection=enabled
-kubectl apply -f <(istioctl kube-inject -f microservices/deploy/service-mesh/sample/httpbin.yaml) -n foo
-kubectl apply -f <(istioctl kube-inject -f microservices/deploy/service-mesh/sample/sleep.yaml) -n foo
+kubectl apply -f <(istioctl kube-inject -f k8s/service-mesh/sample/httpbin.yaml) -n foo
+kubectl apply -f <(istioctl kube-inject -f k8s/service-mesh/sample/sleep.yaml) -n foo
 
 # Deploy Policy
 kubectl apply -n foo -f - <<EOF

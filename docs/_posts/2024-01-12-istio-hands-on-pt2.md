@@ -182,7 +182,7 @@ Now, the browser automatically opens, and we can see the Jaeger UI. We can delve
 Example: We will disrupt the reviews-app by targeting the wrong port '1111', and we will observe the effect as the duration time of the reviews app significantly increases.
 
 ```bash
-kubectl apply -f microservices/deploy/service-mesh/demo/broken-reviews.yaml
+kubectl apply -f k8s/service-mesh/demo/broken-reviews.yaml
 ```
 
 ![Jaeger Error Demo](/images/post-20240112/jaeger-error.png)

@@ -18,7 +18,9 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
 5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
-For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
+For this project, we are utilizing these github repositories: 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
 
 In these sessions, we'll learn how to install `istioctl` and configure an Istio mesh. There are various opportunities to install and configure the Istio mesh; you can refer to the official documentation [here](https://istio.io/latest/docs/setup/install/). This article provides a minimal overview of Istio setup. If you are interested in a deeper understanding of the topic, you can find a wealth of useful information in the Istio documentation.
 
@@ -91,7 +93,7 @@ kubectl get namespace -L istio-injection
 ## Deploy microservices
 ```bash
 # Deploy microservices
-kubectl apply -f microservices/deploy/service-mesh/apps
+kubectl apply -f k8s/service-mesh/apps
 
 # Check the side-car proxy
 istioctl analyze

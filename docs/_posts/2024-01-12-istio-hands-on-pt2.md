@@ -18,7 +18,9 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 4. [Security](https://yuyatinnefeld.com/2024-01-27-istio-hands-on-pt4/)
 5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
-For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
+For this project, we are utilizing these github repositories: 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
 
 ## Setup Istio Environment and Deploy Microservices
 ```bash
@@ -26,7 +28,7 @@ For this project, we are utilizing a sample microservice project, and you can fi
 bash ./istio-install.sh
 
 # Deploy microservices
-kubectl apply -f microservices/deploy/service-mesh/apps
+kubectl apply -f k8s/service-mesh/apps
 
 # Check the deployment
 kubectl port-forward svc/frontend-service 5000 &

@@ -18,7 +18,9 @@ The target audience for this blog comprises users who are already familiar with 
 
 In our inaugural session, Part 0, we'll start by deploying microservices without Istio, and then we'll delve into the process with Istio injection in the second session. While Istio provides a sample microservices project ( <a href="https://github.com/istio/istio/tree/master/samples/bookinfo/platform/kube" target="_blank"><b>bookinfo</b></a>), I've taken the initiative to create a simple microsoft architecture application. This will allow us not only to understand the basics but also to make adjustments to the application later.
 
-For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
+For this project, we are utilizing these github repositories: 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
 
 ## Microservices Architecture
 ![Sample Microservices Architecture](/images/post-20240102/microservice-project.png)

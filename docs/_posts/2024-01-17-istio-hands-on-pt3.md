@@ -29,7 +29,10 @@ Today, we'll master the following topics:
 - [Circuit Breaking](#circuit-breaking)
 - [Retries](#retries)
 
-For this project, we are utilizing a sample microservice project, and you can find it at the following <a href="https://github.com/yuyatinnefeld/istio" target="_blank"><b>link</b></a>.
+For this project, we are utilizing these github repositories: 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
+
 
 ## Gateways {#gateways}
 ![Gateway graph](/images/post-20240117/istio-gateway.png)

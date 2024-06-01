@@ -24,7 +24,9 @@ Today, we'll master the following topics:
 - [Authorization](#authorization)
 - [Certificate Management](#certificate-management)
 
-For this project, we are utilizing a sample microservice project, and you can find it [here](https://github.com/yuyatinnefeld/istio).
+For this project, we are utilizing these github repositories: 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
 
 ## Setup Environment and Deploy a Sample App
 ```bash

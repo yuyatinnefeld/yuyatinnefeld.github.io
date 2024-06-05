@@ -56,6 +56,7 @@ Notable users of Google Cloud Platform:
 
 - Unopinionated Containers: any container image, no restrictions
 - Opinionated Containers: specific base image or programming model required
+- Container Instance => for Single Container, Conctainer Apps => for Microservices
 
 ### Azure
 

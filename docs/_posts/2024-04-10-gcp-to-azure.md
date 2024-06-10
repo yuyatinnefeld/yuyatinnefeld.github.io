@@ -91,7 +91,7 @@ Notable users of Google Cloud Platform:
 | Storage | Disk Storage | Cloud Persistent Disks | Azure Disk Storage |
 | Storage | File Storage | Filestore | Azure Files, Azure NetApp Files |
 | Storage | Queue Storage | Cloud Storage | Azure Queue Storage |
-| Storage | NOSQL DB | Datastore | Cosmos DB |
+| Storage | NOSQL DB (Low Performance)| Datastore | Table Storage |
 | Storage | NOSQL DB (High Performance) | BigTable | Cosmos DB |
 | Storage | SQL DB | SQL | SQL Database |
 | Storage | Disk | Persistent Disk | Azure Disk |

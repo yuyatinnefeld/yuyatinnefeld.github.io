@@ -88,8 +88,9 @@ Notable users of Google Cloud Platform:
 | Networking | Load Balancer | Cloud LB | Load balancing |
 | Networking | CDN | Cloud CDN | Azure CDN |
 | Storage | Object Storage | Cloud Storage | Azure Blob and Data Lake Storage |
-| Storage | Blob Storage | Cloud Persistent Disks | Azure Disk Storage |
+| Storage | Disk Storage | Cloud Persistent Disks | Azure Disk Storage |
 | Storage | File Storage | Filestore | Azure Files, Azure NetApp Files |
+| Storage | Queue Storage | Cloud Storage | Azure Queue Storage |
 | Storage | NOSQL DB | Datastore | Cosmos DB |
 | Storage | NOSQL DB (High Performance) | BigTable | Cosmos DB |
 | Storage | SQL DB | SQL | SQL Database |

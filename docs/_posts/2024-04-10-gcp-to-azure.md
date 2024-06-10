@@ -110,6 +110,13 @@ Notable users of Google Cloud Platform:
 | Security | Identity Access Management | IAM | Active Directory |
 | Security | Security Check | Security Scanner | Azure Security Center |
 
+### Storage Account
+A storage account offers four types of storage
+- blob storage (Unstructured data)
+- file storage (File Shares)
+- table storage (Structured or semi-structured data)
+- queue storage (Large numbers of messages)
+
 ## Cloud CLI
 
 ### Create a Project 

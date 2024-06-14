@@ -108,6 +108,7 @@ Notable users of Google Cloud Platform:
 | Observability | Debugfing | Cloud Debugger | Visual Studio |
 | Security | Key Management | KMS | Key Vault |
 | Security | Identity Access Management | IAM | Active Directory |
+| Security | Identity Access Management (New) | IAM | Entra Id |
 | Security | Security Check | Security Scanner | Azure Security Center |
 
 ### Storage Account

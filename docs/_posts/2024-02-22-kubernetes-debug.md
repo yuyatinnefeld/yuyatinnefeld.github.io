@@ -401,6 +401,46 @@ termshark -i eth0
 ```
 ![termshark view](/images/post-20240222/termshark.png)
 
+## Access Control Resolution
+
+#### Check permissions
+
+```bash
+# Check if a user can create deployments 
+kubectl auth can-i create deployments --namespace dev
+
+# Check if a permission-specific user user can create deployments 
+kubectl auth can-i create deployments --namespace dev --as=user@example.com
+
+# Check if a user can list pods in the default namespace
+kubectl auth can-i list pods --namespace=default --as=user@example.com
+
+# Check if a service account can delete deployments in a specific namespace
+kubectl auth can-i delete deployments --namespace=my-namespace --as=system:serviceaccount:my-namespace:my-serviceaccount
+```
+
+#### List RBAC Resources
+```bash
+kubectl get roles --all-namespaces
+kubectl get rolebindings --all-namespaces
+kubectl get clusterroles
+kubectl get clusterrolebindings
+```
+
+#### Describe RBAC Resources
+```bash
+kubectl describe role <role-name> -n <namespace>
+kubectl describe rolebinding <rolebinding-name> -n <namespace>
+kubectl describe clusterrole <clusterrole-name>
+kubectl describe clusterrolebinding <clusterrolebinding-name>
+```
+
+#### Review Service Accounts
+```bash
+kubectl get serviceaccounts --all-namespaces
+kubectl describe serviceaccount <serviceaccount-name> -n <namespace>
+```
+
 ## Conclusion
 As Kubernetes continues to evolve and grow in popularity, mastering these debugging techniques becomes increasingly essential for maintaining the reliability and performance of microservices. With the knowledge gained from this blog post, readers are well-equipped to tackle the challenges of debugging in Kubernetes confidently.
 

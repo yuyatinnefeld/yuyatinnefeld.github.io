@@ -138,10 +138,40 @@ By following these steps, you can effectively verify the correctness of Docker i
 #### Using Curl Image to Call the App
 
 ```bash
-kubectl debug $POD_ID -it --image=curlimages/curl -- curl localhost:8080
-```
-#### Using Port Forward 
+# deploy 2 pods for testing
+kubectl run pod-1 --image=nginx --port=80
+kubectl run pod-2 --image=nginx --port=80
 
+# check ip adress
+kubectl get pods -o wide
+POD_1_IP=10.244.0.4
+POD_2_IP=10.244.0.3
+
+# if container has curl
+kubectl exec pod-1 --curl $POD_2_IP
+kubectl exec pod-2 --curl $POD_1_IP
+
+# if not use curlimage
+kubectl debug pod-1 -it --image=curlimages/curl -- curl $POD_2_IP
+kubectl debug pod-2 -it --image=curlimages/curl -- curl $POD_1_IP
+```
+
+#### Check Connectivity with the Netcat
+```bash
+kubectl run -i --tty --rm debug-pod --image=busybox --restart=Never -- sh
+nc -zv -w 3 10.244.0.4 80
+10.244.0.3 (10.244.0.3:80) open
+nc -zv -w 3 10.244.0.3 80
+10.244.0.3 (10.244.0.3:80) open
+
+# check the respond with headers
+echo -e "HEAD / HTTP/1.1\r\nHost: 10.244.0.3\r\n\r\n" | nc -i 1 10.244.0.3 80
+
+# check the respond with headers & body
+echo -e "GET / HTTP/1.1\r\nHost: 10.244.0.3\r\n\r\n" | nc 10.244.0.3 80
+```
+
+#### Using Port Forward 
 ```bash
 SVC=$(kubectl get svc -l service=frontend -o jsonpath="{.items[0].metadata.name}")
 POD_ID=$(kubectl get pod -l app=frontend-app -o jsonpath="{.items[0].metadata.name}")

@@ -136,11 +136,14 @@ curl localhost:9999
 By following these steps, you can effectively verify the correctness of Docker images and ensure the availability of associated services within the Kubernetes cluster.
 
 #### Using Curl Image to Call the App
-
+```bash
+POD_ID_1=pod-1
+POD_ID_2=pod-2
+```
 ```bash
 # deploy 2 pods for testing
-kubectl run pod-1 --image=nginx --port=80
-kubectl run pod-2 --image=nginx --port=80
+kubectl run $POD_ID_1 --image=nginx --port=80
+kubectl run $POD_ID_2 --image=nginx --port=80
 
 # check ip adress
 kubectl get pods -o wide
@@ -148,12 +151,12 @@ POD_1_IP=10.244.0.4
 POD_2_IP=10.244.0.3
 
 # if container has curl
-kubectl exec pod-1 --curl $POD_2_IP
-kubectl exec pod-2 --curl $POD_1_IP
+kubectl exec $POD_ID_1 --curl $POD_2_IP
+kubectl exec $POD_ID_2 --curl $POD_1_IP
 
 # if not use curlimage
-kubectl debug pod-1 -it --image=curlimages/curl -- curl $POD_2_IP
-kubectl debug pod-2 -it --image=curlimages/curl -- curl $POD_1_IP
+kubectl debug $POD_ID_1 -it --image=curlimages/curl -- curl $POD_2_IP
+kubectl debug $POD_ID_2 -it --image=curlimages/curl -- curl $POD_1_IP
 ```
 
 #### Check Connectivity with the Netcat

@@ -160,7 +160,7 @@ kubectl debug pod-2 -it --image=curlimages/curl -- curl $POD_1_IP
 ```bash
 kubectl run -i --tty --rm debug-pod --image=busybox --restart=Never -- sh
 nc -zv -w 3 10.244.0.4 80
-10.244.0.3 (10.244.0.3:80) open
+10.244.0.4 (10.244.0.4:80) open
 nc -zv -w 3 10.244.0.3 80
 10.244.0.3 (10.244.0.3:80) open
 

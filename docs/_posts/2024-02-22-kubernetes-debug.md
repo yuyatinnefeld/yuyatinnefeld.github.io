@@ -36,7 +36,7 @@ You can also refer to the diagram provided by Daniele Polencic on the Learnk8s p
 | NR  | Check Items | Description |
 | --- | --- | --- |
 | 1 | Gather Info | Collect info about cluster, nodes, pods, services. |
-| 2 | YAML | Ensure the YAML manifest is valid and error-free. |
+| 2 | Validate YAML | Ensure the YAML manifest is valid and error-free. |
 | 3 | Docker Image | Verify the correctness and functionality of Docker images. |
 | 4 | Service Accessibility | Use `kubectl port-forward` to access services and validate connectivity. |
 | 5 | Log Inspection | Inspect pod logs for error messages and anomalies with `kubectl log`. |
@@ -46,7 +46,7 @@ You can also refer to the diagram provided by Daniele Polencic on the Learnk8s p
 | 9 | Network Configuration | Debug Network Traffic using the netshoot container |
 | 10 | Access Control Resolution | Resolve access issues for users and services, including permissions, policies, and TLS configurations. |
 
-## Gather Info
+## 1. Gather Info
 Before diving into debugging, it's beneficial to gather information about the cluster, nodes, pods, services, and other relevant components.
 
 ```bash
@@ -88,7 +88,7 @@ Runtime errors include:
 - SetupNetworkError
 - TeardownNetworkError
 
-## Ensure Kubernetes YAML manifest is correct
+## 2. Validate YAML
 Before proceeding with any further actions, it's essential to ensure the validity of the Kubernetes manifest file af first. Occasionally, errors such as incorrect key or value names, or indentation issues, can render YAML-formatted code invalid. To verify the correctness of the manifest, you can employ the `--dry-run=client` flag, which allows you to perform a syntax check without actually applying the configuration changes to the cluster. This preemptive step helps prevent potential deployment failures and ensures smooth execution of subsequent actions.
 
 ```bash
@@ -101,7 +101,7 @@ These tools assist in ensuring the correctness and validity of your Kubernetes Y
 - [validkube](https://validkube.com/)
 - [yamllint](https://www.yamllint.com/)
 
-## Check the Docker Image
+## 3. Docker Image 
 When deploying applications in Kubernetes, ensuring the correctness of Docker images and service configurations is paramount. Let's walk through the process of validating these components within the Kubernetes environment.
 
 1. Review Kubernetes YAML File
@@ -132,8 +132,15 @@ docker run -p 9999:9999  yuyatinnefeld/microservice-reviews-app:1.0.0
 curl localhost:9999
 ```
 
-## Execute Port Forwarding
+## 4. Service Accessibility
 By following these steps, you can effectively verify the correctness of Docker images and ensure the availability of associated services within the Kubernetes cluster.
+
+#### Using Curl Image to Call the App
+
+```bash
+kubectl debug $POD_ID -it --image=curlimages/curl -- curl localhost:8080
+```
+#### Using Port Forward 
 
 ```bash
 SVC=$(kubectl get svc -l service=frontend -o jsonpath="{.items[0].metadata.name}")
@@ -148,7 +155,7 @@ kubectl port-forward svc/$SVC 5000
 curl localhost:5000
 ```
 
-## Examining Pod Logs
+## 5. Log Inspection
 Pod logs provide valuable insights into the behavior of applications running within Kubernetes pods. You can retrieve these logs using the kubectl logs command:
 
 ```bash
@@ -158,7 +165,7 @@ kubectl logs $POD_ID
 
 By inspecting pod logs, you can identify errors, warnings, or other messages that help pinpoint issues within your application.
 
-## Container Exec
+## 6. Container Execution
 In some cases, you may need to execute commands directly within a container to further investigate issues. Kubernetes provides the exec command for this purpose:
 
 Using `exec -it`, you can run an interactive shell within the container, allowing you to execute commands and explore its environment.
@@ -177,7 +184,7 @@ kubectl exec -it $POD_ID -- top
 
 A preferable alternative is `kubectl debug`. With this option, there's no need to manipulate the original pod. Instead, an ephemeral container is utilized for debugging purposes, ensuring that the original container remains untouched.
 
-## Debug with Ephemeral Containers
+## 7. Container Debugging
 Ephemeral containers are useful for interactive troubleshooting when `kubectl exec` is insufficient because a container has crashed or a container image doesn't include debugging utilities, such as with distroless images.
 
 #### Deploying the Sample Application
@@ -221,19 +228,13 @@ EOF
 Attempt to access the sample app, which may result in an error due to the absence of a shell within the Distroless container.
 
 ```bash
-kubectl exec sample-app -it -- sh
-OCI runtime exec failed: exec failed: unable to start container process: exec: "sh": executable file not found in $PATH: unknown
-command terminated with exit code 126
+POD_ID="sample-app"
 ```
 
-#### Using Curl Image to Call the App
-
 ```bash
-POD_ID="sample-app"
-
-kubectl debug $POD_ID -it --image=curlimages/curl -- curl localhost:8080
-> Defaulting debug container name to debugger-wj662.
-> hello sample app!
+kubectl exec $POD_ID -it -- sh
+OCI runtime exec failed: exec failed: unable to start container process: exec: "sh": executable file not found in $PATH: unknown
+command terminated with exit code 126
 ```
 
 #### Copying Sample App and Debugging from Sidecar Container
@@ -259,7 +260,7 @@ cat /proc/$PID/root/app/server.js
 kubectl delete pod debug-sample-app
 ```
 
-## Configuring Health Checks for Kubernetes Pods
+## 8. Health Check Configuration
 Ensuring the health and availability of containers running in Kubernetes is paramount for maintaining the reliability of your applications. 
 
 It's crucial to configure both liveness and readiness probes in your Kubernetes deployment manifests. Without proper configuration, your containers may face issues such as endless restart loops or being prematurely included in service pools.
@@ -307,7 +308,7 @@ POD_ID="frontend-v1-65db68c8b-8vbjg"
 kubectl describe $POD_ID | grep -i readiness
 ```
 
-## Network Configuration
+## 9. Network Configuration
 Network troubleshooting in Kubernetes can be challenging, especially when pods lack necessary commands. Netshoot acts like a Swiss Army knife for network debugging, offering a comprehensive set of network commands to test connectivity across your cluster.
 
 #### Start netshoot
@@ -401,7 +402,7 @@ termshark -i eth0
 ```
 ![termshark view](/images/post-20240222/termshark.png)
 
-## Access Control Resolution
+## 10. Access Control Resolution
 
 #### Check permissions
 

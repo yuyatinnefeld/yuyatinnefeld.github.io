@@ -19,7 +19,7 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
 For this project, we are utilizing these github repositories: 
-- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices")
 - [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
 
 In these sessions, we'll learn how to install `istioctl` and configure an Istio mesh. There are various opportunities to install and configure the Istio mesh; you can refer to the official documentation [here](https://istio.io/latest/docs/setup/install/). This article provides a minimal overview of Istio setup. If you are interested in a deeper understanding of the topic, you can find a wealth of useful information in the Istio documentation.

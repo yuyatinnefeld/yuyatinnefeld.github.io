@@ -43,14 +43,31 @@ istioctl version
 ```
 
 ## Install Istio Configuration Profiles
-Additional Istio configuration profiles can be installed in a cluster by specifying the profile name on the command line. For example, the following command installs the demo profile:
+Istio provides flexible configuration profiles to suit different use cases. You can install Istio using `istioctl` or by applying Istio YAML manifests directly.
 
 
+### Option 1: Install Istio with istioctl
+
+You can list all available profiles using:
+```bash
+istioctl profile list
+```
+To install a specific config profile using istioctl, use the following command: 
 ```bash
 # Install Istio profile
 istioctl install --set profile=demo -y
+```
 
-# Verify the installation results
+### Option 2: Install Istio with YAML Manifests
+If you prefer to use YAML manifests, you canapply the manifests directly(`istio/istio-manifests`) using kubectl.
+
+```bash
+kubectl apply -f istio/istio-manifests
+```
+
+###  Verify the Installation Results
+```bash
+# Verifys
 istioctl verify-install
 
 # Verify all Istio components

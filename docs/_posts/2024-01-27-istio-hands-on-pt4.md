@@ -25,8 +25,8 @@ Today, we'll master the following topics:
 - [Certificate Management](#certificate-management)
 
 For this project, we are utilizing these github repositories: 
-- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
-- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices)
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio)
 
 ## Setup Environment and Deploy a Sample App
 ```bash

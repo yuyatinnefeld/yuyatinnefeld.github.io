@@ -19,8 +19,8 @@ Below, you'll find the table of contents detailing the Istio hands-on lab, organ
 5. [Troubleshooting](https://yuyatinnefeld.com/2024-02-06-istio-hands-on-pt5/)
 
 For this project, we are utilizing these github repositories: 
-- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
-- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices)
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio)
 
 ## Setup Istio Environment and Deploy Microservices
 ```bash

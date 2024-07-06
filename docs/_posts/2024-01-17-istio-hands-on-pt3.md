@@ -30,8 +30,8 @@ Today, we'll master the following topics:
 - [Retries](#retries)
 
 For this project, we are utilizing these github repositories: 
-- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices") 
-- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio")
+- [DEMO MICROSERVICES](https://github.com/yuyatinnefeld/microservices)
+- [ISTIO CONFIG FILES](https://github.com/yuyatinnefeld/istio)
 
 
 ## Gateways {#gateways}

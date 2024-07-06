@@ -92,7 +92,7 @@ kubectl get namespace -L istio-injection
 
 ## Deploy microservices
 ```bash
-# Deploy microservices
+# Deploy microservices (https://github.com/yuyatinnefeld/microservices)
 kubectl apply -f k8s/service-mesh/apps
 
 # Check the side-car proxy

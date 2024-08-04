@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TestKube ⛵ Getting Started with TestKube - A Comprehensive Guide to Cloud Native Testing
+title: TestKube ⛵ Getting Started with TestKube - Kubernetes-Native Testing Framework
 
 tags: ["tech", "microservices", "test"]
 mathjax: true

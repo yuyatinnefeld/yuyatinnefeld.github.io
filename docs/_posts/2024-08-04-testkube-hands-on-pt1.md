@@ -103,7 +103,7 @@ testkube-operator-controller-manager   1/1     1            1           39m
 ## 🚨 Open Dashboard
 ![Gateway graph](/images/post-20240804/testkube-ui.png)
 
-The URL to access the Testkube Pro Dashboard is https://app.testkube.io/organization/<YOUR-ORGANIZATION>/environment/<YOUR-ENVIRONMENT>/dashboard/home
+The URL to access the Testkube Pro Dashboard is: https://app.testkube.io/organization/YOUR-ORGANIZATION/environment/YOUR-ENVIRONMENT/dashboard/home
 
 ## 🚀 Deploy Test Target
 Deploy a basic Nginx application in your Kubernetes cluster and verify its functionality.

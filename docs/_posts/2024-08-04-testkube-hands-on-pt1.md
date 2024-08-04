@@ -18,26 +18,26 @@ Below is a structured overview of the TestKube hands-on lab, divided into four s
 For this project, we are utilizing these github repositories:
 - [DEMO TESTKUBE](https://github.com/yuyatinnefeld/testkube)
 
-🤔 What is TestKube?
+## 🤔 What is TestKube?
 TestKube is a free, open-source tool designed to simplify and automate the testing of Kubernetes-native applications. It provides a unified platform for managing and running tests, ensuring that applications perform reliably within Kubernetes clusters.
 
-🛠️ Setup
+## 🛠️ Setup
 Before installing TestKube, make sure you have the following prerequisites:
 - Helm
 - kubectl
 - A Kubernetes cluster (using tools like Minikube, Kind, or K3s)
 
-1. Create a Testkube Account and Environment
+##### 1. Create a Testkube Account
 Visit [Testkube](https://app.testkube.io) to create an account and set up your environment.
 
 
-2. Create a cluster
+##### 2. Create a cluster
 
 ```bash
 minikube start --cpus=3 --memory=5200mb --driver=hyperkit
 ```
 
-3. Install testkube CLI
+##### 3. Install testkube CLI
 Next, we should install the TestKube CLI, which can be easily done using Homebrew.
 
 ```bash
@@ -59,7 +59,7 @@ Usage:
 ...
 ```
 
-4. Install Testkube in Your Minikube Test Cluster
+##### 4. Install Testkube in Your Cluster
 Deploy Testkube using the Helm chart.
 
 ```bash
@@ -84,7 +84,7 @@ helm install testkube kubeshop/testkube \
   --namespace ${NAMESPACE}
 ```
 
-Components:
+##### Components:
 - MinIO: Object storage solution with an S3-compatible API.
 - MongoDB: Stores TestKube test results and configuration.
 - Dashboard: Web-based UI for monitoring TestKube results.
@@ -108,14 +108,14 @@ The URL to access the Testkube Pro Dashboard is https://app.testkube.io/organiza
 ## 🚀 Deploy Test Target
 Deploy a basic Nginx application in your Kubernetes cluster and verify its functionality.
 
-#### 1. Deploy the Nginx Application
+##### 1. Deploy the Nginx Application
 
 ```bash
 NAMESPACE=default
 kubectl apply -f app/depl.yaml
 ```
 
-#### 2. Verify the Deployment
+##### 2. Verify the Deployment
 Create a temporary pod to test the Nginx application:
 
 ```bash
@@ -127,7 +127,7 @@ Within the mycurlpod shell, execute:
 curl http://nginx.default.svc.cluster.local:8888
 ```
 
-#### 3. Clean Up
+##### 3. Clean Up
 Exit the mycurlpod shell and delete the pod:
 ```bash
 exit

@@ -70,13 +70,13 @@ The following components are installed
     ValidatingWebhookConfiguration
     istiod-default-validator
 
-###### ClusterRole and ClusterRoleBinding
+##### ClusterRole and ClusterRoleBinding
     multiple CRs and CRBs related to Istio
 
-###### ServiceAccount
+##### ServiceAccount
     istio-reader-service-account
 
-###### ConfigMaps
+##### ConfigMaps
     istio-ca-root-cert
     istio-gateway-status-leader
     istio-leader
@@ -92,42 +92,42 @@ Install the Istiod component:
     helm install istiod helm/istiod -n istio-system
     helm ls -n istio-system
 
-###### ClusterRoles
+##### ClusterRoles
     istio-reader-clusterrole-istio-system
     istiod-clusterrole-istio-system
     istiod-gateway-controller-istio-system
 
-###### ClusterRoleBindings
+##### ClusterRoleBindings
     istio-reader-clusterrole-istio-system
     istiod-clusterrole-istio-system
     istiod-gateway-controller-istio-system
 
-###### ValidatingWebhookConfiguration
+##### ValidatingWebhookConfiguration
     istio-validator-istio-system
 
-###### MutatingWebhookConfiguration
+##### MutatingWebhookConfiguration
     istio-sidecar-injector
 
-###### PodDisruptionBudget
+##### PodDisruptionBudget
     istiod
 
-###### RoleBindings
+##### RoleBindings
     istiod
 
-###### Roles
+##### Roles
     istiod
 
-###### ServiceAccount
+##### ServiceAccount
     istiod
 
-###### ConfigMaps
+##### ConfigMaps
     istio
     istio-sidecar-injector
 
-###### Deployments
+##### Deployments
     istiod
 
-###### Pods
+##### Pods
     istiod-bc84dc94d-7k4bb
 
 ## 🛠️ 3. istio-egress and istio-ingress
@@ -146,31 +146,31 @@ Install the Istio Egress and Ingress Gateway:
     helm ls -n istio-system
 
 
-###### Deployments
+##### Deployments
     istio-egressgateway
     istio-ingressgateway
 
-###### Services
+##### Services
     istio-egressgateway
     istio-ingressgateway
 
-###### Pods
+##### Pods
     istio-egressgateway-c5f45ff98-w4rjb
     istio-ingressgateway-77bb45d49d-r77pw
 
-###### ServiceAccounts
+##### ServiceAccounts
     istio-egressgateway-service-account
     istio-ingressgateway-service-account
 
-###### RoleBindings
+##### RoleBindings
     istio-egressgateway-sds
     istio-ingressgateway-sds
 
-###### Roles
+##### Roles
     istio-egressgateway-sds
     istio-inressgateway-sds
 
-###### PodDisruptionBudget
+##### PodDisruptionBudget
     istio-egressgateway
     istio-ingressgateway
 

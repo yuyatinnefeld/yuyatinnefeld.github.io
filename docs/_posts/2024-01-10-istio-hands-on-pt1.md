@@ -2,7 +2,7 @@
 layout: post
 title: Istio Mastery ⛵ Session 1 - Setup Istio Environment
 
-tags: ["tech", "microservices"]
+tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
 ---
 

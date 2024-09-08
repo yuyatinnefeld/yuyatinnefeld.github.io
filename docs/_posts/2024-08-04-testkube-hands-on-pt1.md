@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TestKube ⛵ Getting Started with TestKube - Kubernetes-Native Testing Framework
+title: TestKube 🚀 Getting Started with TestKube - Kubernetes-Native Testing Framework
 
 tags: ["tech", "microservices", "test"]
 mathjax: true

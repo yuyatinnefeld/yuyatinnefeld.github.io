@@ -2,7 +2,7 @@
 layout: post
 title: Istio Mastery ⛵ Session 2 - Observability
 
-tags: ["tech", "microservices"]
+tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
 ---
 

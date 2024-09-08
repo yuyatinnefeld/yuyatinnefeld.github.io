@@ -2,7 +2,7 @@
 layout: post
 title: Istio Mastery ⛵ Session 0 - Microservices Deployment
 
-tags: ["tech", "microservices"]
+tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
 ---
 

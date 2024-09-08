@@ -2,7 +2,7 @@
 layout: post
 title: Istio Mastery ⛵ Session 3 - Traffic Management
 
-tags: ["tech", "microservices"]
+tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
 ---
 

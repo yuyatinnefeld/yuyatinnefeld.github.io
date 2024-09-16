@@ -8,13 +8,14 @@ mathjax: true
 
 Before diving deep into Istio Gateways, ingress, and routing, I want to clarify the differences between Kubernetes Ingress controllers and their variations, specifically focusing on the Istio Ingress and NGINX Ingress. In this post, I'll compare how both ingress models are structured and operate without delving into the pros and cons of each. The focus will be on the technical architecture and how these services function in practice. To demonstrate this, I’ll deploy a demo application and showcase the differences between Istio’s ingress controller and the NGINX ingress controller. Additionally, I'll provide a brief overview of key Kubernetes components such as Pods, Endpoints, and Services.
 
-For this project, we're using the following GitHub repository:
-- [DEMO INGRESS](https://github.com/yuyatinnefeld/istio/tree/main/istio/istio-deepdive)
+For this project, we're using the following GitHub repository: [DEMO INGRESS](https://github.com/yuyatinnefeld/istio/tree/main/istio/istio-deepdive)
 
 ## 🚀 Create Demo App
+
+We will deploy a demo application in the `application` namespace and create hello-world apps.
+
 ![Simple App](/images/post-20240916/simple-app.png)
 
-We will deploy a demo application in the `application` namespace.
 
     # create the target application namespace
     kubectl create namespace application && kubectl config set-context --current --namespace=application
@@ -27,40 +28,47 @@ We will deploy a demo application in the `application` namespace.
 When a user sends a request to the external ClusterIP (`http://192.168.76.2:30001`), the Kubernetes cluster maps this to the corresponding service IP (`10.108.78.105`) and routes the traffic to the correct Pod through its endpoints (`10.244.0.10:5678`). Let’s break down the components involved:
 
 ##### External ClusterIP
-The minikube service <service-name> --url command creates a tunnel to expose services externally.
+The `minikube service <service-name> --url` command creates a tunnel to expose services externally.
 
 - ClusterIP: `192.168.76.2`
 
-    minikube -n application service dest-svc-v1 --url
-    curl http://192.168.76.2:30001
+```bash
+minikube -n application service dest-svc-v1 --url
+curl http://192.168.76.2:30001
+```
 
 ##### Service IP / Internal ClusterIP
 Service IPs are accessible only within the cluster unless exposed via NodePort or LoadBalancer.
 
 - Service Internal IP: `10.108.78.105`
 
-    kubectl get svc -l app=hw-v1 -owide
+```bash
+kubectl get svc -l app=hw-v1 -owide
+```
 
 ##### Endpoints
 When a Service selects a set of Pods (based on labels like app=hw-v1), their Pod IP addresses are registered as endpoints for the Service.
 
 - Endpoints of App 1: `10.244.0.10:5678,10.244.0.11:5678`
 
-    kubectl get endpoints -l app=hw-v1 -owide
-
+```bash
+kubectl get endpoints -l app=hw-v1 -owide
+```
 
 ##### POD
 Pods are the fundamental units running your application, each with its own IP
 
 - Pod IP of App 1: `10.244.0.11, 10.244.0.10`
 
-    kubectl get pod -l app=hw-v1  -owide
-
+```bash
+kubectl get pod -l app=hw-v1  -owide
+```
 
 ## 🚀 Create IngressController
-![Ingress Nginx overview](/images/post-20240916/ingress-nginx.png)
 
 We will now deploy the Kubernetes NGINX IngressController to expose services through DNS endpoints (e.g., http://yuya.example.com) and handle different paths such as `/v1` and `/v2`.
+
+![Ingress Nginx overview](/images/post-20240916/ingress-nginx.png)
 
     # enable the Ingress Controller
     minikube addons enable ingress
@@ -104,7 +112,7 @@ Example response:
 ```
 
 ##### 4. Ingress Controller Processes the Request:
-The Ingress Controller checks the defined Ingress rules and routes the request based on the domain or path. For example, traffic to /v1 is routed to the correct service endpoint (e.g., `10.244.0.10:5678`).
+The Ingress Controller checks the defined Ingress rules and routes the request based on the domain or path. For example, traffic to `/v1` is routed to the correct service endpoint (e.g., `10.244.0.10:5678`).
 
     NGINX_CONTROLLER=$(kubectl get -n ingress-nginx pod -l app.kubernetes.io/component=controller -ojsonpath='{.items[0].metadata.name}')
     kubectl logs $NGINX_CONTROLLER -n ingress-nginx
@@ -163,9 +171,10 @@ Delete IngressController and Ingress rules
     minikube addons disable ingress
 
 ## 🚀 Create Istio Ingress Gateway
-![Ingress Nginx overview](/images/post-20240916/ingress-istio.png)
 
-For simplicity, we won't use VirtualService or DestinationRule this time.
+For simplicity, we won't use VirtualService or DestinationRule this time and create only Ingress and Gateway 
+
+![Ingress Nginx overview](/images/post-20240916/ingress-istio.png)
 
 ```bash
 # install and inject istio
@@ -275,7 +284,8 @@ One of Istio's most powerful features is its ability to provide deep insights in
     istioctl proxy-config all $POD -n application
 
 ## 🧹 Clean up
-  istioctl uninstall --purge -y
+
+    istioctl uninstall --purge -y
 
 ## ℹ️  Summary
 I hope that by now, you have a clearer understanding of how ingress traffic is routed within a Kubernetes cluster. Through deploying demo applications, tracing network flows, and using istioctl to debug configurations, I aimed to equip you with the tools and techniques necessary to manage ingress controllers more effectively in your Kubernetes environment.

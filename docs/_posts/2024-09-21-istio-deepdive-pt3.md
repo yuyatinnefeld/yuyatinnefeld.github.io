@@ -56,28 +56,26 @@ TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 200 OK
-...
 ```
 
 ### Call an external service
 
 ```bash
-TARGET_URL=http://www.google.com
+TARGET_URL=http://google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 200 OK
-...
 ```
 
 ## ⚙️ Enabling REGISTRY_ONLY Mode
+
+![Simple App](/images/post-20240921/blackholecluster.png)
+
+
 In `REGISTRY_ONLY` mode, Istio only allows traffic to services that are registered in the service mesh. Traffic to any unregistered external service will be blocked, and routed to the `BlackHoleCluster`.
 
 ```bash
@@ -97,27 +95,23 @@ TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 200 OK
-...
 ```
 
 ### Call an external service
 ```bash
-TARGET_URL=http://www.google.com
+TARGET_URL=http://google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 502 Bad Gateway
-...
 ```
 
 ## ⚙️ ServiceEntry
+![Simple App](/images/post-20240921/serviceentry.png)
+
 A ServiceEntry allows Istio to treat external services (like third-party APIs) as if they are part of the service mesh. This enables internal services to discover and route traffic to external services.
 
 ```bash
@@ -145,15 +139,12 @@ kubectl get serviceentry -n application
 
 ### Call google.com
 ```bash
-TARGET_URL=http://www.google.com
+TARGET_URL=http://google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 200 OK
-...
 ```
 
 ### Call github.com
@@ -164,18 +155,16 @@ TARGET_URL=http://github.com/
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-###### response:
-
 ```bash
 HTTP/1.1 502 Bad Gateway
-...
 ```
 
 ## 🤔 Why is a ServiceEntry Not Enough?
 
 While a `ServiceEntry` enables access to and discovery of external services, it lacks the control, security, and traffic management needed for outbound traffic. For more fine-grained control, you need to deploy additional Istio components, like the Egress Gateway.
 
-### Steps to Set Up an Egress Gateway:
+### Steps to Set Up an Egress Gateway
+![Simple App](/images/post-20240921/egressgateway.png)
 
 ###### 1. Create an Egress gateway
 
@@ -228,6 +217,11 @@ EOF
 
 `vs-google-via-egress-gw` defines the path for outbound traffic to `google.com`.
 
+- 3.1. Inside the `mesh`, traffic destined for google.com is first routed through the `istio-egressgateway.istio-system.svc.cluster.local`.
+
+- 3.2. Once the traffic leaves `istio-egressgateway`, it is directed to `google.com` on port `80`.
+
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.istio.io/v1
@@ -247,7 +241,7 @@ spec:
       port: 80
     route:
     - destination:
-        host: istio-egressgateway.istio-system.svc.cluster.local # forward traffics to gw-egress-google
+        host: istio-egressgateway.istio-system.svc.cluster.local
         subset: google
         port:
           number: 80
@@ -265,16 +259,14 @@ spec:
 EOF
 ```
 
-- 3.1. Inside the `mesh`, traffic destined for google.com is first routed through the `istio-egressgateway`.
-- 3.2. Once the traffic leaves `istio-egressgateway`, it is directed to google.com on port 80.
+###### Call Google via the Egress GW
 
 ```bash
-# Call Google via the Egress Gateway (HTTP/1.1 200 OK)
 TARGET_URL=http://google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-Check Egress Gateway logs to verify traffic routing
+Check Egress GW logs to verify traffic routing
 ```bash
 kubectl logs -l istio=egressgateway -n istio-system
 ```

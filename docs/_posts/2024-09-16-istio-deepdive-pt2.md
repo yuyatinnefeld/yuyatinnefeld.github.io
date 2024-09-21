@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Istio Advanced ⛵ Session 2 - Ingress
+title: Istio Advanced ⛵ Session 2 - Ingress Gateway
 
 tags: ["tech", "microservices", "service-mesh"]
 mathjax: true

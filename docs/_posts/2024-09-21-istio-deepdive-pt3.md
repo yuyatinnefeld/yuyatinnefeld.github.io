@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Istio Advanced ⛵ Session 3 - Egress
+title: Istio Advanced ⛵ Session 3 - Egress Gateway
 
 tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
@@ -135,6 +135,7 @@ spec:
 EOF
 
 kubectl get serviceentry -n application
+
 ```
 
 ### Call google.com
@@ -192,6 +193,7 @@ spec:
     hosts:
     - google.com
 EOF
+
 ```
 
 2. Create a Distination Rule
@@ -272,7 +274,7 @@ kubectl logs -l istio=egressgateway -n istio-system
 Example log entry:
 
 ```bash
-[2024-09-20T19:36:43.708Z] "HEAD / HTTP/2" 301 - via_upstream - "-" 0 0 29 29 "10.244.0.66" "curl/8.10.1" "9cf4caf3-9faf-9689-bec3-0e622decea1f" "google.com" "142.250.184.206:80" outbound|80||google.com 10.244.0.58:45774 10.244.0.58:8080 10.244.0.66:57182 - -
+[2024-09-21T10:00:43.708Z] "HEAD / HTTP/2" 301 - via_upstream - "-" 0 0 29 29 "10.244.0.66" "curl/8.10.1" "9cf4caf3-9faf-9689-bec3-8989898" "google.com" "142.250.184.206:80" outbound|80||google.com 10.244.0.58:45773 10.244.0.58:8080 10.244.0.66:57182 - -
 ```
 
 - Sleep POD IP: `10.244.0.66`

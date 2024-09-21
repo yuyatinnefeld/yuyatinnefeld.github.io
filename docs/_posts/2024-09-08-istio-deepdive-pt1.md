@@ -8,13 +8,14 @@ mathjax: true
 
 Starting a new role has opened up a deeper dive into the world of Service Mesh, especially Istio. Recently, I found myself stumbling when a colleague asked, "What exactly gets installed with `istioctl install --set profile=demo -y`" or "How does the Ingress Gateway work? What's the difference between Istio Ingress and Kubernetes Ingress?" These questions motivated me to dive deeper into Istio and go beyond the basics.
 
-To make this exploration more digestible, I’ve broken down Istio’s components into five sessions:
+To make this exploration more digestible, I’ve broken down Istio’s components into six sessions:
 
 1. [Istio HelmCart](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 2. [Istio Ingress](https://yuyatinnefeld.com/2024-09-16-istio-deepdive-pt2/)
-3. [Istio Egress](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt3/)
-4. [Istio Discovery](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
-5. [Sidecar Injection](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+3. [Istio Egress](https://yuyatinnefeld.com/2024-09-21-istio-deepdive-pt3/)
+4. [Istio Control plane](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+5. [Istio Data plane (1)](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+6. [Istio Data plane (2)](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 
 ## 🤔 Why Use Helm Instead of `istioctl install`?
 

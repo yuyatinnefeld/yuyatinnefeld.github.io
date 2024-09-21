@@ -11,8 +11,9 @@ Welcome to the second post in my advanced Istio deep dive series! This time, we�
 1. [Istio HelmCart](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 2. [Istio Ingress](https://yuyatinnefeld.com/2024-09-16-istio-deepdive-pt2/)
 3. [Istio Egress](https://yuyatinnefeld.com/2024-09-21-istio-deepdive-pt3/)
-4. [Istio Discovery](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
-5. [Sidecar Injection](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+4. [Istio Control plane](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+5. [Istio Data plane (1)](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+6. [Istio Data plane (2)](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 
 Before diving deep into Istio Gateways, ingress, and routing, I want to clarify the differences between Kubernetes Ingress controllers and their variations, specifically focusing on the Istio Ingress and NGINX Ingress. In this post, I'll compare how both ingress models are structured and operate without delving into the pros and cons of each. The focus will be on the technical architecture and how these services function in practice. To demonstrate this, I’ll deploy a demo application and showcase the differences between Istio’s ingress controller and the NGINX ingress controller. Additionally, I'll provide a brief overview of key Kubernetes components such as Pods, Endpoints, and Services.
 

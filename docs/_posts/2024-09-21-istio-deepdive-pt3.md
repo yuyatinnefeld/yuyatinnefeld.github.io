@@ -166,9 +166,9 @@ While a `ServiceEntry` enables access to and discovery of external services, it 
 ### Steps to Set Up an Egress Gateway
 ![Simple App](/images/post-20240921/egressgateway.png)
 
-###### 1. Create an Egress gateway
+1. Create an Egress gateway
 
-`gw-egress-google` directs outbound HTTP traffic to `google.com` on port `80`.
+- `gw-egress-google` directs outbound HTTP traffic to `google.com` on port `80`.
 
 ```bash
 # Check if the Egress Gateway pod is running
@@ -194,9 +194,9 @@ spec:
 EOF
 ```
 
-###### 2. Create a Distination Rule
+2. Create a Distination Rule
 
-`dr-egress-google` manages traffic for Google’s services, which will be used in the VS configuration.
+- `dr-egress-google` manages traffic for Google’s services, which will be used in the VS configuration.
 
 ```bash
 # Apply the Destination Rule and VirtualService for Google
@@ -213,9 +213,7 @@ spec:
 EOF
 ```
 
-###### 3. Configure a Virutal Service
-
-`vs-google-via-egress-gw` defines the path for outbound traffic to `google.com`.
+3. Configure a Virutal Service
 
 - 3.1. Inside the `mesh`, traffic destined for google.com is first routed through the `istio-egressgateway.istio-system.svc.cluster.local`.
 
@@ -259,7 +257,7 @@ spec:
 EOF
 ```
 
-###### Call Google via the Egress GW
+Call Google via the Egress GW
 
 ```bash
 TARGET_URL=http://google.com
@@ -276,6 +274,11 @@ Example log entry:
 ```bash
 [2024-09-20T19:36:43.708Z] "HEAD / HTTP/2" 301 - via_upstream - "-" 0 0 29 29 "10.244.0.66" "curl/8.10.1" "9cf4caf3-9faf-9689-bec3-0e622decea1f" "google.com" "142.250.184.206:80" outbound|80||google.com 10.244.0.58:45774 10.244.0.58:8080 10.244.0.66:57182 - -
 ```
+
+- Sleep POD IP: `10.244.0.66`
+- External IP of Google: `142.250.184.206:80`
+- Egress Gateway IP: `10.244.0.58`
+- Route Info: `outbound|80||google.com`
 
 ## 🧹 Clean up
 

@@ -56,10 +56,9 @@ TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
-HTTP/1.1 200 OK
 HTTP/1.1 200 OK
 ...
 ```
@@ -71,10 +70,9 @@ TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
-HTTP/1.1 200 OK
 HTTP/1.1 200 OK
 ...
 ```
@@ -99,7 +97,7 @@ TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
 HTTP/1.1 200 OK
@@ -112,7 +110,7 @@ TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
 HTTP/1.1 502 Bad Gateway
@@ -123,8 +121,25 @@ HTTP/1.1 502 Bad Gateway
 A ServiceEntry allows Istio to treat external services (like third-party APIs) as if they are part of the service mesh. This enables internal services to discover and route traffic to external services.
 
 ```bash
-# Apply a ServiceEntry for Google
-kubectl apply -f istio-deepdive/egress/google-se.yaml
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: ServiceEntry
+metadata:
+  name: se-google
+  namespace: application
+spec:
+  hosts:
+  - google.com
+  ports:
+  - number: 80
+    name: http-port
+    protocol: HTTP
+  - number: 443
+    name: https
+    protocol: HTTPS
+  resolution: DNS
+EOF
+
 kubectl get serviceentry -n application
 ```
 
@@ -134,7 +149,7 @@ TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
 HTTP/1.1 200 OK
@@ -149,7 +164,7 @@ TARGET_URL=http://github.com/
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
-response:
+###### response:
 
 ```bash
 HTTP/1.1 502 Bad Gateway
@@ -171,7 +186,23 @@ While a `ServiceEntry` enables access to and discovery of external services, it 
 kubectl get pod -l istio=egressgateway -n istio-system
 
 # Apply the egress gateway configuration for Google
-kubectl apply -f istio-deepdive/egress/google-egress.yaml
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: gw-egress-google
+  namespace: application
+spec:
+  selector:
+    istio: egressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - google.com
+EOF
 ```
 
 ###### 2. Create a Distination Rule
@@ -180,7 +211,17 @@ kubectl apply -f istio-deepdive/egress/google-egress.yaml
 
 ```bash
 # Apply the Destination Rule and VirtualService for Google
-kubectl apply -f istio-deepdive/egress/google-dr.yaml
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: dr-egress-google
+  namespace: application
+spec:
+  host: istio-egressgateway.istio-system.svc.cluster.local
+  subsets:
+  - name: google
+EOF
 ```
 
 ###### 3. Configure a Virutal Service
@@ -188,12 +229,44 @@ kubectl apply -f istio-deepdive/egress/google-dr.yaml
 `vs-google-via-egress-gw` defines the path for outbound traffic to `google.com`.
 
 ```bash
-kubectl apply -f istio-deepdive/egress/google-vs.yaml
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: vs-google-via-egress-gw
+spec:
+  hosts:
+  - google.com
+  gateways:
+  - gw-egress-google
+  - mesh
+  http:
+  - match:
+    - gateways:
+      - mesh
+      port: 80
+    route:
+    - destination:
+        host: istio-egressgateway.istio-system.svc.cluster.local # forward traffics to gw-egress-google
+        subset: google
+        port:
+          number: 80
+      weight: 100
+  - match:
+    - gateways:
+      - gw-egress-google
+      port: 80
+    route:
+    - destination:
+        host: google.com
+        port:
+          number: 80
+      weight: 100
+EOF
 ```
+
 - 3.1. Inside the `mesh`, traffic destined for google.com is first routed through the `istio-egressgateway`.
 - 3.2. Once the traffic leaves `istio-egressgateway`, it is directed to google.com on port 80.
-
-
 
 ```bash
 # Call Google via the Egress Gateway (HTTP/1.1 200 OK)

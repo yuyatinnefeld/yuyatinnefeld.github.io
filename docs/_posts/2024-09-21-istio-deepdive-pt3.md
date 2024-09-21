@@ -47,16 +47,37 @@ kubectl apply -f istio-deepdive/depl-helloworld.yaml
 ```bash
 # Get the source pod for the sleep application
 SOURCE_POD=$(kubectl get pod -l app=sleep -o jsonpath={.items..metadata.name})
+```
 
-# Call an internal service and check the response (HTTP/1.1 200 OK)
+### Call an internal service
+
+```bash
 TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
+```
 
-# Call an external service and check the response (HTTP/1.1 200 OK)
+response:
+
+```bash
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+...
+```
+
+### Call an external service
+
+```bash
 TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
 ```
 
+response:
+
+```bash
+HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+...
+```
 
 ## ⚙️ Enabling REGISTRY_ONLY Mode
 In `REGISTRY_ONLY` mode, Istio only allows traffic to services that are registered in the service mesh. Traffic to any unregistered external service will be blocked, and routed to the `BlackHoleCluster`.
@@ -70,14 +91,32 @@ istioctl install -y --set profile=demo --set meshConfig.outboundTrafficPolicy.mo
 
 # Verify that REGISTRY_ONLY mode is active
 kubectl get cm istio -n istio-system -o jsonpath='{.data.mesh}' | grep mode
+```
 
-# Internal service call (HTTP/1.1 200 OK)
+### Call an internal service
+```bash
 TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
+```
 
-# External service call blocked (HTTP/1.1 502 Bad Gateway)
+response:
+
+```bash
+HTTP/1.1 200 OK
+...
+```
+
+### Call an external service
+```bash
 TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
+```
+
+response:
+
+```bash
+HTTP/1.1 502 Bad Gateway
+...
 ```
 
 ## ⚙️ ServiceEntry
@@ -87,14 +126,34 @@ A ServiceEntry allows Istio to treat external services (like third-party APIs) a
 # Apply a ServiceEntry for Google
 kubectl apply -f istio-deepdive/egress/google-se.yaml
 kubectl get serviceentry -n application
+```
 
-# Call Google (HTTP/1.1 200 OK)
+### Call google.com
+```bash
 TARGET_URL=http://www.google.com
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
+```
 
+response:
+
+```bash
+HTTP/1.1 200 OK
+...
+```
+
+### Call github.com
+
+```bash
 # Call GitHub (HTTP/1.1 502 Bad Gateway - no ServiceEntry defined)
 TARGET_URL=http://github.com/
 while true; do kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"; sleep 2; done;
+```
+
+response:
+
+```bash
+HTTP/1.1 502 Bad Gateway
+...
 ```
 
 ## 🤔 Why is a ServiceEntry Not Enough?
@@ -103,7 +162,9 @@ While a `ServiceEntry` enables access to and discovery of external services, it 
 
 ### Steps to Set Up an Egress Gateway:
 
-1. Create an Egress GW that directs outbound HTTP traffic to google.com on port 80.
+###### 1. Create an Egress gateway
+
+`gw-egress-google` directs outbound HTTP traffic to `google.com` on port `80`.
 
 ```bash
 # Check if the Egress Gateway pod is running
@@ -113,14 +174,19 @@ kubectl get pod -l istio=egressgateway -n istio-system
 kubectl apply -f istio-deepdive/egress/google-egress.yaml
 ```
 
-2. Create a DR to manage traffic for Google’s services, which will be used in the VS configuration.
+###### 2. Create a Distination Rule
+
+`dr-egress-google` manages traffic for Google’s services, which will be used in the VS configuration.
 
 ```bash
 # Apply the Destination Rule and VirtualService for Google
 kubectl apply -f istio-deepdive/egress/google-dr.yaml
 ```
 
-3. Configure a VS, which defines the path for outbound traffic to google.com.
+###### 3. Configure a Virutal Service
+
+`vs-google-via-egress-gw` defines the path for outbound traffic to `google.com`.
+
 ```bash
 kubectl apply -f istio-deepdive/egress/google-vs.yaml
 ```
@@ -139,7 +205,9 @@ Check Egress Gateway logs to verify traffic routing
 ```bash
 kubectl logs -l istio=egressgateway -n istio-system
 ```
+
 Example log entry:
+
 ```bash
 [2024-09-20T19:36:43.708Z] "HEAD / HTTP/2" 301 - via_upstream - "-" 0 0 29 29 "10.244.0.66" "curl/8.10.1" "9cf4caf3-9faf-9689-bec3-0e622decea1f" "google.com" "142.250.184.206:80" outbound|80||google.com 10.244.0.58:45774 10.244.0.58:8080 10.244.0.66:57182 - -
 ```

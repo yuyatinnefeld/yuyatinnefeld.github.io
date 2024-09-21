@@ -83,7 +83,7 @@ We will now deploy the Kubernetes NGINX IngressController to expose services thr
     minikube addons enable ingress
 
     # deploy the Ingress rules
-    kubectl apply -f istio-deepdive/ingress.yaml
+    kubectl apply -f istio-deepdive/ingress/nginx-ingress.yaml
 
 
 ## 👀 Check Detailed Flow
@@ -176,7 +176,7 @@ Example log entry:
 ## 🧹 Clean Up
 Delete IngressController and Ingress rules
 
-    kubectl delete -f istio-deepdive/ingress-controller-rule.yaml
+    kubectl delete -f istio-deepdive/ingress/nginx-ingress.yaml
     minikube addons disable ingress
 
 ## 🚀 Create Istio Ingress Gateway
@@ -191,11 +191,11 @@ istioctl install --set profile=demo -y
 kubectl label namespace application istio-injection=enabled
 
 # deploy ingress rule
-kubectl apply -f istio-deepdive/istio-ingress.yaml
+kubectl apply -f istio-deepdive/ingress/istio-ingress.yaml
 kubectl get ingress -A
 
 # deploy
-kubectl apply -f istio-deepdive/istio-gateway.yaml
+kubectl apply -f istio-deepdive/ingress/istio-gateway.yaml
 kubectl get gateway -A
 
 # restart target apps
@@ -295,6 +295,7 @@ One of Istio's most powerful features is its ability to provide deep insights in
 ## 🧹 Clean up
 
     istioctl uninstall --purge -y
+    kubectl delete -f istio-deepdive/ingress
 
 ## ℹ️  Summary
 I hope that by now, you have a clearer understanding of how ingress traffic is routed within a Kubernetes cluster. Through deploying demo applications, tracing network flows, and using istioctl to debug configurations, I aimed to equip you with the tools and techniques necessary to manage ingress controllers more effectively in your Kubernetes environment.

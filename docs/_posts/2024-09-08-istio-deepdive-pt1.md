@@ -11,8 +11,8 @@ Starting a new role has opened up a deeper dive into the world of Service Mesh, 
 To make this exploration more digestible, I’ve broken down Istio’s components into five sessions:
 
 1. [Istio HelmCart](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
-2. [Istio Ingress](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
-3. [Istio Egress](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
+2. [Istio Ingress](https://yuyatinnefeld.com/2024-09-16-istio-deepdive-pt2/)
+3. [Istio Egress](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt3/)
 4. [Istio Discovery](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 5. [Sidecar Injection](https://yuyatinnefeld.com/2024-09-08-istio-deepdive-pt1/)
 

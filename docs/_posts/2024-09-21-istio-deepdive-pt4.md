@@ -47,7 +47,7 @@ TARGET_POD=$(kubectl get pod -l app=hw-v2 -n application -o jsonpath={.items..me
 TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"
 ```
-
+.
 ###### Step 1: kube-apiserver stores pods info in etcd
 
 When a pod is created in the cluster, the kube-apiserver registers and stores the pod’s details (such as its IP address, metadata, and status) in the etcd key-value store.
@@ -58,11 +58,10 @@ To verify the communication between the kube-apiserver and etcd, you can inspect
 API_SERVER=$(kubectl get pod -n kube-system -l component=kube-apiserver -o jsonpath={.items..metadata.name})
 kubectl logs -n kube-system $API_SERVER -c kube-apiserver --tail=-1 --follow
 ```
-
-Store cluster ip of sleep pod
 ```bash
 I0923 17:55:18.597591  1 alloc.go:330] "allocated clusterIPs" service="application/sleep" clusterIPs={"IPv4":"10.110.159.190"}
 ```
+Store cluster ip of sleep pod
 
 ###### Step 2: istiod retrieves the metadata from kube-apiserver
 

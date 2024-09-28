@@ -199,10 +199,10 @@ Let's delve into the Istio-proxy container to observe the step-by-step process o
 
 How to work Envoy within istio-proxy?
 
-1. Request Reception
+### 1. Request Reception
 Envoy receives a request from the source microservice.
 
-2. ADS-API Call
+### 2. ADS-API Call
 Envoy retrieves destination container info from the ADS-API via pilot-agent in streaming gRPC.
 
 
@@ -218,7 +218,7 @@ dest-depl-v1-76d8b6b9c5-fp784
 "[{\"containerPort\":7777,\"protocol\":\"TCP\"}]"
 ```
 
-3. Listener Selection
+### 3. Listener Selection
 Envoy selects the appropriate listener based on the incoming request.
 
 ```bash
@@ -240,7 +240,7 @@ istioctl proxy-config listeners -n application $TARGET_POD | grep 7777
 0.0.0.0  7777  ALL                                      PassthroughCluster
 ```
 
-4. Route Selection
+### 4. Route Selection
 Envoy determines the route to be taken for the request.
 
 ```bash
@@ -257,7 +257,7 @@ inbound|5678||   inbound|http|7777                                   *          
 inbound|5678||   inbound|http|7777                                   *                                                        /* 
 ```
 
-5. Cluster Selection
+### 5. Cluster Selection
 Envoy selects the appropriate cluster based on the route.
 
 ```bash
@@ -284,7 +284,7 @@ dest-svc-v1.application.svc.cluster.local       7777      -    outbound      EDS
 dest-svc-v2.application.svc.cluster.local       7777      -    outbound      EDS
 ```
 
-6. Endpoint Selection
+### 6. Endpoint Selection
 Envoy chooses a specific endpoint within the cluster to send the request.
 
 ```bash
@@ -299,7 +299,7 @@ istioctl proxy-config endpoints $TARGET_POD -n application | grep 7777
 10.244.0.115:5678  HEALTHY  OK  outbound|7777||dest-svc-v1.application.svc.cluster.local
 ```
 
-7. Request Transmission
+### 7. Request Transmission
 Envoy sends the request to the destination microservice.
 
 

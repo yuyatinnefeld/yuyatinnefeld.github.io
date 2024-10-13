@@ -229,7 +229,8 @@ kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL | grep 7
 ```bash
 0.0.0.0_7777::0.0.0.0:7777
 ```
-You can use `istioctl proxy-config` (`istioctl pc`) to retrieve the configuration of the envoy componentes (cluster, ecds, endpoint, listener.route, etc.)
+You can also use istioctl proxy-config (istioctl pc) to check Envoy’s configuration (clusters, ecds, endpoints, listeners, routes, etc.).
+
 
 ```bash
 istioctl pc listeners -n application $TARGET_POD | grep 7777
@@ -301,9 +302,9 @@ istioctl pc endpoints $TARGET_POD -n application | grep 7777
 ### 7. Request Transmission
 Envoy sends the request to the destination microservice.
 
-
 ![Istio-proxy](/images/post-20240928/istio-proxy-eg.png)
 
+This process illustrates the detailed traffic flow between microservices within Istio.
 
 ## ℹ️ Summary
 Through this detailed breakdown, we saw how Istio uses its powerful service discovery mechanisms to manage traffic efficiently within a service mesh. The combination of Envoy proxies and xDS ensures that services can scale dynamically while maintaining reliable communication between microservices.

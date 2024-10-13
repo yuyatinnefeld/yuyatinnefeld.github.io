@@ -150,7 +150,7 @@ kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL | grep I
 ```
 ```bash
 "WORKLOAD_NAME": "dest-depl-v1",
-"INSTANCE_IPS": "10.244.0.114",
+"INSTANCE_IPS": "10.244.0.115",
 ```
 
 Update Envoy Log Level

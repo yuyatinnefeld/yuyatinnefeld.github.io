@@ -302,10 +302,10 @@ istioctl pc endpoints $TARGET_POD -n application | grep 7777
 Envoy sends the request to the destination microservice.
 
 
-## ℹ️ Summary
-
 ![Istio-proxy](/images/post-20240928/istio-proxy-eg.png)
 
+
+## ℹ️ Summary
 Through this detailed breakdown, we saw how Istio uses its powerful service discovery mechanisms to manage traffic efficiently within a service mesh. The combination of Envoy proxies and xDS ensures that services can scale dynamically while maintaining reliable communication between microservices.
 
 Stay tuned for more insights on Istio’s architecture and its impact on modern application development!

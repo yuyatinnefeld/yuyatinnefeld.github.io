@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Istio Advanced ⛵ Session 4 - Control Plane (Discovery)
+title: Istio  Advanced ⛵ Session 4 - Control Plane (Discovery)
 
 tags: ["tech", "microservices", "service-mesh"]
 mathjax: true
@@ -24,11 +24,11 @@ Service discovery is a key component of microservices architecture. It is the pr
 
 ###### Step 1: Client sends a request.
 
-The `sleep` app (which is one microservice) makes a request, but it doesn’t know the exact address of the `hw-v2` app (another microservice). Instead of the client managing service discovery, the request first goes to a load balancer (like a reverse proxy or API gateway), which will handle the routing.
+The `sleep` app (which is one microservice) makes a request, but it doesn’t know the exact address of the `hw-v1` app (another microservice). Instead of the client managing service discovery, the request first goes to a load balancer (like a reverse proxy or API gateway), which will handle the routing.
 
 ###### Step 2: LB queries the Service Registry.
 
-The LB queries the service registry to find the current location of the `hw-v2` pod. The service registry contains a list of all active instances of microservices, along with their IP addresses and ports.
+The LB queries the service registry to find the current location of the `hw-v1` pod. The service registry contains a list of all active instances of microservices, along with their IP addresses and ports.
 
 ###### Step 3: Response flows back to "sleep app".
 
@@ -39,11 +39,11 @@ The LB selects an available instance of hw app (e.g., based on round-robin, leas
 
 In Istio, the service discovery process involves communication between `istiod` (the discovery component) and the `istio-proxy` container running Envoy. The interaction between the control plane and the data plane—via proxies—is fundamental for routing requests and discovering services.
 
-Create traffic to simplate szenario from the sleep pod to the hw-v2 service:
+Create traffic to simplate szenario from the sleep pod to the hw-v1 service:
 
 ```bash
 SOURCE_POD=$(kubectl get pod -l app=sleep -n application -o jsonpath={.items..metadata.name})
-TARGET_POD=$(kubectl get pod -l app=hw-v2 -n application -o jsonpath={.items..metadata.name})
+TARGET_POD=$(kubectl get pod -l app=hw-v1 -n application -o jsonpath={.items..metadata.name})
 TARGET_URL="dest-svc-v1.application.svc.cluster.local:7777"
 kubectl exec "$SOURCE_POD" -c sleep -- curl -sSI $TARGET_URL | grep  "HTTP/"
 ```
@@ -85,10 +85,7 @@ k logs $ISTIOD_POD -c $CONTAINER -n istio-system
 2024-09-25T22:23:12.490859Z     info    delta   RDS: PUSH request for node:dest-depl-v1-76d8b6b9c5-gqk88.application resources:9 removed:0 size:7.9kB cached:7/9 filtered:0
 ```
 
-Envoy discovers dynamic resources via xDS APIs (Discovery APIs). These APIs can operate over:
-- gRPC streams
-- REST-JSON polling
-- Filesystem watches
+Envoy discovers dynamic resources via xDS APIs (Discovery APIs). These APIs can operate over: gRPC streams
 
 ###### Step 4: Send Request to istio-proxy
 
@@ -108,13 +105,13 @@ kubectl logs -c istio-proxy $TARGET_POD -n application | grep HTTP/1.1
 [2024-09-25T22:24:12.210Z] "GET / HTTP/1.1" 200 - via_upstream - "-" 0 33 0 0 "-" "curl/8.10.1" "1a7d8ad2-7627-9b78-9c9b-7bd9fc77b34e" "dest-svc-v1.application.svc.cluster.local:7777" "10.244.0.115:5678" inbound|5678|| 127.0.0.6:55087 10.244.0.115:5678 10.244.0.107:40090 outbound_.7777_._.dest-svc-v1.application.svc.cluster.local default
 ```
 
-## 🌐 Service Discovery with xDS API
+## 🌐 Service Discovery with xDS
 
 ![xDS](/images/post-20240928/xds.png)
 
-A gRPC bi-directional streaming connection is established between the xDS API and the istio-proxy container, enabling the xDS API to respond to requests and proactively push destination information.
+A gRPC bi-directional streaming connection is established between the xDS and the istio-proxy container, enabling the xDS to respond to requests and proactively push destination information.
 
-While multiple xDS API endpoints provide specific service data, querying them individually can result in version inconsistencies in Envoy. To mitigate this, Istio employs the Aggregated Discovery Service (ADS) API, which consolidates information from all xDS APIs, ensuring consistent and synchronized updates.
+While multiple xDS endpoints provide specific service data, querying them individually can result in version inconsistencies in Envoy. To mitigate this, Istio employs the Aggregated Discovery Service (ADS) API, which consolidates information from all xDS, ensuring consistent and synchronized updates.
 
 - LDS: Listener DS
 - RDS: Route DS
@@ -122,7 +119,7 @@ While multiple xDS API endpoints provide specific service data, querying them in
 - EDS: Endpoint DS
 - ADS: Aggregated DS
 
-Later, you can explore each xDS API in more depth, following the process from EDS to EDS to understand how service configuration and traffic routing evolve in the service mesh.
+Later, you can explore each xDS API in more depth, following the process from LDS to EDS to understand how service configuration and traffic routing evolve in the service mesh.
 
 ### Envoy API Overview
 
@@ -133,6 +130,7 @@ To verify if Envoy is ready to serve traffic, run the following command:
 
 ```bash
 URL="http://localhost:15000/config_dump"
+```
 Check if Envoy is ready to serve traffic:
 
 ```bash
@@ -193,7 +191,7 @@ active loggers:
 ```
 
 ## 📦️ Understanding the Istio-Proxy Container
-Let's delve into the Istio-proxy container to observe the step-by-step process of xDS (xDS API) within the source pod.
+Let's delve into the Istio-proxy container to observe the step-by-step process of xDS within the source pod.
 
 ![Istio-proxy](/images/post-20240928/istio-proxy.png)
 
@@ -231,9 +229,10 @@ kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL | grep 7
 ```bash
 0.0.0.0_7777::0.0.0.0:7777
 ```
+You can use `istioctl proxy-config` (`istioctl pc`) to retrieve the configuration of the envoy componentes (cluster, ecds, endpoint, listener.route, etc.)
 
 ```bash
-istioctl proxy-config listeners -n application $TARGET_POD | grep 7777
+istioctl pc listeners -n application $TARGET_POD | grep 7777
 ```
 ```bash
 0.0.0.0  7777  Trans: raw_buffer; App: http/1.1,h2c     Route: 7777
@@ -247,7 +246,7 @@ Envoy determines the route to be taken for the request.
 URL="http://localhost:15000/config_dump?resource={dynamic_route_configs}"
 kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL
 
-istioctl proxy-config route $TARGET_POD -n application | grep 7777
+istioctl pc route $TARGET_POD -n application | grep 7777
 ```
 ```bash
 7777             dest-svc-error.application.svc.cluster.local:7777   dest-svc-error, dest-svc-error.application + 1 more...   /*                     
@@ -266,7 +265,7 @@ kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL
 
 URL="http://localhost:15000/clusters"
 kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL  | grep eds_service_n:outbound777
-
+```
 ```bash
 outbound|7777||dest-svc-error.application.svc.cluster.local::eds_service_name::outbound|7777||dest-svc-error.application.svc.cluster.local
 outbound|7777||dest-svc-v2.application.svc.cluster.local::eds_service_name::outbound|7777||dest-svc-v2.application.svc.cluster.local
@@ -275,7 +274,7 @@ outbound|7777||dest-svc-v1.application.svc.cluster.local::eds_service_name::outb
 
 
 ```bash
-istioctl proxy-config clusters -n application $TARGET_POD | grep 7777
+istioctl pc clusters -n application $TARGET_POD | grep 7777
 ```
 
 ```bash
@@ -293,7 +292,7 @@ kubectl exec -it $TARGET_POD -n application -c istio-proxy -- curl $URL
 ```
 
 ```bash
-istioctl proxy-config endpoints $TARGET_POD -n application | grep 7777
+istioctl pc endpoints $TARGET_POD -n application | grep 7777
 ```
 ```bash
 10.244.0.115:5678  HEALTHY  OK  outbound|7777||dest-svc-v1.application.svc.cluster.local
@@ -307,6 +306,6 @@ Envoy sends the request to the destination microservice.
 
 ![Istio-proxy](/images/post-20240928/istio-proxy-eg.png)
 
-Through this detailed breakdown, we saw how Istio uses its powerful service discovery mechanisms to manage traffic efficiently within a service mesh. The combination of Envoy proxies and xDS APIs ensures that services can scale dynamically while maintaining reliable communication between microservices.
+Through this detailed breakdown, we saw how Istio uses its powerful service discovery mechanisms to manage traffic efficiently within a service mesh. The combination of Envoy proxies and xDS ensures that services can scale dynamically while maintaining reliable communication between microservices.
 
 Stay tuned for more insights on Istio’s architecture and its impact on modern application development!

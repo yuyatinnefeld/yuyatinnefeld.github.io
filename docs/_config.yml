@@ -1,20 +1,17 @@
 # Set theme
 remote_theme: daattali/beautiful-jekyll@5.0.0
 
-title: Yuya Tinnefeld
+title: Yuya Blog
 
 author: Yuya Tinnefeld
 
 navbar-links:
   About: "/aboutme"
-  CV: "/files/cv.pdf"
-  Blog: "/blog/main"
-  職務経歴: "/files/cv.pdf"
+  Tech Blog: "https://yuyatinnefeld.com"
 
 social-network-links:
   email: "yuyatinnefeld@gmail.com"
-  github: yuyatinnefeld
-  linkedin: yuya-tinnefeld-b6004b110
+  instagram: "https://www.instagram.com/yuya_story/"
 
 url-pretty: "yuyatinnefeld.github.io"
 
@@ -22,7 +19,7 @@ site-css:
   - "/assets/css/custom-styles.css"
 
 # Personalize colors
-navbar-col: "#a4c3ed"
+navbar-col: "#eeeeee"
 navbar-text-col: "#3f3d3d"
 navbar-border-col: "transparent"
 page-col: "#FFFFFF"
@@ -35,7 +32,7 @@ footer-link-col: "#404040"
 footer-hover-col: "#0085A1"
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Toronto"
+timezone: "Germany/Berlin"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog
-subtitle: What's New? (Tech & Private)
+subtitle: What's New?
 ---
 
 ### Contents

@@ -1,6 +1,6 @@
 # yuyatinnefeld.github.io
 
-- About: Resume & Blog site
+- About: Blog
 - Hostserver: Github Page
 - Github Page Domain: https://yuyatinnefeld.github.io
 - Main Domain: https://yuyatinnefeld.com

@@ -10,6 +10,11 @@ footer {
 	border-top: 0px;
 }
 
+footer .copyright,
+footer .theme-by {
+  display: none;
+}
+
 .home-img-container {
 	height:250px; 
 	width:250px; 

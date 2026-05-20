@@ -6,7 +6,7 @@ subtitle: What's New?
 
 ### Contents
 
-<p>Here are my blog posts in reverse chronological order:</p>
+<p>Just my posts, newest first:</p>
 
 <ul>
   {% for post in site.posts %}

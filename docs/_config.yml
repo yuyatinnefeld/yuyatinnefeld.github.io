@@ -7,6 +7,7 @@ author: Yuya Tinnefeld
 
 navbar-links:
   About: "/aboutme"
+  Notes: "/blog/main"
   Tech Blog: "https://yuya-techfeld.github.io"
 
 social-network-links:

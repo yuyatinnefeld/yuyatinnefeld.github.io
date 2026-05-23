@@ -1,10 +1,13 @@
 ---
 layout: post
-title: Exploring Inner Peace 🧘 A Beginner's Guide to Vipassana Meditation 
+title: ヴィパッサナー瞑想
 
 tags: ["private"]
 mathjax: true
 ---
+よく人に瞑想ってどんなことするのと聞かれるのでここで説明して頭を整理しておく。
+
+
 Over the past months, I've found myself drawn to the world of spirituality, delving into yoga philosophy, Buddhism, and mindfulness techniques like Vipassana and Zazen. This past Christmas, I embarked on a 10-day Vipassana retreat at the Dhamma Center in Cambodia, eager to delve deeper into this powerful practice.
 
 Instead of recounting my own journey into the profound world of Vipassana, I want to turn the spotlight onto yours. This guide is for anyone drawn to the transformative power of this meditation practice. Here, you'll find a concise overview of what to expect and how to prepare, empowering you to embark on your own exploration of silence, introspection, and the depths of your hidden mind.
@@ -68,24 +71,23 @@ Daily Plan of our Meditation (Most of the time, we did group meditation rather t
 ##### *Meditate for about 10 hours a day
 
 
-| Schedule  | Topic |
+| 時間 | 内容 |
 | ------------- | ------------- |
-| 4:00 am  | Morning wake-up bell  |
-| 4:30-6:30 am  | Meditation  |
-| 6:30-8:00 am  | Breakfast break  |
-| 8:00-9:00 am  | Meditation (5 min break)  |
-| 9:00-11:00 am   | Meditation  |
-| 11:00-12:00 noon  | Lunch break  |
-| 12 noon-1:00 pm  | Rest and interviews with the teacher |
-| 1:00-2:30 pm  | Meditation (5 min break) |
-| 2:30-3:30 pm  | Meditation (5 min break) |
-| 3:30-5:00 pm  | Meditation |
-| 5:00-6:00 pm  | Tea break |
-| 6:00-7:00 pm  | Meditation |
-| 7:00-8:15 pm  | Teacher's Discourse in the hall (5 min break) |
-| 8:15-9:00 pm  | Meditation |
-| 9:00-9:30 pm   | Question time in the hall (optional) |
-| 9:30 pm   | Retire to your own room - Lights out |
+| 4:00 | 起床 |
+| 4:30-6:30 | 瞑想 |
+| 6:30-8:00 | 朝ごはん |
+| 8:00-9:00 | 瞑想 (5分 休憩)|
+| 9:00-11:00  | 瞑想 |
+| 11:00-13:00 | 昼食＆休憩 |
+| 13:00-14:30 | 瞑想 (5分 休憩) |
+| 14:30-15:30 | 瞑想 (5分 休憩) |
+| 15:30-17:00 | 瞑想 |
+| 17:00-18:00 | お茶休憩 |
+| 18:00-19:00 | 瞑想 |
+| 7:00-8:15 | ホールで講話 (5分 休憩) |
+| 8:15-9:00 | 瞑想 |
+| 9:00-9:30 | 質問時間 (自由参加) |
+| 9:30 | 各自部屋へ・消灯 |
 
 
 ## 4. Beyond the Meditation Hall in Cambodia

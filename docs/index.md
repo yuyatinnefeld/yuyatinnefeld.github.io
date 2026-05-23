@@ -13,5 +13,7 @@ layout: home
 		<h1>notes from wandering</h1>
 		<p style="font-size: 14px;">"生活と考えごと"</p>
 	</div>
-
 </div><br>
+
+<p>
+日常のこと、好きな映画、旅行の記録を、日記のようにゆるく書いく場所。</p>

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Blog
-subtitle: What's New?
+title: Notes
+subtitle: 最近のメモ
 ---
 
 ### Contents

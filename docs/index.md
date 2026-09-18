@@ -11,6 +11,6 @@ layout: home
 	</div>
 	<div class="home-info-text">
 		<h1>notes from wandering</h1>
-		<p style="font-size: 14px;">"生活と考えごと"</p>
+		<p style="font-size: 14px;">"映画と考えごと"</p>
 	</div>
 </div><br>

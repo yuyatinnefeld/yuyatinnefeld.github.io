@@ -6,6 +6,18 @@ mathjax: true
 ---
 
 ### 2026-05-21
+
+<div style="width: 100%; aspect-ratio: 16 / 9;">
+  <iframe
+    src="https://www.youtube.com/embed/2mgQcpmYr_A"
+    title="ALL WE IMAGINE AS LIGHT - Official US Trailer"
+    style="width: 100%; height: 100%; border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 - Licorice Pizza - Paul Thomas Anderson - 2021
 - All We Imagine as Light - Payal Kapadia - 2024
 - Paterson - Jim Jarmusch - 2016
@@ -20,18 +32,21 @@ mathjax: true
 ### 2026-05-23
 近所のフリマへ行ってきた。たぶん近所の人たちが自分たちでオーガナイズしているもので、売っているものも良いものからガラクタまでかなり幅広い。こういうローカルなイベント好き。昔から欲しかった子供用のスケボーがあって、数分の値段交渉を少年した末、購入。リュックにも入るくらい小さいので、会社に行くときの移動とかにも使えそう。その後、近所のダイソーみたいな店Tediに行って買い物をしていたら、7歳くらいの少年がやってきて、1€くれない？と聞いてくる。最初は、たかりですか、と思った。理由を聞いてみると、このタコのぬいぐるみが欲しいけど、お金が足りないとのこと。一人で来たのか、ママはいるのかと聞くとママはいないと言う。なんだか少し悲しくなって、1€を渡す。自分も片親だから、こういうのには弱い。
 
-### 2026-06-01
-YogaをしにHofgartenへ行く。今日は126人と犬3匹が集まる大規模なセッションだった。みんなで同じ空間に集まり、それぞれが1時間、自分の身体と向き合う。こういう統一感はいいな。個人主義が強いヨーロッパでは、普段あまり連帯感を強く感じることはないけれど、こういう時だけは、それぞれが別々に集中しているのに、どこかでつながっているような感覚があっていい。
-
 ### 2026-06-04
 また引っ越しをすることに。去年は2回。その前の年は3回。そのさらに前の年も1回。気づけば毎年恒例のイベント。引越し自体はめんどくさいけれど、部屋や家が変わるたびに、心機一転する感覚があって、それが結構好き。
 
-### 2026-06-24
-ここ最近、30〜35度の猛暑が続いている。早く泳ぎに行きたいけれど、まだ行けていない。仕事が死ぬほど忙しい。そして引っ越し準備で、プライベートもなかなか忙しい。Ebayで物を売ったり、買ったり、新居を少しずつアップデート。
-
-いつも思うのだけれど、引っ越し前はそろそろ環境を変えたいなと思うのに、いざ引っ越しの最中になると、もう一生したくないと思う。毎回同じことを繰り返しているのに、なぜかその大変さを忘れる。そして数年後、また新しい環境を求めている。考えてみると、これは昔からの問題。子供の頃、オリンピックよりも頻繁に引っ越しをしていた。飽き性な親のおかげ？で、九州の中を転々とできた。環境が変わる不安よりも、新しい場所で何かが始まる感覚の方が、好きなのかも。
-
 ### 2026-06-06
+<div style="width: 100%; aspect-ratio: 16 / 9;">
+  <iframe
+    src="https://www.youtube.com/embed/PxgrzNFwyqY"
+    title="YIYI - Official 4K Restoration Trailer"
+    style="width: 100%; height: 100%; border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
 - ハッピーアワー - 濱口竜介 - 2015
 - Yi Yi - Edward Yang - 2000
 - 彼岸花 - 小津安二郎 - 1958
@@ -43,12 +58,34 @@ YogaをしにHofgartenへ行く。今日は126人と犬3匹が集まる大規模
 
 
 ### 2026-06-16
-- Aftersun - Charlotte Wells - 2022
+<div style="width: 100%; aspect-ratio: 16 / 9;">
+  <iframe
+    src="https://www.youtube.com/embed/vXKcWRu8K_U"
+    title="AFTERSUN | Official Trailer | Now Streaming on MUBI"
+    style="width: 100%; height: 100%; border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+Aftersun - Charlotte Wells - 2022
 
 A24について語られている記事や雑誌を読むと、必ずと言っていいほどAftersunの名前が出てくる。実はまだ見たことがなかったので、やっと鑑賞。結果、ああ、号泣。娘ソフィから見た父親カラムとの夏の記憶、あるいは記録。ホームビデオの映像の中から、画面の外へ滲み出てくるような感覚。当時のソフィが見ていた父と、今のソフィが記憶の中で再構築する父。その二つの記憶の間にある、埋められない距離が切なくい。最後にはただ父親の背中を見つめてしまう。
 
 ### 2026-06-23
-- Mid90s - Jonah Hill - 2018
+<div style="width: 100%; aspect-ratio: 16 / 9;">
+  <iframe
+    src="https://www.youtube.com/embed/w9Rx6-GaSIE"
+    title="Mid90s | Official Trailer HD | A24"
+    style="width: 100%; height: 100%; border: 0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+
+Mid90s - Jonah Hill - 2018
 
 スケボーのザラザラしたボードの感覚。ウォーリーが初めてできたときの嬉しさ、従兄弟から借りて聴いたHIPHOPのCD、初めて乗ったスクーターのスピードに驚いたこと、焼酎を飲んで、何が美味しいのか一向に分からなかったこと。こうした断片的な記憶が、一気にヴィヴィッドに蘇る映画体験だった。Mid90sの裏テーマは、卒業だと思う。いろいろなものを卒業しながらも、できないままの自分もいる。そんな自分たちに問いかけてくる映画。
 

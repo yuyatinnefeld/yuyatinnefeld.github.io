@@ -20,17 +20,17 @@ site-css:
   - "/assets/css/custom-styles.css"
 
 # Personalize colors
-navbar-col: "#eeeeee"
-navbar-text-col: "#3f3d3d"
+navbar-col: "#F5F2EC"
+navbar-text-col: "#3A3835"
 navbar-border-col: "transparent"
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-footer-col: "#f4f7f6"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+page-col: "#F5F2EC"
+text-col: "#3A3835"
+link-col: "#7A8570"
+hover-col: "#9A6F5B"
+footer-col: "#F5F2EC"
+footer-text-col: "#8A8680"
+footer-link-col: "#3A3835"
+footer-hover-col: "#9A6F5B"
 
 # Output options (more information on Jekyll's site)
 timezone: "Germany/Berlin"

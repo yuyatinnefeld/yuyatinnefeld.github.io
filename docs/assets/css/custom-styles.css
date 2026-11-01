@@ -94,7 +94,7 @@ h3 { font-size: 1.15rem; margin-top: 2.5rem; }
 
 /* narrow, centered column with generous ma */
 .container-md {
-	max-width: 820px;
+	max-width: 1000px;
 }
 
 main, .blog-post, .posts-list {

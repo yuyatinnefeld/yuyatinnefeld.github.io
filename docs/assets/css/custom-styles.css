@@ -209,3 +209,13 @@ pre, code {
 
 /* slow, quiet motion only */
 * { scroll-behavior: smooth; }
+
+/* burger button: darker so it is easy to see */
+.navbar-custom .navbar-toggler {
+	border: 1px solid rgba(58, 56, 53, .55);
+	border-radius: 2px;
+}
+
+.navbar-custom .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%233A3835' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

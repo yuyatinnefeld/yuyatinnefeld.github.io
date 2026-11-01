@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&display=swap");
+
 #main-navbar {
 	margin-right: 20px;
 }
@@ -16,8 +18,8 @@ footer .theme-by {
 }
 
 .home-img-container {
-	height:250px; 
-	width:250px; 
+	height:150px; 
+	width:150px; 
 	position: relative; 
 	overflow: hidden; 
 	border-radius: 50%;
@@ -58,3 +60,152 @@ footer .theme-by {
 h5 {
 	margin-top: 15px;
 }
+
+/* ---- zen / wabi-sabi ---- */
+:root {
+	--bg: #F5F2EC;
+	--ink: #3A3835;
+	--muted: #8A8680;
+	--accent: #7A8570;
+	--accent-hover: #9A6F5B;
+	--line: rgba(58, 56, 53, .12);
+}
+
+body {
+	background: var(--bg);
+	color: var(--ink);
+	font-family: "Shippori Mincho", "Noto Serif JP", Georgia, serif;
+	font-size: 18px;
+	line-height: 1.95;
+	letter-spacing: .02em;
+}
+
+/* quiet headings: hierarchy by size and space only */
+h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+	font-weight: 400;
+	letter-spacing: .05em;
+	text-transform: none;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; margin-top: 3rem; }
+h3 { font-size: 1.15rem; margin-top: 2.5rem; }
+
+/* narrow, centered column with generous ma */
+.container-md {
+	max-width: 820px;
+}
+
+main, .blog-post, .posts-list {
+	padding-top: 2rem;
+	padding-bottom: 4rem;
+}
+
+/* navbar and footer without color blocks */
+.navbar-custom,
+.navbar-custom.top-nav-regular,
+footer {
+	background: transparent !important;
+	border: 0;
+	box-shadow: none;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+	font-family: inherit;
+	font-weight: 400;
+	font-size: .95rem;
+	letter-spacing: .08em;
+	text-transform: none;
+	color: var(--ink);
+}
+
+.navbar-custom .nav-link:hover {
+	color: var(--accent-hover);
+}
+
+footer {
+	margin-top: 4rem;
+	color: var(--muted);
+	font-size: .85rem;
+}
+
+footer a { color: var(--muted); }
+
+/* links: soft underline, slow fade */
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-decoration-color: var(--line);
+	text-underline-offset: .25em;
+	transition: color .3s, text-decoration-color .3s;
+}
+
+a:hover, a:focus {
+	color: var(--accent-hover);
+	text-decoration-color: currentColor;
+}
+
+/* post list: plain titles, no decoration */
+.post-preview {
+	padding: 1.5rem 0;
+	border-bottom: 1px solid var(--line);
+}
+
+.post-preview:last-child { border-bottom: 0; }
+
+.post-preview .post-title {
+	font-size: 1.2rem;
+	color: var(--ink);
+}
+
+.post-preview .post-subtitle,
+.post-preview .post-entry,
+.post-preview .post-read-more,
+.post-preview .blog-tags {
+	display: none;
+}
+
+.post-meta, .post-preview .post-meta {
+	font-size: .8rem;
+	color: var(--muted);
+	font-style: normal;
+	letter-spacing: .08em;
+}
+
+.blog-tags, .blog-tags a {
+	font-size: .8rem;
+	color: var(--muted);
+}
+
+/* no ornament */
+img, blockquote, pre, code, .btn, .card, .pagination .page-link {
+	box-shadow: none;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--line);
+	margin: 3rem 0;
+}
+
+blockquote {
+	border-left: 1px solid var(--line);
+	color: var(--muted);
+	padding-left: 1.2rem;
+}
+
+pre, code {
+	background: rgba(58, 56, 53, .05);
+	border: 0;
+	border-radius: 0;
+}
+
+/* desaturate images slightly, except profile */
+.blog-post img, article img {
+	filter: saturate(.85);
+}
+
+/* slow, quiet motion only */
+* { scroll-behavior: smooth; }

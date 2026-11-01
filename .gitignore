@@ -7,3 +7,4 @@ vendor
 
 # debug
 .config
+.jekyll.log

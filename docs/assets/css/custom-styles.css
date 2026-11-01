@@ -18,8 +18,8 @@ footer .theme-by {
 }
 
 .home-img-container {
-	height:250px; 
-	width:250px; 
+	height:150px; 
+	width:150px; 
 	position: relative; 
 	overflow: hidden; 
 	border-radius: 50%;
@@ -94,7 +94,7 @@ h3 { font-size: 1.15rem; margin-top: 2.5rem; }
 
 /* narrow, centered column with generous ma */
 .container-md {
-	max-width: 680px;
+	max-width: 820px;
 }
 
 main, .blog-post, .posts-list {

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 2026 新緑
-tags: ["private", "2026"]
+tags: ["2026"]
 mathjax: true
 ---
 

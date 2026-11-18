@@ -2,7 +2,7 @@
 layout: post
 title: ヴィパッサナー瞑想
 
-tags: ["private"]
+tags: ["スピリチュアル"]
 mathjax: true
 ---
 

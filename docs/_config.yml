@@ -6,9 +6,9 @@ title: my notes
 author: Yuya Tinnefeld
 
 navbar-links:
-  About: "/aboutme"
-  Notes: "/blog/main"
-  Tech Blog: "https://yuya-techfeld.github.io"
+  about: "/aboutme"
+  notes: "/blog/main"
+  tech: "https://yuya-techfeld.github.io"
 
 social-network-links:
   email: "yuyatinnefeld@gmail.com"

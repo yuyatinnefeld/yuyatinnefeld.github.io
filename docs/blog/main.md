@@ -1,12 +1,9 @@
 ---
 layout: page
-title: Notes
-subtitle: 最近のメモ
+title: notes
 ---
 
-### Contents
-
-<p>Just my posts, newest first:</p>
+<b>
 
 <ul>
   {% for post in site.posts %}

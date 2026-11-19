@@ -227,6 +227,30 @@ pre, code {
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%233A3835' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+/* open state: burger turns into X */
+.navbar-custom .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%233A3835' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M7 7l16 16M23 7L7 23'/%3E%3C/svg%3E");
+}
+
+/* open menu: just navi text, no extra space or decoration */
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-collapse.show,
+.navbar-custom .navbar-collapse.collapsing {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.navbar-custom .navbar-nav {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.navbar-custom .navbar-nav .nav-item,
+.navbar-custom .navbar-nav .nav-link {
+	border: 0 !important;
+	background: transparent !important;
+}
+
 /* nav items: regular weight, text as written */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav .nav-link {
@@ -239,12 +263,18 @@ pre, code {
 
 /* hamburger menu opens on the right side */
 @media (max-width: 767px) {
+	/* navbar is fixed: give it the page colour so the open menu covers the text beneath */
+	.navbar-custom,
+	.navbar-custom.top-nav-regular {
+		background: rgba(245, 242, 236, .5) !important;
+	}
+
 	.navbar-custom .navbar-nav {
 		text-align: right;
 	}
 
 	.navbar-custom .navbar-nav .nav-link {
-		padding: .675rem 1rem .675rem 0;
+		padding: .4rem 1rem .4rem 0;
 	}
 }
 

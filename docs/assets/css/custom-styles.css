@@ -111,6 +111,12 @@ footer {
 	box-shadow: none;
 }
 
+/* navbar is fixed: semi-opaque page colour so text beneath doesn't collide (all screen sizes) */
+.navbar-custom,
+.navbar-custom.top-nav-regular {
+	background: rgba(245, 242, 236, .5) !important;
+}
+
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
 	font-family: inherit;
@@ -263,12 +269,6 @@ pre, code {
 
 /* hamburger menu opens on the right side */
 @media (max-width: 767px) {
-	/* navbar is fixed: give it the page colour so the open menu covers the text beneath */
-	.navbar-custom,
-	.navbar-custom.top-nav-regular {
-		background: rgba(245, 242, 236, .5) !important;
-	}
-
 	.navbar-custom .navbar-nav {
 		text-align: right;
 	}
